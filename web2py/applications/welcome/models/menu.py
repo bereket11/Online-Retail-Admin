@@ -74,13 +74,7 @@ def _():
             (T('DAILY'), False,
              'http://www.web2py.com/book/default/chapter/04'),
         ]),
-        (T('Community'), False, None, [
-            (T('Groups'), False,
-             'http://www.web2py.com/examples/default/usergroups'),
-            (T('Twitter'), False, 'http://twitter.com/web2py'),
-            (T('Live Chat'), False,
-             'http://webchat.freenode.net/?channels=web2py'),
-        ]),
+        
     ]
 
 
