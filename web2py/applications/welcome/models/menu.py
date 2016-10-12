@@ -27,7 +27,7 @@ response.google_analytics_id = None
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Home'), False, URL('default', 'index'), [])
+    (T('Home'), False, URL('default', 'user'), [])
 ]
 
 DEVELOPMENT_MENU = True
@@ -48,39 +48,13 @@ def _():
     # ------------------------------------------------------------------------------------------------------------------
     response.menu += [
 
-        (T('SUPPLIERS'), False, '#', [
-            (T('A'), False,
-             URL(
-                 'admin', 'default', 'edit/%s/controllers/%s.py' % (app, ctr))),
-            (T('B'), False,
-             URL(
-                 'admin', 'default', 'edit/%s/views/%s' % (app, response.view))),
-            (T('C'), False,
-             URL(
-                 'admin', 'default', 'edit/%s/models/db.py' % app))
-
-        ]),
+        (T('SUPPLIERS'), False, '#'),
         ('Products', False, '#'),
 
-        (T('SALES REPORT'), False, '#', [
-            (T('ANNUALLY'), False,
-             'http://www.web2py.com/book/default/chapter/00'),
-            (T('QUARTERLY'), False,
-             'http://www.web2py.com/book/default/chapter/01'),
-            (T('MONTHLY'), False,
-             'http://www.web2py.com/book/default/chapter/02'),
-            (T('WEEKLY'), False,
-             'http://www.web2py.com/book/default/chapter/03'),
-            (T('DAILY'), False,
-             'http://www.web2py.com/book/default/chapter/04'),
-        ]),
-        (T('Community'), False, None, [
-            (T('Groups'), False,
-             'http://www.web2py.com/examples/default/usergroups'),
-            (T('Twitter'), False, 'http://twitter.com/web2py'),
-            (T('Live Chat'), False,
-             'http://webchat.freenode.net/?channels=web2py'),
-        ]),
+        (T('SALES REPORT'), False, '#'),
+        (T('Search'), False, 'user')
+
+
     ]
 
 
