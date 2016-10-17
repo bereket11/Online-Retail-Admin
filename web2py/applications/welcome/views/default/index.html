@@ -1,7 +1,12 @@
 
 
-<form action="{{=URL(r=request)}}" method="post" class="span4 well">
-		<label for="password">{{=T('Online-Retail-Admin Password:')}}</label>
+<form action="{{=URL(r=request)}}" method="post">
+    <div class="post_list" style="margin-left: 500px; margin-top: 250px;">
+		<label for="password">{{=T('Online-Retail-Administration')}}</label>  <br><br>
+
+        {{=T('User Email:')}}
+        <input type="password" name="email" id="password"/><br>
+        {{=T('Passsword:')}}
 		<input type="password" name="password" id="password"/>
 
 		<div class="controls"><button type="submit" name="login" class="btn"><a class="btn-block"
@@ -9,6 +14,5 @@
       <i class="glyphicon glyphicon-cog"></i>
       {{=T('Login')}}
     </a></button></div>
+        </div>
 </form>
-
-

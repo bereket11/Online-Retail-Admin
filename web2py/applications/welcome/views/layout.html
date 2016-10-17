@@ -47,6 +47,7 @@
 
   </head>
   <body>
+
     <!--[if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
     <div class="w2p_flash alert alert-dismissable">{{=response.flash or ''}}</div>
     <!-- Navbar ======================================= -->
@@ -59,17 +60,33 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+
           </button>
+
           {{=response.logo or ''}}
+
         </div>
+
         <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+          <ul class="nav navbar-nav navbar-right">
+
+
+            <div class="controls"><button type="submit" name="login" class="btn" style="margin-top: 15px;">{{=T('Logout')}}</button></div>
+
+          </ul>
 
           {{if response.menu:}}
           {{=MENU(response.menu, _class='nav navbar-nav',li_class='dropdown',ul_class='dropdown-menu')}}
+
           {{pass}}
+        <input type="password" name="password" id="password" style="margin-top: 15px;"/>
+
         </div>
+
       </div>
     </nav>
+
     <!-- Masthead ===================================== -->    
     {{block header}}
     {{end}}
@@ -106,8 +123,11 @@
     <!-- The javascript =============================== -->
     <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
     <script src="{{=URL('static','js/web2py-bootstrap3.js')}}"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     {{block page_js}}{{end page_js}}
     {{if response.google_analytics_id:}}
+
+
     <!-- Analytics ==================================== -->
     <script src="{{=URL('static','js/analytics.min.js')}}"></script>
     <script type="text/javascript">

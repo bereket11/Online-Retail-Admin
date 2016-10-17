@@ -27,8 +27,7 @@ response.google_analytics_id = None
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Home'), False, URL('default', 'user'), [])
-]
+    (T('Home'), False, URL('default', 'user'), [])]
 
 DEVELOPMENT_MENU = True
 
@@ -49,13 +48,10 @@ def _():
     response.menu += [
 
         (T('SUPPLIERS'), False, '#'),
-        ('Products', False, '#'),
+        (T('PRODUCTS'), False, '#'),
 
         (T('SALES REPORT'), False, '#'),
-        (T('Search'), False, 'user')
-
-
-    ]
+        (T('Search'), False, 'user')]
 
 
 if DEVELOPMENT_MENU:
