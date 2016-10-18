@@ -18,8 +18,16 @@ def index():
     return auth.wiki()
     """
     response.flash = T("Welcome to the Admin Panel!")
-    return dict(message=T('Admin Panel'))
+    return dict(location=T('Admin Panel - Index'))
 
+def page1():
+    return dict(location=T('Admin Panel - Page 1'))
+
+def page2():
+    return dict(location=T('Admin Panel - Page 2'))
+
+def page3():
+    return dict(location=T('Admin Panel - Page 3'))
 
 def user():
     """

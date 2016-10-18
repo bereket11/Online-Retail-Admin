@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ad30c208-5e0f-4b8b-8412-3eb834ffa6da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/databases/storage.sqlite" afterPath="$PROJECT_DIR$/web2py/applications/welcome/databases/storage.sqlite" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.pdf" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/Admin_Panel/controllers/default.py" afterPath="$PROJECT_DIR$/web2py/applications/Admin_Panel/controllers/default.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/Admin_Panel/static/css/web2py-bootstrap3.css" afterPath="$PROJECT_DIR$/web2py/applications/Admin_Panel/static/css/web2py-bootstrap3.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/index.html" afterPath="$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/Admin_Panel/views/layout.html" afterPath="$PROJECT_DIR$/web2py/applications/Admin_Panel/views/layout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/ABOUT" afterPath="$PROJECT_DIR$/web2py/applications/welcome/ABOUT" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/LICENSE" afterPath="$PROJECT_DIR$/web2py/applications/welcome/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/__init__.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/controllers/appadmin.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/controllers/appadmin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/controllers/default.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/controllers/default.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/databases/c8b669d15150d7109e5f7ab36744a5b7_auth_cas.table" afterPath="$PROJECT_DIR$/web2py/applications/welcome/databases/c8b669d15150d7109e5f7ab36744a5b7_auth_cas.table" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/databases/c8b669d15150d7109e5f7ab36744a5b7_auth_event.table" afterPath="$PROJECT_DIR$/web2py/applications/welcome/databases/c8b669d15150d7109e5f7ab36744a5b7_auth_event.table" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/databases/c8b669d15150d7109e5f7ab36744a5b7_auth_group.table" afterPath="$PROJECT_DIR$/web2py/applications/welcome/databases/c8b669d15150d7109e5f7ab36744a5b7_auth_group.table" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/databases/c8b669d15150d7109e5f7ab36744a5b7_auth_membership.table" afterPath="$PROJECT_DIR$/web2py/applications/welcome/databases/c8b669d15150d7109e5f7ab36744a5b7_auth_membership.table" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/databases/c8b669d15150d7109e5f7ab36744a5b7_auth_permission.table" afterPath="$PROJECT_DIR$/web2py/applications/welcome/databases/c8b669d15150d7109e5f7ab36744a5b7_auth_permission.table" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/databases/c8b669d15150d7109e5f7ab36744a5b7_auth_user.table" afterPath="$PROJECT_DIR$/web2py/applications/welcome/databases/c8b669d15150d7109e5f7ab36744a5b7_auth_user.table" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/databases/sql.log" afterPath="$PROJECT_DIR$/web2py/applications/welcome/databases/sql.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/ar.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/ar.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/ca.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/ca.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/cs.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/cs.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/de.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/de.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/default.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/default.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/es.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/es.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/fr-ca.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/fr-ca.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/fr.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/fr.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/hi.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/hi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/hu.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/hu.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/id.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/id.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/it.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/it.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/my-mm.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/my-mm.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/my.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/my.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/nl.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/nl.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/pl.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/pl.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/plural-en.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/plural-en.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/plural-es.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/plural-es.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/plural-ru.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/plural-ru.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/plural-uk.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/plural-uk.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/pt-br.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/pt-br.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/pt.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/pt.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/ro.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/ro.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/ru.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/ru.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/sk.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/sk.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/tr.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/tr.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/uk.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/uk.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/zh-cn.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/zh-cn.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/zh-tw.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/zh-tw.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/languages/zh.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/languages/zh.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/models/db.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/models/db.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/models/menu.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/models/menu.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/modules/__init__.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/modules/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/private/appconfig.ini" afterPath="$PROJECT_DIR$/web2py/applications/welcome/private/appconfig.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/routes.example.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/routes.example.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/403.html" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/403.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/404.html" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/404.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/500.html" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/500.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/css/bootstrap.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/css/calendar.css" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/css/calendar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/css/web2py-bootstrap3.css" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/css/web2py-bootstrap3.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/css/web2py.css" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/css/web2py.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/fonts/glyphicons-halflings-regular.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/js/analytics.min.js" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/js/analytics.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/js/bootstrap.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/js/calendar.js" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/js/calendar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/js/jquery.js" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/js/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/js/modernizr-2.8.3.min.js" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/js/modernizr-2.8.3.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/js/respond-1.4.2.min.js" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/js/respond-1.4.2.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/js/share.js" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/js/share.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/js/web2py-bootstrap3.js" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/js/web2py-bootstrap3.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/static/js/web2py.js" afterPath="$PROJECT_DIR$/web2py/applications/welcome/static/js/web2py.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/__init__.py" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/appadmin.html" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/appadmin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/default/index.html" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/default/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/default/user.html" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/default/user.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.html" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.ics" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.ics" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.json" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.jsonp" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.jsonp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.load" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.load" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.map" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.rss" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.rss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.xml" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/generic.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/layout.html" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/layout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/applications/welcome/views/web2py_ajax.html" afterPath="$PROJECT_DIR$/web2py/applications/welcome/views/web2py_ajax.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/httpserver.log" afterPath="$PROJECT_DIR$/web2py/httpserver.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/httpserver.pid" afterPath="$PROJECT_DIR$/web2py/httpserver.pid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web2py/parameters_8000.py" afterPath="$PROJECT_DIR$/web2py/parameters_8000.py" />
+    </list>
+    <ignored path="Online-Retail-Admin.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Online-Retail-Admin" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.4025869">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="default.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/controllers/default.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="493">
+                  <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="web2py.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/static/css/web2py.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="5202">
+                  <caret line="306" column="12" selection-start-line="306" selection-start-column="9" selection-end-line="306" selection-end-column="12" />
+                  <folding>
+                    <marker date="1462864882000" expanded="true" signature="3508:3545" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="web2py-bootstrap3.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/static/css/web2py-bootstrap3.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="275">
+                  <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="page1.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/page1.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="17">
+                  <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="page2.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/page2.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="17">
+                  <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="page3.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/page3.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="17">
+                  <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="136">
+                  <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
+                  <folding>
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/views/layout.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-689">
+                  <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/web2py/applications/Admin_Panel/static/css/web2py-bootstrap3.css" />
+        <option value="$PROJECT_DIR$/web2py/applications/Admin_Panel/views/layout.html" />
+        <option value="$PROJECT_DIR$/web2py/applications/Admin_Panel/controllers/default.py" />
+        <option value="$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/index.html" />
+        <option value="$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/page1.html" />
+        <option value="$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/page2.html" />
+        <option value="$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/page3.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="116" />
+    <option name="y" value="15" />
+    <option name="width" value="1733" />
+    <option name="height" value="917" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.jetbrains.web2py.projectView.Web2PyBaseDirNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.jetbrains.web2py.projectView.Web2PyBaseDirNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="applications" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.jetbrains.web2py.projectView.Web2PyBaseDirNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="applications" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin_Panel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.jetbrains.web2py.projectView.Web2PyBaseDirNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="applications" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin_Panel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.jetbrains.web2py.projectView.Web2PyBaseDirNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="applications" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin_Panel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Online-Retail-Admin" />
+              <option name="myItemType" value="com.jetbrains.web2py.projectView.Web2PyBaseDirNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="applications" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin_Panel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+  </component>
+  <component name="RunManager" selected="Python.Online-Retail-Admin">
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Online-Retail-Admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Online-Retail-Admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Online-Retail-Admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Online-Retail-Admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <module name="Online-Retail-Admin" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Online-Retail-Admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Online-Retail-Admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Online-Retail-Admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Online-Retail-Admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Online-Retail-Admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Online-Retail-Admin" type="PythonConfigurationType" factoryName="Python" singleton="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/web2py" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Online-Retail-Admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/web2py/web2py.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Python.Online-Retail-Admin" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ad30c208-5e0f-4b8b-8412-3eb834ffa6da" name="Default" comment="" />
+      <created>1476746076043</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1476746076043</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="116" y="15" width="1733" height="917" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27955738" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/web2py/applications/welcome/controllers/appadmin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web2py/applications/welcome/views/default/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web2py/applications/welcome/controllers/default.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/static/css/web2py.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5202">
+          <caret line="306" column="12" selection-start-line="306" selection-start-column="9" selection-end-line="306" selection-end-column="12" />
+          <folding>
+            <marker date="1462864882000" expanded="true" signature="3508:3545" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/static/css/web2py-bootstrap3.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/controllers/default.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/views/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-689">
+          <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/page1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/page2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web2py/applications/Admin_Panel/views/default/page3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
