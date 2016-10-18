@@ -7,7 +7,11 @@
 # - user is required for authentication and authorization
 # - download is for downloading files uploaded in the db (does streaming)
 # -------------------------------------------------------------------------
+from urlparse import urlparse
 
+def parse_url(url):
+    o = urlparse(url)
+    return str(o[2][1:]).split('/')
 
 def index():
     """
@@ -17,17 +21,19 @@ def index():
     if you need a simple wiki simply replace the two lines below with:
     return auth.wiki()
     """
+    url = parse_url(request.url)
+    print url
     response.flash = T("Welcome to the Admin Panel!")
     return dict(location=T('Admin Panel - Index'))
 
-def page1():
-    return dict(location=T('Admin Panel - Page 1'))
+def stats():
+    return dict(location=T('Admin Panel - Stats'))
 
-def page2():
-    return dict(location=T('Admin Panel - Page 2'))
+def supplier_select():
+    return dict(location=T('Admin Panel - Supplier Select'))
 
-def page3():
-    return dict(location=T('Admin Panel - Page 3'))
+def inventory_management():
+    return dict(location=T('Admin Panel - Inventory Management'))
 
 def user():
     """
