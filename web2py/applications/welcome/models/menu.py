@@ -74,7 +74,7 @@ def _():
             (T('DAILY'), False,
              'http://www.web2py.com/book/default/chapter/04'),
         ]),
-        
+
     ]
 
 
