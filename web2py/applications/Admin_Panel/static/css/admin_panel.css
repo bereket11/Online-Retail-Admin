@@ -1,0 +1,42 @@
+#side-bar{
+    position:fixed;
+    height:100%;
+    top:0px;
+    left:0px;
+    background: #404c64;
+}
+
+#linker{
+    color:blue;
+}
+
+a{
+    color: #ffffff;
+}
+
+a:hover{
+    color: #cbcbd2;
+    text-decoration: none;
+}
+
+#header-banner{
+    width:100%;
+    height:74px;
+    color:white;
+    background: #404c64;
+    font-size:24px;
+    text-align:center;
+}
+
+#test_block{
+    width:100%;
+    height:100px;
+    background:#314D67;
+    font-size:24px;
+    text-align:center;
+    color:white;
+}
+
+.text-shadow{
+    text-shadow: -1px 0px 6px #000000;
+}

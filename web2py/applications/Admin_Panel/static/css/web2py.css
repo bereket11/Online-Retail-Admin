@@ -1,6 +1,6 @@
 /** these MUST stay **/
-a {text-decoration:none; white-space:nowrap}
-a:hover {text-decoration:underline}
+a {text-decoration:none; white-space:nowrap; color:#ffed00}
+a:hover {text-decoration:underline; color:#eebd00;}
 a.button {text-decoration:none}
 h1,h2,h3,h4,h5,h6 {margin:0.5em 0 0.25em 0; display:block;
   font-family:Helvetica}
@@ -37,6 +37,10 @@ audio {width:200px}
 .right {float:right; text-align:right}
 .left {float:left; text-align:left}
 .center {width:100%; text-align:center; vertical-align:middle}
+.inline-block {display:inline-block}
+.pad5{padding:5px;}
+.display-none{display:none;}
+.display-block{display:block;}
 /** end **/
 
 /* Sticky footer begin */
@@ -153,7 +157,7 @@ div.error {
     color:#e1e1e1;
 }
 
-#navbar {float:right; padding:5px; /* same as superfish */}
+#navbar {float:left; padding:5px; /* same as superfish */}
 
 .statusbar {
     background-color:#F5F5F5;
