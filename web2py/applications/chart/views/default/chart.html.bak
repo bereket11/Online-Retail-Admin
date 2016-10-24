@@ -1,0 +1,52 @@
+{{extend 'layout.html'}}
+<script src="/YOUR_APP/static/js/highcharts.js" type="text/javascript"></script>
+<script src="/YOUR_APP/static/js/exporting.js" type="text/javascript"></script>
+<div id="chart"></div>
+</script>
+{{=chart}}
+
+<script type="text/javascript">
+    Highcharts.setOptions({
+        lang:{
+        downloadJPEG: "Download em imagem JPG",
+        downloadPDF: "Download em documento PDF",
+        downloadPNG: "Download em imagem PNG",
+        downloadSVG: "Download em vetor SVG",
+        loading: "Lendo...",
+        noData: "Sem dados para mostrar",
+        printChart: "Imprimir Gráfico",
+        }
+        });
+
+            // Build the chart
+            $('#chart').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Meu Gráfico'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        credits:{enabled:false},
+        series: [{
+            name: 'Vendar por porcentagem',
+            colorByPoint: true,
+                data: %(dados)s
+                }]
+            });
+    </script>

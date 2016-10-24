@@ -20,8 +20,9 @@ def index():
     response.flash = T("Welcome to the Admin Panel!")
     return dict(location=T('Admin Panel - Index'))
 
-def page1():
-    return dict(location=T('Admin Panel - Page 1'))
+def report_page():
+    response.title = "Report Page"
+    return dict(location=T('Admin Panel - Index'))
 
 def page2():
     return dict(location=T('Admin Panel - Page 2'))

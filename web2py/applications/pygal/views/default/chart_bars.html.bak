@@ -1,0 +1,5 @@
+{{extend 'layout.html'}}
+<script src="{{=URL("static", "js", args="highcharts.js")}}" type="text/javascript"></script> {{#using URL helper}}
+<script src="{{=URL("static", "js", args="exporting.js")}}" type="text/javascript"></script> {{#using default declaration}}
+<div id="chart"></div>
+{{=chart}}
