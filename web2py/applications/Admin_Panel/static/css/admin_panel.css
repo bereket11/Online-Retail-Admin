@@ -4,6 +4,7 @@
     top:0px;
     left:0px;
     background: #404c64;
+    text-align: center;
 }
 
 #linker{
@@ -15,10 +16,15 @@ a{
 }
 
 a:hover{
-    color: #cbcbd2;
     text-decoration: none;
+    background-color: #2C384E;
+    color: white;
 }
 
+a.active {
+    background-color: #2C384E;
+    color: white;
+}
 #header-banner{
     width:100%;
     height:74px;
