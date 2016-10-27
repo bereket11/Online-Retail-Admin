@@ -7,7 +7,11 @@
 # - user is required for authentication and authorization
 # - download is for downloading files uploaded in the db (does streaming)
 # -------------------------------------------------------------------------
+from urlparse import urlparse
 
+def parse_url(url):
+    o = urlparse(url)
+    return str(o[2][1:]).split('/')
 
 def index():
     """
@@ -17,8 +21,11 @@ def index():
     if you need a simple wiki simply replace the two lines below with:
     return auth.wiki()
     """
+    url = parse_url(request.url)
+    print url
     response.flash = T("Welcome to the Admin Panel!")
     return dict(location=T('Admin Panel - Index'))
+
 
 def chart_bars():
     meses_chart="['Candy', 'Bread', 'Milk', 'Coffee']" #Change this dynamically
@@ -91,11 +98,15 @@ def chart_bars():
        """ %dados_map
     return dict(chart=XML('<script>'+chart+'</script>'))
 
-def page2():
-    return dict(location=T('Admin Panel - Page 2'))
+def stats():
+    return dict(location=T('Admin Panel - Stats'))
 
-def page3():
-    return dict(location=T('Admin Panel - Page 3'))
+
+def supplier_select():
+    return dict(location=T('Admin Panel - Supplier Select'))
+
+def inventory_management():
+    return dict(location=T('Admin Panel - Inventory Management'))
 
 def user():
     """
