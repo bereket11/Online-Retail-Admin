@@ -1,0 +1,100 @@
+product_info_id,title,price,color,color_code,color_group,size_name,size_order,length,width,height,unit,weight
+11,Brother MFC-J6925DW All-in-One Color Inkjet Printer,415.55,color,AC6B96,color,,,17,21.8,12.2,lb.,36.4
+12,Asus ROG Swift PG348Q 34 Curved UltraWide QHD IPS Backlit Monitor,259.61,,EEC8BA,,,,11.69,,21.97,lb.,24.69
+13,Brother HL-3140CW Digital Color Printer,812.25,color,BF3EB9,color,,,18.3,16.1,9.4,lb.,37.5
+14,Samsung 75 Class (74.5 Diag) 4K SUHD LED LCD TV UN75KS900DFXZA,375.63,,AC5722,,,,,,,lb.,101.4
+15,Vizio 80 Class (80.0 Diag.) 4K Ultra HD Smart Home Theater Display M80-D3,234.51,,DFC205,,,,,,,lb.,92.37
+16,Samsung  78 Class (78.0 Diag) Curved 4K UHD LED LCD,309.85,,34BDB4,,,,,,,lb.,41.7
+17,Vizio 75 Class (74.5Diag.) 4K Ultra HD Smart Home Theater Display P75-C1,745.45,,1CFDEB,,,,,,,lb.,103.62
+18,Canon EOS 80D DSLR Camera 2 Lens Bundle,1697.85,,270D7D,,,,,5.47,4.14,lb.,25.75
+19,Panasonic LUMIX ZS50 Travel Camera Bundle,485.73,,090F19,,,,,4.36,2.54,lb.,0.54
+20,Nikon COOLPIX P900 Digital Camera Bundle,1538.15,black,BFD1D4,black,,,,4.1,5.5,lb.,1.93
+21,Canon PowerShot SX530 Digital Camera Bundle,1982.81,,D78EBE,,,,,4.72,3.22,lb.,15.6
+22,Vizio SB4551-D5 45 5.1 Channel SmartCast Soundbar System,1844.66,black,EC9A6C,black,,,,,,,
+23,ION Audio Job Rocker Plus Bluetooth Speaker,1285.58,orange,623818,orange,,,10,12.25,15.5,lb.,18.5
+26,Bose SoundLink Mini Bluetooth Speaker,120.85,,AD3AD8,,,,2.3,7.1,2,lb.,1.5
+27,ION Audio Tailgater Flash Bluetooth Speaker,1169.11,,6B27E0,,,,,,,,
+28,Sony BDP-BX650 4K Upscaling Streaming Blu-ray Player,971.78,,2C310B,,,,7.63,10.13,1.56,lb.,2.2
+29,Giannini G-100 Classic Electric Guitar Bundle,88.7,,370F64,,,,2.36,12.79,,lb.,7.4
+30,"TP-LINK PB50 10,000mAh Portable Power Bank for Cell Phones and Tablets",408.81,black,13A9EC,black,,,,,,,
+31,Manfrotto PIXI Mini Tripod with Universal Smartphone Clamp,1889.19,,CDC416,,,,,,,lb.,0.49
+32,PlayStation 4 Console,783.57,,DFD4C7,,,,,,,,
+33,Whirlpool 1.9CuFt Capacity Steam Microwave with Sensor Cooking in Stainless Steel - WMH32519FS,1679.51,stainless,3E00D8,stainless,,,17.5,30,17.4,lb.,63
+34,Danby 0.7CuFt Microwave with 700 Watts of Cooking Power,422.59,black,107713,black,,,14,17.31,10.13,lb.,24.3
+35,"Austin Worklife Writing Desk, Credenza & Hutch",1443.36,brown,E8DC71,brown,,,,,,,
+36,Austin Worklife Reversible L-Desk with Hutch,914.66,brown,D28D33,brown,,,,,,,
+37,"Bestars Uptown Digital Height Adjustable L-Shape Desk with Hutch, Lateral File and 36 Commercial Bookcase, White",503.32,white,5598C2,white,,,,,,,
+38,Alera YR Series High-Back SwivelTilt Black Bonded Leather Chair,235.6,black,B52F9E,black,,,27,,,,
+39,La-Z-Boy Salerno AIR Health & Wellness Executive Office Chair,1975.88,,B08AD0,,,,,,,,
+40,La-Z-Boy Big & Tall Executive Leather Office Chair,1080.11,black,3D3D2A,black,,,30.5,,45,,
+41,HON Ignition Series Bonded Black Leather Executive High-Back Chair,478.79,black,51161B,black,,,27,,47.5,,
+42,SPACE Executive High Back Chair with Leather Seat and Mesh Back,1256.57,black,93745A,black,,,19,,44,,
+43,HON Boda Series MeshPadded Mesh High-Back Work Chair,1577.98,black,A81840,black,,,35.5,,44,,
+44,Boss Contemporary Executive Chair,1327.57,black,CE30D7,black,,,28,,41,,
+45,Traveler's Choice 30 Spinner Trunk,1764.51,gray,81D250,gray,,,13.5,16.25,,lb.,11.7
+46,Victorinox Swiss Army Maverick Sport Chronograph Men's Watch,1126.42,,C20814,,,,,,,,
+47,Technomarine Cruise Black and White Silicon Men's Watch,1548.21,,5B81D0,,,,,,,,
+48,Invicta Subaqua Two Tone Stainless Steel Men's Watch,955.22,,DFADF7,,,,,,,,
+49,Invicta Aviator Blue Dial Men's Watch,545.36,,A9AE9F,,,,,,,,
+50,Kirkland Signature Organic 8.25 oz. Chocolate Milk 24 Count,1538.94,,DBFF1C,,,,,,,,
+51,Soda Stream 1 Liter Stainless Steel Source Carbonating Bottle - 2-pk,1347.48,clear,9D238F,clear,,,,,,,
+52,"Kirkland Signature Organic Unsweetened Vanilla Almond Beverage 32 oz, 6-Pack",113.61,,6DA6BA,,,,,,,,
+53,Fellowes Manual Comb Binding Machine White,95.09,white,B46F86,white,,,9.81,17.69,3.13,,
+54,"Wilson Jones Basic Vinyl View Binder, D-Ring, 5 inch, White, Each",1837.14,white,B8C703,white,,,,,,,
+55,Swingline GBC Binding System Cover Letter Clear 100ct,1043.92,clear,9092ED,clear,,,,8.5,,,
+56,Avery Durable View Binder with Slant Rings,1578.26,,466B00,,,,,,,,
+57,Avery Durable View Binder with Locking EZD Rings,692.19,,E94342,,,,,,,,
+58,"Wilson Jones Heavy-Duty Round Ring View Binder, 1-12 inch, White, 4ct",1261.33,white,528A63,white,,,,,,,
+59,"Safco Onyx Steel Mesh 6-Compartment Literature Sorter, Black SAF 9431BL",255.08,black,E2A266,black,,,12.75,10.25,15.25,,
+60,Seville Classics Chrome LetterLegal File Cart and Organizer,800.71,silver,4B2D6E,silver,,,,25,28.25,,
+61,Safco Solid Wood Wall-Mount Display Rack 48H Mahogany,1927.9,brown,0EC0BD,brown,,,,,48,,
+62,Safco Solid Wood Wall-Mount Display Rack 48H Mahogany,365.1,brown,ADB91F,brown,,,,,48,,
+63,Safco Solid Wood Wall-Mount Display Rack 23-34H Mahogany,1413.47,brown,540552,brown,,,3.75,11.25,23.75,,
+64,Midnight Black Collection Printer Stand By Victor,645.43,black,51FDD7,black,,,21.75,15.25,7.75,lb.,18.9
+65,"Office Impressions Push Pins, 38 Point, Clear, 100ct",392.58,clear,AE2BF9,clear,,,,,,,
+66,"Acco Economy Paper Clips, No.1 Size, 1,000ct",1702.02,silver,8F1715,silver,,,,,,,
+67,"Alliance Sterling Ergonomically Correct Rubber Bands, #33, 850 Bands1lb Box",1476.01,,954324,,,,,0.13,,lb.,1
+68,Office Impressions Large Binder Clips 36ct,171.73,,62B548,,,,,,,,
+69,"Acco Nonskid Economy Paper Clips, Jumbo Size, 1,000ct",365.63,silver,D99B1C,silver,,,,,,,
+70,American Heritage Deluxe Dartboard,1044.42,,E0264D,,,,,,,,
+71,Killerspin MyT5 Table Tennis Table Bundle,1910.23,blue,5C3C8D,blue,,,,24,64,lb.,231
+72,American Heritage Alliance Billiard Collection,933.56,brown,C1CFF4,brown,,,,44,,,
+73,Brunswick Oakland Billiard Collection,745.61,,E33726,,,,,,,,
+74,Brunswick Ashford Billiard Collection,308.77,,EAC9E0,,,,,,,,
+75,American Heritage Richland Billiard Classic Collection,659.95,khaki,E1815D,khaki,,,,56,32,,
+76,Brunswick Concord 12' Shuffleboard Table,905.17,,A68B90,,,,,25.5,32,,
+77,Tangier 7-piece Dining Set,933.94,brown,F4F5E2,brown,,,32,25.75,28.5,lb.,295
+78,Villa 7-piece Cushioned Patio Dining Set,1712.73,brown,472DB6,brown,,,34,25.75,28.5,lb.,299
+79,Madison 7-piece Sling Dining Collection,1305.71,brown,56D0DA,brown,,,30,27.75,28.5,lb.,191
+80,Studio 7-piece Dining Set with 6 Motion Chairs,543.44,brown,A3ECDA,brown,,,25,26,29,lb.,234
+81,Clayton 7-piece Dining Set,1249.85,orange,589D05,orange,,,30.12,24.8,28.15,lb.,378.95
+82,Rustic 9-piece Dining Set,738.87,brown,05C282,brown,,,24.41,26.97,28.58,lb.,273.63
+83,Samsung 55 Class (54.6 Diag) 4K SUHD LED LCD TV UN55KS800DFXZA,1080.6,,5A20F9,,,,,,,lb.,39.2
+84,Vizio 55 Class (54.6Diag.) 4K Ultra HD Smart Home Theater Display P55-C1,1854.23,,F0475D,,,,,,,lb.,41.01
+85,Vizio 70 Class (69.5 Diag.) 4K Ultra HD Smart Home Theater Display E70u-D3,1496.61,,F3DF34,,,,,,,lb.,57.98
+86,Samsung 55 Class (54.6 Diag.) 4K Ultra HD LED LCD TV UN55KU700DFXZA,1169.4,,BC3C81,,,,,,,lb.,42.1
+87,Bighorn Ultimate Access Gun Safe Model UAB7144EX,1660.58,,3946C7,,,,21,40,67,lb.,990
+88,"Sports Afield Professional Series 24.8 CuFt Safe, 60 min Fire Protection",166.61,,9AF583,,,,20.5,37,56.5,lb.,805
+89,BIGHORN Safe - 24 CuFt - 70 min Fire Protection - 59H x 30W x 24D - Electronic Lock,1339.95,,288A27,,,,17,27,56,lb.,700
+90,"Sports Afield SA5940 Executive Safe, 27.3 CuFt, 30 min Fire Protection, 59 x 40 x 20",791.1,,A41D63,,,,13.5,37,56,lb.,480
+91,"Cannon Safe, 16.3 CuFt, 30 Minute Fire Protection, 60H x 26W x 18D, Electronic Lock",524.52,,58526B,,,,18,26,60,lb.,338
+92,Cannon Landmark Safe CS3220 - 6.7 CuFt - 60 min Fire Protection - 32H x 20W x 18D - Electronic Lock,1466.46,,8BB55E,,,,12.75,18.13,28.75,lb.,174
+93,SentrySafe 2.0 Cubic Ft. Fire-Safe with Combo Lock,542.56,,5A83DC,,,,11.9,14.8,19.6,lb.,124.8
+94,SentrySafe 2.0 CuFt Fire-Safe with Touch Keypad and Audible Alarm,1217.77,,C21DA3,,,,11.9,14.8,19.6,lb.,124.8
+95,SentrySafe Front Loading Depository Safe,1461.9,,E6FB46,,,,11.3,13.7,10.5,lb.,95
+96,iRobot Roomba 805 Vacuum Cleaning Robot,632.4,black,E6677A,black,,,,13.9,3.6,lb.,8.4
+97,iCLEBO Arte Robotic Vacuum,575.97,black,3BA1FC,black,,,,14,3.5,lb.,6.2
+98,Rug Doctor Deep Carpet Cleaner,1220.48,multi-colored,D0F5B6,multi-colored,,,,12.5,43.5,lb.,25
+99,Rug Doctor Portable Spot Cleaner Combo Pack,1520.01,red,405222,red,,,,16.03,15.61,lb.,15
+100,Hoover Power Scrub Deluxe Multi-Floor Carpet Washer,1680.67,red,49824A,red,,,,,,lb.,18.1
+101,BISSELL  ProHeat 2X Revolution Deep Cleaner,1317.7,,5F4C03,,,,,,,,
+102,Dupray HOME Steam Cleaner,1906.29,white,11716E,white,,,,,,,
+103,The Bank Vault Canister Vacuum,167.51,black,B22A2D,black,,,,,,lb.,15
+104,Dyson V8 Animal Cordless Stick Vacuum,760.7,,8ECA86,,,,,49,9.9,lb.,10.91
+105,Soniclean VT Plus Upright Vacuum with Handheld Canister Vacuum,436.02,multi-colored,88C6D5,multi-colored,,,,11.5,43.5,lb.,10.5
+106,Soniclean Galaxy 1150P Canister Vacuum,606.59,,523265,,,,,12,9,lb.,12
+107,Shop-Vac 24 Gallon 6.5 HP Heavy-duty Wet  Dry Vacuum,296.97,,FB7F27,,,,,18.25,35,lb.,40
+108,GoECOlife Limited Edition 10 Sheet Microcut Shredder,1306.08,,EB18C4,,,,,8.5,16.9,lb.,13.2
+109,Fellowes Powershred 60Cs 10-Sheet Cross-Cut Shredder,1144.56,,822359,,,,14.6,9.2,16.06,lb.,18.96
+110,Boxis Autoshred 100 Sheet Autofeed Microcut Shredder,711.99,,643B4F,,,,,,,,
+111,Fellowes AutoMax 300C 300-Sheet Cross-cut Auto Feed Shredder,1924.23,,DC9D7B,,,,26.5,16.94,35.38,,
