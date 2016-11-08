@@ -1,9 +1,16 @@
+body{
+    margin-top:66px;
+    margin-left:39px;
+    margin-bottom:80px;
+    overflow-x:hidden;
+}
+
 #side-bar{
     position:fixed;
     height:100%;
-    top:0px;
+    top:69px;
     left:0px;
-    background: #404c64;
+    background: #3e3f3a;
     text-align: center;
 }
 
@@ -25,6 +32,7 @@ a.active {
     background-color: #2C384E;
     color: white;
 }
+
 #header-banner{
     width:100%;
     height:74px;
@@ -45,4 +53,43 @@ a.active {
 
 .text-shadow{
     text-shadow: -1px 0px 6px #000000;
+}
+
+.row-content{
+    background:white;
+    display:inline-block;
+    vertical-align:bottom;
+    height:170px;
+    border:4px solid #555;
+    width:30.5%;
+    margin-top:2%;
+    margin-left:2%;
+}
+
+.row-content:hover{
+    background:#eee;
+}
+
+.row-3-content{
+    height:170px;
+    width:30.5%;
+}
+
+.row-3-content-inside-row-1{
+    width:30.5%;
+}
+
+.row-1-content{
+    height:450px;
+    width:96%;
+}
+
+.row-2-content{
+    height:170px;
+    width:46.8%;
+}
+
+.row-2-content-tall{
+    height:auto;
+    width:46.8%;
 }

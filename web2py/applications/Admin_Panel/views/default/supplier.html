@@ -1,0 +1,34 @@
+{{extend 'layout.html'}}
+
+<!-- =====Row 1===== -->
+
+<div class="row-2-content-tall row-content">
+    <div class="text-center">Active Suppliers</div>
+    <!-- get suppliers from database -->
+    {{for i in range(0,15):}}
+        <div class="supplier">
+            Deactivate <input type="radio" name="{{=i}}supplier"/>{{=i}}_supplier
+        </div>
+    {{pass}}
+</div>
+
+<div class="row-2-content-tall row-content">
+    <div class="text-center">Inactive Suppliers</div>
+    <!-- get suppliers from database -->
+    {{for i in range(0,15):}}
+        <div class="supplier">
+            Deactivate <input type="radio" name="{{=i}}supplier"/>{{=i}}_supplier
+        </div>
+    {{pass}}
+</div>
+
+<div class="row-1-content row-content">
+    <div class="text-center">Add new supplier</div>
+
+    <!-- row1 -->
+    {{for i in range(0,6):}}
+        <div class="row-3-content-inside-row-1 row-content">
+            hello {{=i}}
+        </div>
+    {{pass}}
+</div>

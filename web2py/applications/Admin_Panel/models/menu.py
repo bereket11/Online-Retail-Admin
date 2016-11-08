@@ -50,9 +50,10 @@ def _():
     # ------------------------------------------------------------------------------------------------------------------
     response.menu += [
 
-        (T('Reports'), False, URL('default', 'chart_bars')),
-        (T('Prodcuts'), False, '#'),
-        (T('Suppliers'), False, '#'),
+        (T('Bar Chart'), False, URL('default', 'chart_bars')),
+        (T('Inventory'), False, URL('default', 'inventory')),
+        (T('Suppliers'), False, URL('default', 'supplier')),
+        (T('Statistics'), False, URL('default', 'stats')),
     ]
 
 

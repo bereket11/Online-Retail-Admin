@@ -23,7 +23,6 @@ def index():
     """
     url = parse_url(request.url)
     print url
-    response.flash = T("Welcome to the Admin Panel!")
     return dict(location=T('Admin Panel - Index'))
 
 
@@ -101,12 +100,14 @@ def chart_bars():
 def stats():
     return dict(location=T('Admin Panel - Stats'))
 
+def supplier():
+    return dict(location=T('Admin Panel - Suppliers'))
 
-def supplier_select():
-    return dict(location=T('Admin Panel - Supplier Select'))
+def inventory():
+    return dict(location=T('Admin Panel - Inventory'))
 
-def inventory_management():
-    return dict(location=T('Admin Panel - Inventory Management'))
+def implement():
+    return dict(location=T('Admin Panel - Implement'))
 
 def user():
     """
