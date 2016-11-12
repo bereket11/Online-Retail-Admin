@@ -3,6 +3,7 @@ databases/*
 errors/*
 sessions/*
 uploads/*
+gluon/*
 *.pyc
 *~
 .sass-cache
