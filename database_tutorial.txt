@@ -1,0 +1,30 @@
+How to manage db
+
+Download and install Microsoft SQL Server Management Studio
+
+name: hotkeycc.com
+username: cs115
+pass: cs115
+
+/////////////////////////////////////////////////
+Important Tables
+
+-auth_user
+-cart
+-image
+
+-product
+-product_info
+-purchase_order
+
+-supplier
+-supplier_association
+
+-tag
+-tag_association
+
+-order_item
+-price_history
+
+Kinda Important
+-guest
