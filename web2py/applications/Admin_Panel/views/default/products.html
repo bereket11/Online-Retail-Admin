@@ -1,0 +1,38 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+
+
+<div id="product_container">
+    <div class="tab">View Supplier product</div>
+    <table>
+        <tr>
+            <th colspan="2"></th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Size Name</th>
+            <th>Color Name</th>
+            <th>Description</th>
+            <th>Manufacturer</th>
+            <th>Create Date</th>
+            <th>Cost</th>
+            <th>Supplier SKU</th>
+            <th>Supplier Name</th>
+        </tr>
+    {{for item in test:}}
+        <tr>
+            <td><span class="add_product"></span></td>
+            <td><span class="edit_product"></span></td>
+            <td>{{=item['first_name']}}</td>
+            <td>{{=item['last_name']}}</td>
+            <td>{{=item['id']}}</td>
+            <td>{{=item['email']}}</td>
+            <td>{{=item['email']}}</td>
+            <td>{{=item['email']}}</td>
+            <td>{{=item['email']}}</td>
+            <td>{{=item['email']}}</td>
+            <td>{{=item['email']}}</td>
+            <td>{{=item['email']}}</td>
+        </tr>
+    {{pass}}
+        </table>
+</div>

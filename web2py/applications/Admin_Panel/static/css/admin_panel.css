@@ -93,3 +93,65 @@ a.active {
     height:auto;
     width:46.8%;
 }
+
+#product_container{
+    background-color: #b6eeff;
+    width: 100%;
+    marign: 0 auto;
+    text-align: center;
+}
+
+.tab{
+    height: 40px;
+    width: 150px;
+    background-color: #3fc1ff;
+    display: block;
+    line-height: 40px;
+    color: white;
+}
+
+.tab:hover{
+    background-color: #007aff;
+}
+
+.add_product{
+    background: url(/Admin_Panel/static/images/add.png);
+    background-repeat: no-repeat;
+    background-size: 32px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    cursor: pointer;
+}
+
+
+.edit_product{
+    background: url(/Admin_Panel/static/images/edit.png);
+    background-repeat: no-repeat;
+    background-size: 32px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: block;
+}
+
+
+
+#product_container table tr td{
+    border: 2px solid #ffffff;
+    padding: 5px;
+}
+
+#product_container table tr:hover{
+    background-color: #3fc1ff;
+}
+
+#product_container table tr th{
+    background: #2ecc71;
+    color: #ffffff;
+    text-align: center;
+}
+
+#product_container table{
+    width: 100%;
+}

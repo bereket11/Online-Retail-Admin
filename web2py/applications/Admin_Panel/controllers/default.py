@@ -25,6 +25,9 @@ def index():
     print url
     return dict(location=T('Admin Panel - Index'))
 
+def products():
+    test = db.executesql('select * from auth_user', as_dict=True)
+    return dict(location=T('Admin Panel - Products'),test=test)
 
 def chart_bars():
     meses_chart="['Candy', 'Bread', 'Milk', 'Coffee']" #Change this dynamically
