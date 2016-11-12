@@ -23,8 +23,11 @@ def index():
     """
     url = parse_url(request.url)
     print url
-    return dict(location=T('Admin Panel - Index'))
 
+    products = db.executesql("SELECT * FROM get_product")
+    user_data = db.executesql("SELECT * FROM auth_user")
+
+    return dict(location=T('Admin Panel - Index'), user_data=user_data)
 
 def chart_bars():
     meses_chart="['Candy', 'Bread', 'Milk', 'Coffee']" #Change this dynamically
@@ -101,9 +104,22 @@ def stats():
     return dict(location=T('Admin Panel - Stats'))
 
 def supplier():
-    return dict(location=T('Admin Panel - Suppliers'))
+    suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
 
-def inventory():
+    if request.args(0) == 'add':
+        added = db.executesql("INSERT INTO supplier (supplier_name, status, contact_first, contact_last, contact_phone, contact_email, api_key, api_address)"
+                      " VALUES ('Heart Stone','Active', 'Tonny', 'Maksin', '487-879-5783', 'tonny@heartstone.com', '02k4d32a5fg', 'http;//sup3.com/api')")
+        if added:
+            print "insert complete"
+        else:
+            print "insert failed"
+
+    elif request.args(0) == 'edit':
+        x=2
+
+    return dict(location=T('Admin Panel - Suppliers'), suppliers=suppliers)
+
+def product():
     return dict(location=T('Admin Panel - Inventory'))
 
 def implement():
