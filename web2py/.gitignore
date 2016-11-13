@@ -9,3 +9,12 @@ gluon/*
 .sass-cache
 .sass-cache/*
 
+applications/Admin_Panel/errors/
+applications/Admin_Panel/sessions/
+applications/Admin_Panel/uploads/
+applications/admin/databases/
+applications/admin/sessions/00a/
+applications/admin/uploads/
+applications/welcome/uploads/
+logs/
+
