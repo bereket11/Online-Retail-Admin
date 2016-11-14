@@ -12,7 +12,7 @@
 def index():
     """
     example action using the internationalization operator T and flash
-    rendered by views/default/index.html or views/generic.html
+    rendered by views/default/index.html or views/generic.html commit
 
     if you need a simple wiki simply replace the two lines below with:
     return auth.wiki()
