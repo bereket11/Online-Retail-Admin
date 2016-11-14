@@ -1,10 +1,12 @@
-/**
- * Created by RedBox on 11/11/2016.
- */
 
 
 $(document).ready(function(){
    $("#submit_supplier").hide();
-
-
 });
+
+function show_supplier_form(){
+    $("#submit_supplier").show();
+}
+function hide_supplier_form(){
+    $("#submit_supplier").hide();
+}

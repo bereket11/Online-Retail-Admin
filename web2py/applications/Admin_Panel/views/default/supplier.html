@@ -1,35 +1,65 @@
 {{extend 'layout.html'}}
 
-<!-- =====Row 1===== -->
-{{=suppliers}}
 <br>
+
+<!-- =====Row 1===== -->
 <div class="row-2-content-tall row-content">
     <div class="text-center">Active Suppliers</div>
     <!-- get suppliers from database -->
-    {{for i in range(0,15):}}
-        <div class="supplier">
-            Deactivate <input type="radio" name="{{=i}}supplier"/>{{=i}}_supplier
-        </div>
-    {{pass}}
+    <div  style="height:350px;overflow:auto;">
+        <table border="1" width="600">
+            {{for i in range(0,15):}}
+                <div class="supplier">
+                    <tr>
+                        <td><i class="fa fa-times active-remove" aria-hidden="true"></i></td>
+                        <td>Deactivate <input type="radio" name="{{=i}}supplier"/>{{=i}}_supplier</td>
+                    </tr>
+                </div>
+            {{pass}}
+        </table>
+    </div>
 </div>
 
-<div class="row-2-content-tall row-content">
+<div class="row-2-content-tall row-content" >
     <div class="text-center">Inactive Suppliers</div>
     <!-- get suppliers from database -->
-    {{for i in range(0,15):}}
-        <div class="supplier">
-            Deactivate <input type="radio" name="{{=i}}supplier"/>{{=i}}_supplier
-        </div>
-    {{pass}}
+    <div style="height:350px;overflow:auto;">
+        <table border="1" width="600">
+            {{for i in range(0,15):}}
+                <div class="supplier">
+                    <tr>
+                        <td><i class="fa fa-plus inactive-add" aria-hidden="true"></i></td>
+                        <td>Deactivate <input type="radio" name="{{=i}}supplier"/>{{=i}}_supplier</td>
+                    </tr>
+                </div>
+            {{pass}}
+        </table>
+    </div>
 </div>
 
 <div class="row-1-content row-content">
     <div class="text-center">Add new supplier</div>
+    <div id="submit_supplier">
+        <form enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['add'])}}" method="post">
+            <input name="supplier_name" type="text" placeholder="Supplier Name">
+            <input name="contact_first" type="text" placeholder="Contact First Name">
+            <input name="contact_last" type="text" placeholder="Contact Last Name">
+            <input name="contact_phone" type="text" placeholder="Contact Phone Number"><br>
+            <input name="contact_email" type="text" placeholder="Contact Email">
+            <input name="status" type="text" placeholder="Status">
+            <input value="add" type="submit">
+
+        </form>
+        <button onclick="hide_supplier_form()">Cancel</button>
+    </div>
+    <button onclick="show_supplier_form()">Add</button>
 
     <!-- row1 -->
-    {{for i in range(0,6):}}
+    <!--{{for i in range(0,6):}}
         <div class="row-3-content-inside-row-1 row-content">
             hello {{=i}}
         </div>
     {{pass}}
+
+    -->
 </div>

@@ -107,12 +107,16 @@ def supplier():
     suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
 
     if request.args(0) == 'add':
-        added = db.executesql("INSERT INTO supplier (supplier_name, status, contact_first, contact_last, contact_phone, contact_email, api_key, api_address)"
-                      " VALUES ('Heart Stone','Active', 'Tonny', 'Maksin', '487-879-5783', 'tonny@heartstone.com', '02k4d32a5fg', 'http;//sup3.com/api')")
-        if added:
-            print "insert complete"
-        else:
-            print "insert failed"
+
+        s_n = request.vars.supplier_name
+
+        # api_key, api_address
+        print request.vars
+
+        api_key = "132sdfas548"
+        api_address = "http://sup3.com/api"
+
+        added = db.executesql("INSERT INTO supplier (supplier_name, status, contact_first, contact_last, contact_phone, contact_email, api_key, api_address) VALUES ('"+request.vars.supplier_name+"', '"+request.vars.status+"', '"+request.vars.contact_first+"', '"+request.vars.contact_last+"', '"+request.vars.contact_phone+"', '"+request.vars.contact_email+"', '"+api_key+"', '"+api_address+"')")
 
     elif request.args(0) == 'edit':
         x=2
