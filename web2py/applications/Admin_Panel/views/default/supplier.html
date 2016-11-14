@@ -9,6 +9,7 @@
             <div class="supplier">
                 {{if supplier['status'] == 'Active' or supplier['status'] == 'active':}}
                     <button onclick="show_supplier_edit_form({{=supplier['supplier_id']}})"> Edit </button>
+                    {{=A('Delete', _href=URL('default', 'supplier', args=['delete'], vars={'id':supplier['supplier_id']}), _class='btn btn-danger border-radius5')}}
                     {{=supplier['supplier_id']}}
                     {{=supplier['supplier_name']}}
                     {{=supplier['contact_email']}}

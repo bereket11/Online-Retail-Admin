@@ -118,6 +118,10 @@ def supplier():
         edited = db.executesql("UPDATE supplier SET supplier_name='"+request.vars.supplier_name+"', status='"+request.vars.status+"', contact_first='"+request.vars.contact_first+"', contact_last='"+request.vars.contact_last+"', contact_phone='"+request.vars.contact_phone+"', contact_email='"+request.vars.contact_email+"', api_key='"+"a4d45a5f6"+"', api_address='"+"http://www.google.com"+"' WHERE supplier_id='"+request.vars.supplier_id+"'")
         #edited = db.executesql("UPDATE supplier SET supplier_name='"+request.vars.contact_first+"'")
         suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
+    elif request.args(0) == 'delete':
+        request.vars.id
+        deleted = db.executesql("DELETE FROM supplier WHERE supplier_id='"+request.vars.id+"'")
+        suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
     return dict(location=T('Admin Panel - Suppliers'), suppliers=suppliers)
 
 def product():
