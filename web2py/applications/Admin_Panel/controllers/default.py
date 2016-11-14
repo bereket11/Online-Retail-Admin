@@ -113,7 +113,7 @@ def supplier():
         # api_key, api_address
         print request.vars
 
-        api_key = "132sdfas548"
+        api_key = "132sdfas5485"
         api_address = "http://sup3.com/api"
 
         added = db.executesql("INSERT INTO supplier (supplier_name, status, contact_first, contact_last, contact_phone, contact_email, api_key, api_address) VALUES ('"+request.vars.supplier_name+"', '"+request.vars.status+"', '"+request.vars.contact_first+"', '"+request.vars.contact_last+"', '"+request.vars.contact_phone+"', '"+request.vars.contact_email+"', '"+api_key+"', '"+api_address+"')")
