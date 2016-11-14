@@ -1,0 +1,39 @@
+{{extend 'layout.html'}}
+
+<div class="mycontent">
+    {{if auth.user_id:}}
+        <div class="text-center">
+            <a href="{{=URL('default', 'edit', args=[''])}}" class="btn btn-default text-center">
+                <i class="fa fa-plus"></i>
+                New Post
+            </a>
+        </div>
+    {{else:}}
+        <h1 class="main_title text-center">Welcome!</h1>
+        <p class="explanation text-center">Please log in to post a message.</p>
+        <div class="text-center">{{=A('Login', _href=URL('default', 'user'), _class='btn btn-warning')}}</div>
+    {{pass}}
+    <br>
+    {{for p in posts:}}
+        <div id="single_post">
+            <div id='post_content'>
+                <div class='post_content'>{{=p.post_content}}</div>
+                <div id="post_buttons">
+                    {{if auth.user_id != None:}}
+                        {{if auth.user.email == p.user_email:}}
+                            <div class='inline_post'>{{=A('Edit', _href=URL('default', 'edit', args=['edit'], vars={'postid':p.id}), _class='btn btn-primary')}}</div>
+                            <div class='inline_post'>{{=A('Delete', _href=URL('default', 'edit', args=['delete'], vars={'postid':p.id}), _class='btn btn-danger border-radius5')}}</div>
+                        {{pass}}
+                    {{pass}}
+                </div>
+            </div>
+            <div class='inline_post margin_right_5p' style="margin-left:2%; color:#3fc115">{{=p.first_name}} {{=p.last_name}}</div>
+                <div class='inline_post margin_right_5p' style="color:#003bb3">{{=p.created_on}}</div>
+                <div class='inline_post margin_right_5p' style="color:#942a25">
+                {{if p.updated_on != p.created_on:}}
+                    {{=p.updated_on}}
+                {{pass}}
+                </div>
+        </div>
+    {{pass}}
+</div>
