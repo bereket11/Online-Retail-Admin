@@ -54,6 +54,9 @@ def _():
         (T('Product'), False, URL('default', 'product')),
         (T('Suppliers'), False, URL('default', 'supplier')),
         (T('Statistics'), False, URL('default', 'stats')),
+        (T('Products'), False, URL('default', 'products')),
+
+
     ]
 
 

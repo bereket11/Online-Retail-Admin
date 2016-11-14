@@ -2,3 +2,4 @@
 web2py/.idea/misc.xml
 *.iml
 web2py/.idea/workspace.xml
+*.pyc

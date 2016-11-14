@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 # this file is released under public domain and you can use without limitations
 
 # -------------------------------------------------------------------------
@@ -8,6 +8,7 @@
 # - download is for downloading files uploaded in the db (does streaming)
 # -------------------------------------------------------------------------
 from urlparse import urlparse
+import json
 
 def parse_url(url):
     o = urlparse(url)
@@ -24,11 +25,67 @@ def index():
     url = parse_url(request.url)
     print url
 
+
+def add_product():
+    supplier_association_id = request.vars.id
+    query = "insert into inventory_info select * from product_info where " \
+            "product_info_id in (select product_info_id from get_product where supplier_association_id = " + supplier_association_id + ")"
+    db.executesql(query)
+    query = "insert into devora.dbo.inventory (product_info_id ,title ,price ,discounted_price ,color_name ,color_code ,color_group ,size_name ,size_order ,length ,width ,height ,unit ,weight ,status) select product_info_id ,title ,price ,discounted_price ,color_name ,color_code ,color_group ,size_name ,size_order ,length ,width ,height ,unit ,weight ,status from product where product_id in (select product_id from get_product where supplier_association_id = " + supplier_association_id + ")"
+    db.executesql(query)
+    response_code = 1
+    return response_code
+
+
+def products():
+    test = db.executesql('select * from get_product', as_dict=True)
+    return dict(location=T('Admin Panel - Products'),test=test)
+
+def edit_product():
+    supplier_association_id = request.vars.id
+    price = request.vars.price
+    cost = request.vars.cost
+    title = request.vars.title
+    desc = request.vars.desc
+    color = request.vars.color.decode('string_escape')
+    size = request.vars.size.decode('string_escape')
+    supplier_sku = request.vars.supplier_sku.decode('string_escape')
+    supplier_name = request.vars.supplier_name.decode('string_escape')
+    manufacturer = request.vars.manufacturer.decode('string_escape')
+    # query = "update get_product set manufacturer='"+manufacturer+"' ,supplier_name='"+supplier_name+"' ,supplier_sku='"+supplier_sku+"', color_name = '"+color+"', size_name = '"+size+"',description='"+desc+"',title='"+title+"',cost='"+cost+"',price='"+price+"' where supplier_association_id = '" + supplier_association_id+"'"
+    query = "update get_product set color_name = '" + color + "', size_name = '" + size + "',price='" + price + \
+            "' where supplier_association_id = '" + supplier_association_id + "'"
+
+    db.executesql(query)
+
+    query = "update get_product set manufacturer='" + manufacturer + "',description='" + desc + "',title='" \
+        + title + "' where supplier_association_id = '" + supplier_association_id + "'"
+    db.executesql(query)
+
+    query = "update get_product set supplier_sku='" \
+            + supplier_sku + "',cost='" + cost + \
+            "' where supplier_association_id = '" + supplier_association_id + "'"
+
+    db.executesql(query)
+    query = "update get_product set supplier_name='" + supplier_name + \
+        "' where supplier_association_id = '" + supplier_association_id + "'"
+    db.executesql(query)
+    # query = "update get_product set supplier_name='" + supplier_name + "' ,supplier_sku='" \
+    #     + supplier_sku + "',cost='" + cost + "',price='" + price + \
+    #     "' where supplier_association_id = '" + supplier_association_id + "'"
+    # db.executesql(query)
+    # response_code = 1
+    # return dict(response_code=response_code)
+
+# def db_edit_product(supplier_association_id, edits):
+
+
     products = db.executesql("SELECT * FROM get_product")
     user_data = db.executesql("SELECT * FROM auth_user")
     suppliers = db.executesql("SELECT * FROM supplier")
 
     return dict(location=T('Admin Panel - Index'), suppliers=suppliers, user_data=user_data, products=products)
+
 
 def chart_bars():
     meses_chart="['Candy', 'Bread', 'Milk', 'Coffee']" #Change this dynamically
