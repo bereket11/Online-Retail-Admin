@@ -42,3 +42,62 @@ jQuery(function(){
 	    return false;
 	    }  );
     });
+
+function product_add($id) {
+	 $.ajax({
+		 type: "POST",
+		 url: "/Admin_Panel/default/add_product?id="+$id,
+	 })
+	console.log($id)
+
+}
+
+function product_edit(event) {
+	var element = "<textarea id=text_title_"+event+">"+$('#title_'+event).html()+"</textarea>";
+	element+="<input type='button' value='SAVE' onclick='product_save("+event+")'>";
+	$('#title_'+event).html(element)
+
+	var element = "<textarea id=text_price_"+event+">"+$('#price_'+event).html()+"</textarea>";
+	$('#price_'+event).html(element)
+
+	var element = "<textarea id=text_cost_"+event+">"+$('#cost_'+event).html()+"</textarea>";
+	$('#cost_'+event).html(element)
+
+	var element = "<textarea id=text_desc_"+event+">"+$('#desc_'+event).html()+"</textarea>";
+	$('#desc_'+event).html(element)
+
+	var element = "<textarea id=text_manufacturer_"+event+">"+$('#manufacturer_'+event).html()+"</textarea>";
+	$('#manufacturer_'+event).html(element)
+
+	var element = "<textarea id=text_supplier_sku_"+event+">"+$('#supplier_sku_'+event).html()+"</textarea>";
+	$('#supplier_sku_'+event).html(element)
+
+	var element = "<textarea id=text_supplier_name_"+event+">"+$('#supplier_name_'+event).html()+"</textarea>";
+	$('#supplier_name_'+event).html(element)
+
+
+	var element = "<textarea id=text_size_"+event+">"+$('#size_'+event).html()+"</textarea>";
+	$('#size_'+event).html(element)
+
+	var element = "<textarea id=text_color_"+event+">"+$('#color_'+event).html()+"</textarea>";
+	$('#color_'+event).html(element)
+}
+
+
+function product_save($id) {
+	console.log($id)
+	$title = escape(document.getElementById('text_title_'+$id).value);
+	$desc = escape(document.getElementById('text_desc_'+$id).value);
+	$price = escape(document.getElementById('text_price_'+$id).value);
+	$supplier_sku = escape(document.getElementById('text_supplier_sku_'+$id).value);
+	$supplier_name = escape(document.getElementById('text_supplier_name_'+$id).value);
+	$manufacturer = escape(document.getElementById('text_manufacturer_'+$id).value);
+	$color = escape(document.getElementById('text_color_'+$id).value);
+	$size = escape(document.getElementById('text_size_'+$id).value);
+	$cost = escape(document.getElementById('text_cost_'+$id).value);
+	$.ajax({
+		 type: "POST",
+		 url: "/Admin_Panel/default/edit_product?id="+$id+"&title="+$title+"&desc="+$desc+"&price="+$price+"&cost="+$cost+"&color="+$color+"&size="+$size+"&manufacturer="+$manufacturer+"&supplier_sku="+$supplier_sku+"&supplier_name="+$supplier_name,
+	 })
+	location.reload();
+}
