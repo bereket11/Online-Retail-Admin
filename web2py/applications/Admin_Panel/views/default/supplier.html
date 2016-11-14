@@ -1,34 +1,74 @@
 {{extend 'layout.html'}}
 
 <!-- =====Row 1===== -->
-
 <div class="row-2-content-tall row-content">
     <div class="text-center">Active Suppliers</div>
     <!-- get suppliers from database -->
-    {{for i in range(0,15):}}
-        <div class="supplier">
-            Deactivate <input type="radio" name="{{=i}}supplier"/>{{=i}}_supplier
-        </div>
-    {{pass}}
+    <div  style="height:350px;overflow:auto;">
+        {{for supplier in suppliers:}}
+            <div class="supplier">
+                {{if supplier['status'] == 'Active' or supplier['status'] == 'active':}}
+                    <button onclick="show_supplier_edit_form({{=supplier['supplier_id']}})"> Edit </button>
+                    {{=A('Delete', _href=URL('default', 'supplier', args=['delete'], vars={'id':supplier['supplier_id']}), _class='btn btn-danger border-radius5')}}
+                    {{=supplier['supplier_id']}}
+                    {{=supplier['supplier_name']}}
+                    {{=supplier['contact_email']}}
+                    {{=supplier['status']}}
+                    {{=supplier['contact_first']}}
+                    {{=supplier['contact_last']}}
+                    {{=supplier['contact_phone']}}
+                    <div id="edit_supplier_{{=supplier['supplier_id']}}">
+                        <form enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['edit'])}}" method="post">
+                            <input type="hidden" name="supplier_id" value="{{=supplier['supplier_id']}}"/>
+                            <input name="supplier_name" type="text" value="{{=supplier['supplier_name']}}"/>
+                            <input name="contact_first" type="text" value="{{=supplier['contact_first']}}"/>
+                            <input name="contact_last" type="text" value="{{=supplier['contact_last']}}"/>
+                            <input name="contact_phone" type="text" value="{{=supplier['contact_phone']}}"/>
+                            <input name="contact_email" type="text" value="{{=supplier['contact_email']}}"/>
+                            <input name="status" type="text" value="{{=supplier['status']}}">
+                            <input value="edit" type="submit">
+                        </form>
+                        <button onclick="hide_supplier_edit_form({{=supplier['supplier_id']}})">Cancel</button>
+                    </div>
+                    <script>
+                        console.log("#edit_supplier_{{=supplier['supplier_id']}}");
+                        $("#edit_supplier_{{=supplier['supplier_id']}}").hide();
+                    </script>
+                {{pass}}
+            </div>
+        {{pass}}
+    </div>
 </div>
 
-<div class="row-2-content-tall row-content">
+<div class="row-2-content-tall row-content" >
     <div class="text-center">Inactive Suppliers</div>
-    <!-- get suppliers from database -->
-    {{for i in range(0,15):}}
-        <div class="supplier">
-            Deactivate <input type="radio" name="{{=i}}supplier"/>{{=i}}_supplier
-        </div>
-    {{pass}}
+    <div style="height:350px;overflow:auto;"></div>
 </div>
 
+<!-- ===============Row 2============= -->
 <div class="row-1-content row-content">
     <div class="text-center">Add new supplier</div>
+    <div id="submit_supplier">
+        <form enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['add'])}}" method="post">
+            <input name="supplier_name" type="text" placeholder="Supplier Name">
+            <input name="contact_first" type="text" placeholder="Contact First Name">
+            <input name="contact_last" type="text" placeholder="Contact Last Name">
+            <input name="contact_phone" type="text" placeholder="Contact Phone Number"><br>
+            <input name="contact_email" type="text" placeholder="Contact Email">
+            <input name="status" type="text" placeholder="Status">
+            <input value="add" type="submit">
+
+        </form>
+        <button onclick="hide_supplier_form()">Cancel</button>
+    </div>
+    <button onclick="show_supplier_form()">Add</button>
 
     <!-- row1 -->
-    {{for i in range(0,6):}}
+    <!--{{for i in range(0,6):}}
         <div class="row-3-content-inside-row-1 row-content">
             hello {{=i}}
         </div>
     {{pass}}
+
+    -->
 </div>

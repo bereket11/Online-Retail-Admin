@@ -1,0 +1,44 @@
+body{
+    background:#eee;
+}
+
+.inline_post{
+  display:inline-block;
+    vertical-align:bottom;
+  height:20px;
+  font-size:12px;
+}
+
+.margin_right_5p{
+  margin-right:2%;
+}
+
+.post_content{
+    padding:5px;
+    background:white;
+    border-radius: 5px;
+    font-size:16px;
+    font-family:cambria;
+}
+
+.border_radius5{
+    border-radius:5px;
+}
+
+#single_post{
+  margin:0 auto;
+  width:60%;
+  background:#ccc;
+  border-radius:5px;
+  margin-bottom:10px;
+}
+
+#post_content{
+  margin: 0 auto;
+  padding:20px;
+  vertical-align:center;
+}
+
+#post_buttons{
+    padding:5px;
+}

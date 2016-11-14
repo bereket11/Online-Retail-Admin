@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 # this file is released under public domain and you can use without limitations
 
 # -------------------------------------------------------------------------
@@ -24,7 +24,7 @@ def index():
     """
     url = parse_url(request.url)
     print url
-    return dict(location=T('Admin Panel - Index'))
+
 
 def add_product():
     supplier_association_id = request.vars.id
@@ -78,6 +78,13 @@ def edit_product():
     # return dict(response_code=response_code)
 
 # def db_edit_product(supplier_association_id, edits):
+
+
+    products = db.executesql("SELECT * FROM get_product")
+    user_data = db.executesql("SELECT * FROM auth_user")
+    suppliers = db.executesql("SELECT * FROM supplier")
+
+    return dict(location=T('Admin Panel - Index'), suppliers=suppliers, user_data=user_data, products=products)
 
 
 def chart_bars():
@@ -155,9 +162,26 @@ def stats():
     return dict(location=T('Admin Panel - Stats'))
 
 def supplier():
-    return dict(location=T('Admin Panel - Suppliers'))
+    suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
+    print "inside supplier()"
+    if request.args(0) == 'add':
+        api_key = "132sdfas5475"
+        api_address = "http://sup3.com/api"
+        added = db.executesql("INSERT INTO supplier (supplier_name, status, contact_first, contact_last, contact_phone, contact_email, api_key, api_address) VALUES ('"+request.vars.supplier_name+"', '"+request.vars.status+"', '"+request.vars.contact_first+"', '"+request.vars.contact_last+"', '"+request.vars.contact_phone+"', '"+request.vars.contact_email+"', '"+api_key+"', '"+api_address+"')")
+    elif request.args(0) == 'edit':
+        print(request.vars.supplier_id, "hello")
+        api_key = "132sdfas5485"
+        api_address = "http://sup3.com/api"
+        edited = db.executesql("UPDATE supplier SET supplier_name='"+request.vars.supplier_name+"', status='"+request.vars.status+"', contact_first='"+request.vars.contact_first+"', contact_last='"+request.vars.contact_last+"', contact_phone='"+request.vars.contact_phone+"', contact_email='"+request.vars.contact_email+"', api_key='"+"a4d45a5f6"+"', api_address='"+"http://www.google.com"+"' WHERE supplier_id='"+request.vars.supplier_id+"'")
+        #edited = db.executesql("UPDATE supplier SET supplier_name='"+request.vars.contact_first+"'")
+        suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
+    elif request.args(0) == 'delete':
+        request.vars.id
+        deleted = db.executesql("DELETE FROM supplier WHERE supplier_id='"+request.vars.id+"'")
+        suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
+    return dict(location=T('Admin Panel - Suppliers'), suppliers=suppliers)
 
-def inventory():
+def product():
     return dict(location=T('Admin Panel - Inventory'))
 
 def implement():

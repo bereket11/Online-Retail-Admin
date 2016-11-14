@@ -94,6 +94,7 @@ a.active {
     width:46.8%;
 }
 
+
 #product_container{
     background-color: #b6eeff;
     width: 100%;
@@ -155,3 +156,10 @@ a.active {
 #product_container table{
     width: 100%;
 }
+
+.supplier-nav{
+    margin-top: 2%;
+    margin-left: 40%;
+}
+
+
