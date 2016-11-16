@@ -15043,3 +15043,14 @@ P/1.1, 304, 0.002000
 127.0.0.1, 2016-11-14 12:32:53, GET, /Admin_Panel/static/css/bootstrap-theme.min.css, HTTP/1.1, 404, 0.000000
 127.0.0.1, 2016-11-14 12:32:54, GET, /Admin_Panel/static/js/share.js, HTTP/1.1, 200, 0.001000
 127.0.0.1, 2016-11-14 12:32:54, GET, /Admin_Panel/static/images/favicon.ico, HTTP/1.1, 200, 0.001000
+127.0.0.1, 2016-11-15 17:05:09, GET, /, HTTP/1.1, 303, 0.022047
+127.0.0.1, 2016-11-15 17:05:09, GET, /welcome/default/index, HTTP/1.1, 200, 0.315416
+127.0.0.1, 2016-11-15 17:05:13, GET, /admin/default/site, HTTP/1.1, 303, 0.114128
+127.0.0.1, 2016-11-15 17:05:13, GET, /admin/default/index, HTTP/1.1, 200, 0.046499
+127.0.0.1, 2016-11-15 17:05:16, POST, /admin/default/index, HTTP/1.1, 303, 0.041878
+127.0.0.1, 2016-11-15 17:05:16, GET, /admin/default/site, HTTP/1.1, 200, 0.064862
+127.0.0.1, 2016-11-15 17:05:17, POST, /admin/default/check_version, HTTP/1.1, 200, 0.279684
+127.0.0.1, 2016-11-15 17:05:19, GET, /pygal/default/index, HTTP/1.1, 200, 0.085334
+127.0.0.1, 2016-11-15 17:05:19, GET, /pygal/static/images/background.jpg, HTTP/1.1, 200, 0.001253
+127.0.0.1, 2016-11-15 17:05:19, GET, /pygal/static/fonts/glyphicons-halflings-regular.woff2, HTTP/1.1, 200, 0.000644
+127.0.0.1, 2016-11-15 17:05:32, GET, /Admin_Panel/default/index, HTTP/1.1, 500, 5.181146

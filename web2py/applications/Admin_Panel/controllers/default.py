@@ -15,15 +15,17 @@ def parse_url(url):
     return str(o[2][1:]).split('/')
 
 def index():
-    """
-    example action using the internationalization operator T and flash
-    rendered by views/default/index.html or views/generic.html
-
-    if you need a simple wiki simply replace the two lines below with:
-    return auth.wiki()
-    """
-    url = parse_url(request.url)
-    print url
+    title = "Dashboard"
+    data = XML([
+          ['Name', 'Top Suppliers'],
+          ['Dell' , 5],
+          ['Apple', 7],
+          ['Toshiba', 3],
+          ['Acer', 2],
+          ['Sony', 6],
+          ['Panasonic', 1],
+        ])
+    return dict(data=data, title=title)
 
 
 def add_product():
