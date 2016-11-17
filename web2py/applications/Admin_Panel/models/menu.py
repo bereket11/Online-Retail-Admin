@@ -49,14 +49,10 @@ def _():
     # useful links to internal and external resources
     # ------------------------------------------------------------------------------------------------------------------
     response.menu += [
-
         (T('Bar Chart'), False, URL('default', 'chart_bars')),
-        (T('Product'), False, URL('default', 'product')),
         (T('Suppliers'), False, URL('default', 'supplier')),
         (T('Statistics'), False, URL('default', 'stats')),
-        (T('Products'), False, URL('default', 'products')),
-
-
+        (T('Products'), False, URL('default', 'products'))
     ]
 
 

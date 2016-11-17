@@ -170,17 +170,17 @@ def supplier():
         api_key = "132sdfas5475"
         api_address = "http://sup3.com/api"
         added = db.executesql("INSERT INTO supplier (supplier_name, status, contact_first, contact_last, contact_phone, contact_email, api_key, api_address) VALUES ('"+request.vars.supplier_name+"', '"+request.vars.status+"', '"+request.vars.contact_first+"', '"+request.vars.contact_last+"', '"+request.vars.contact_phone+"', '"+request.vars.contact_email+"', '"+api_key+"', '"+api_address+"')")
+        redirect('default/supplier')
     elif request.args(0) == 'edit':
-        print(request.vars.supplier_id, "hello")
         api_key = "132sdfas5485"
         api_address = "http://sup3.com/api"
         edited = db.executesql("UPDATE supplier SET supplier_name='"+request.vars.supplier_name+"', status='"+request.vars.status+"', contact_first='"+request.vars.contact_first+"', contact_last='"+request.vars.contact_last+"', contact_phone='"+request.vars.contact_phone+"', contact_email='"+request.vars.contact_email+"', api_key='"+"a4d45a5f6"+"', api_address='"+"http://www.google.com"+"' WHERE supplier_id='"+request.vars.supplier_id+"'")
-        #edited = db.executesql("UPDATE supplier SET supplier_name='"+request.vars.contact_first+"'")
         suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
+        redirect('default/supplier')
     elif request.args(0) == 'delete':
-        request.vars.id
         deleted = db.executesql("DELETE FROM supplier WHERE supplier_id='"+request.vars.id+"'")
         suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
+        redirect('default/supplier')
     return dict(location=T('Admin Panel - Suppliers'), suppliers=suppliers)
 
 def product():

@@ -1,6 +1,6 @@
 body{
-    margin-top:66px;
-    margin-left:39px;
+    margin-top:69px;
+    margin-left:80px;
     margin-bottom:80px;
     overflow-x:hidden;
 }
@@ -8,6 +8,7 @@ body{
 #side-bar{
     position:fixed;
     height:100%;
+    width:80px;
     top:69px;
     left:0px;
     background: #3e3f3a;
@@ -61,13 +62,15 @@ a.active {
     vertical-align:bottom;
     height:170px;
     border:4px solid #555;
+    overflow-y:scroll;
     width:30.5%;
-    margin-top:2%;
+    margin-top:1%;
+    margin-bottom:2%;
     margin-left:2%;
 }
 
 .row-content:hover{
-    background:#eee;
+
 }
 
 .row-3-content{
@@ -84,6 +87,11 @@ a.active {
     width:96%;
 }
 
+.row-1-content-shorter{
+    height:250px;
+    width:96%;
+}
+
 .row-2-content{
     height:170px;
     width:46.8%;
@@ -93,7 +101,6 @@ a.active {
     height:auto;
     width:46.8%;
 }
-
 
 #product_container{
     background-color: #b6eeff;
@@ -125,7 +132,6 @@ a.active {
     cursor: pointer;
 }
 
-
 .edit_product{
     background: url(/Admin_Panel/static/images/edit.png);
     background-repeat: no-repeat;
@@ -135,8 +141,6 @@ a.active {
     cursor: pointer;
     display: block;
 }
-
-
 
 #product_container table tr td{
     border: 2px solid #ffffff;
@@ -162,4 +166,24 @@ a.active {
     margin-left: 40%;
 }
 
+.supplier-table{
+    table-layout:fixed;
+    margin:0 auto;
+    text-align:center;
+    width:100%;
+    height:auto;
+}
+
+.supplier-td{
+    text-align:center;
+}
+
+.button{
+
+}
+
+.form-input{
+    padding:5px;
+    margin-bottom:5px;
+}
 
