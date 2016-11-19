@@ -1,0 +1,43 @@
+{{extend 'layout.html'}}
+
+<div id='side-bar'>
+    <a class='pad5 display-block text-shadow' href='index'><i class="fa fa-money fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-gear fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-pie-chart fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-certificate fa-3x" aria-hidden="true"></i></a>
+</div>
+
+        <!-- =====Row 1===== -->
+<div class="text-center" style="font-size:20px;">Staff</div>
+<div class="row-1-content-shorter row-content">
+    <!-- get suppliers from database -->
+    <div  style="height:auto;">
+        {{for staffer in staff:}}
+            <table border="0" class="supplier-table">
+                <div class="supplier">
+
+                    <tr>
+                        <td class="supplier-td">{{=staffer['expr1']}}</td>
+                        <td class="supplier-td">{{=staffer['expr2']}}</td>
+                        <td class="supplier-td">{{=staffer['permission']}}</td>
+                        <td class="supplier-td">{{=staffer['email']}}</td>
+                        <td class="supplier-td"><button style="display:inline-block; line-height:49px; vetical-align:top; padding:0; width:35px; height:35px;  background:none; color:black; font-size:14px;" onclick="show_staff_edit_form({{=staffer['user_id']}})"><i class="fa fa fa-pencil-square-o fa-2x"></i></button></td>
+                    </tr>
+                    <div id="edit_staff_{{=staffer['user_id']}}">
+                        <form enctype="multipart/form-data" action="{{=URL('default', 'staff', args=['edit'])}}" method="post">
+                            <input type="hidden" name="user_id" value="{{=staffer['user_id']}}"/>
+                            <input name="permission" type="text" value="{{=staffer['permission']}}"/>
+                            <input type="submit" value="submit" >
+                        </form>
+                        <button onclick="hide_staff_edit_form({{=staffer['user_id']}})">Cancel</button>
+                    </div>
+                    <script>
+                        console.log("#edit_staff_{{=staffer['user_id']}}");
+                        $("#edit_staff_{{=staffer['user_id']}}").hide();
+                    </script>
+
+                </div>
+            </table>
+        {{pass}}
+    </div>
+</div>
