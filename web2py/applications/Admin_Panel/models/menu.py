@@ -52,7 +52,8 @@ def _():
         (T('Bar Chart'), False, URL('default', 'chart_bars')),
         (T('Suppliers'), False, URL('default', 'supplier')),
         (T('Statistics'), False, URL('default', 'stats')),
-        (T('Products'), False, URL('default', 'products'))
+        (T('Products'), False, URL('default', 'products')),
+        (T('Staff'), False, URL('default', 'staff'))
     ]
 
 

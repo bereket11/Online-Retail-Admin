@@ -14,6 +14,22 @@ def parse_url(url):
     o = urlparse(url)
     return str(o[2][1:]).split('/')
 
+def check_user():
+    if auth.user != None:
+        return True
+    else:
+        return False
+
+def check_admin():
+    if check_user():
+        user_permission = db.executesql("SELECT permission FROM user_permissions WHERE user_id='" + str(auth.user.id) + "'")
+        if user_permission[0][0] == "admin":
+            return True
+        else:
+            return False
+    else:
+        return False
+
 def index():
     title = "Dashboard"
     data = XML([
@@ -27,7 +43,6 @@ def index():
         ])
     return dict(data=data, title=title)
 
-
 def add_product():
     supplier_association_id = request.vars.id
     query = "insert into inventory_info select * from product_info where " \
@@ -38,8 +53,11 @@ def add_product():
     response_code = 1
     return response_code
 
-
 def products():
+    if check_admin() == False:
+        T('Permission Denied')
+        redirect('index')
+
     test = db.executesql('select * from get_product', as_dict=True)
     return dict(location=T('Admin Panel - Products'),test=test)
 
@@ -78,10 +96,7 @@ def edit_product():
     # db.executesql(query)
     # response_code = 1
     # return dict(response_code=response_code)
-
-# def db_edit_product(supplier_association_id, edits):
-
-
+    # def db_edit_product(supplier_association_id, edits):
     products = db.executesql("SELECT * FROM get_product")
     user_data = db.executesql("SELECT * FROM auth_user")
     suppliers = db.executesql("SELECT * FROM supplier")
@@ -90,6 +105,9 @@ def edit_product():
 
 
 def chart_bars():
+    if check_user() == False:
+        redirect('index')
+
     meses_chart="['Candy', 'Bread', 'Milk', 'Coffee']" #Change this dynamically
     dados_chart="[3.5, 4, 5, 2]" #Change this dynamically
     title="Online-Retail-Admin"
@@ -161,20 +179,48 @@ def chart_bars():
     return dict(chart=XML('<script>'+chart+'</script>'))
 
 def stats():
+    if check_user() == False:
+        redirect('index')
+
+    test = {'test1':'22', 'test2':'20', 'test3':'9'}
+    print json.dumps(test)
     return dict(location=T('Admin Panel - Stats'))
 
 def supplier():
+    if check_user() == False:
+        redirect('index')
+
     suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
-    print "inside supplier()"
+
     if request.args(0) == 'add':
         api_key = "132sdfas5475"
         api_address = "http://sup3.com/api"
-        added = db.executesql("INSERT INTO supplier (supplier_name, status, contact_first, contact_last, contact_phone, contact_email, api_key, api_address) VALUES ('"+request.vars.supplier_name+"', '"+request.vars.status+"', '"+request.vars.contact_first+"', '"+request.vars.contact_last+"', '"+request.vars.contact_phone+"', '"+request.vars.contact_email+"', '"+api_key+"', '"+api_address+"')")
+        supplier_name=request.vars.supplier_name.decode('string_escape')
+        status=request.vars.status.decode('string_escape')
+        contact_first=request.vars.contact_first.decode('string_escape')
+        contact_last=request.vars.contact_last.decode('string_escape')
+        contact_phone=request.vars.contact_phone.decode('string_escape')
+        contact_email=request.vars.contact_email.decode('string_escape')
+
+        added = db.executesql("INSERT INTO supplier (supplier_name, status, contact_first," \
+                              " contact_last, contact_phone, contact_email, api_key, api_address)" \
+                              " VALUES ('"+supplier_name+"', '"+status+"', '" \
+                              +contact_first+"', '"+contact_last+"', '"+contact_phone+"', '"\
+                              +contact_email+"', '"+api_key+"', '"+api_address+"')")
         redirect('default/supplier')
     elif request.args(0) == 'edit':
         api_key = "132sdfas5485"
         api_address = "http://sup3.com/api"
-        edited = db.executesql("UPDATE supplier SET supplier_name='"+request.vars.supplier_name+"', status='"+request.vars.status+"', contact_first='"+request.vars.contact_first+"', contact_last='"+request.vars.contact_last+"', contact_phone='"+request.vars.contact_phone+"', contact_email='"+request.vars.contact_email+"', api_key='"+"a4d45a5f6"+"', api_address='"+"http://www.google.com"+"' WHERE supplier_id='"+request.vars.supplier_id+"'")
+        supplier_name = request.vars.supplier_name.decode('string_escape')
+        status = request.vars.status.decode('string_escape')
+        contact_first = request.vars.contact_first.decode('string_escape')
+        contact_last = request.vars.contact_last.decode('string_escape')
+        contact_phone = request.vars.contact_phone.decode('string_escape')
+        contact_email = request.vars.contact_email.decode('string_escape')
+        edited = db.executesql("UPDATE supplier SET supplier_name='"+supplier_name+"', status='"+status+ \
+                               "', contact_first='"+contact_first+"', contact_last='"+contact_last+\
+                               "', contact_phone='"+contact_phone+"', contact_email='"+contact_email+\
+                               "', api_key='"+"a4d45a5f6"+"', api_address='"+"http://www.google.com"+"' WHERE supplier_id='"+request.vars.supplier_id+"'")
         suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
         redirect('default/supplier')
     elif request.args(0) == 'delete':
@@ -225,3 +271,33 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
+
+def staff():
+    staff = db.executesql("SELECT * FROM view_permissions", as_dict=True)
+    if request.args(0) == 'edit':
+        edited = db.executesql("UPDATE user_permissions SET permission='" + request.vars.permission + "' WHERE user_id='" + str(request.vars.user_id) + "'")
+        staff = db.executesql("SELECT * FROM view_permissions", as_dict=True)
+        redirect('staff')
+
+    return dict(location=T('Admin Panel - Staff'), staff=staff)
+
+#Need to test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+def get_top_products(begin, end, limit):
+    limitby = 10
+    if limit != None:
+        limitby = limit
+
+    top_products = db.executesql("(SELECT product_id, count(*) as num_sales" \
+                                 "FROM order_item" \
+                                 "LEFT JOIN purchase_order ON order_item.purchase_order_no = purchase_order.purchase_order_no" \
+                                 "WHERE purchase_order.sale_date >'"+ begin +"' AND purchase_order.sale_date <'" + end + "' GROUP BY product_id) ORDER BY num_sales limit by '" + limitby + "'")
+    jp = json.dumps(top_products)
+    return dict(chart=XML('<script>' + jp + '</script>'))
+
+def get_sales_by_location(begin, end):
+
+    sales_location = db.executesql("(SELECT guest.state, count(order_item.order_item_id) as sales"\
+                                    "FROM order_item"\
+                                    "LEFT JOIN purchase_order ON order_item.purchase_order_no = purchase_order.purchase_order_no"\
+                                    "LEFT JOIN guest ON purchase_order.guest_id = guest.guest_id"\
+                                    "WHERE purchase_order.sale_date > '11/11/2014' AND purchase_order.sale_date < '11/11/2015' GROUP BY guest.state)")
