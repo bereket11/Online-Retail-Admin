@@ -3,6 +3,7 @@ A.  As an store manager, I need to see my sales for the month/quarter/etc so I c
 B.  As a developer I need supplier product data stored in a consistent manner so that I may use it to create products.
 C. As an online store manager, I need to be able to set tags to products to be able to organize my products in such a way to be searchable by the customer.
 
+
 base_url() = “http://localhost:8000/Admin_Panel/”
 Victor:
 - Tested  Index() and database data retrieval
@@ -31,10 +32,12 @@ Alan:
 		data2...)”).
 	-Check mssql ide for correct data insertion.
 
+
 Unittest: Sprint 2
 A.  As an online store operator, I need to be able to remove products from my store without the assistance of a developer so that I can increase efficiency and profitability.
 B.  As an online store operator, I need to be able to add products to my store without the assistance of a developer so that I can increase efficiency and profitability.
 C. As an online store operator, I need to be able to normalize the data I receive from the suppliers so that I can choose which products to display on my store. 
+
 
 Victor:
 - Created product deletion in web2py
@@ -64,10 +67,12 @@ Alan:
 	-Check mssql db manager for correct data insert.
 	-Data inserted correctly. 
 
+
 Unittest: Sprint 3
 A.  As a developer, I need the product pictures organized in a way that it is useable by an automated system to create product profiles.
 B. As an online store operator, I need to be able to (modify) activate, deactivate, add and delete suppliers so that I can increase efficiency and profitability.
 C. As an administrator, I need to be able to edit permissions of my staff so that I can manage the security of my web store. 
+
 
 Victor
 - Tested supplier privilege.
@@ -80,6 +85,7 @@ Victor
 	-Check only if user is logged in.
 	-Clicked on all pages for access; Access granted; Done(Incomplete).
 
+
 Bereket
 - Tested add/delete suppliers.
 	-Clicked the link suppliers.
@@ -87,15 +93,22 @@ Bereket
 	-Clicked delete on a supplier, supplier deleted from html and mssql.
 
 
+
+
 Brian
 - Tested organizing pictures as a developer.
-	-**********waiting for implementation. 
+	-Clicked the link images
+	-Verified list of products was populated and images for each showed in the table
+	-Clicked on the radio button and clicked save. 
+	-Verified in database that default value was cleared from previous default image and the image selected is now the new default.
+
 
 Amir
 - Tested edit/add suppliers.
 	-Clicked the link suppliers.
 	-Clicked edit on a supplier; Modified status to disabled. Update correct.
 	-Clicked add; entered supplier credentials; clicked submit; Data updated on html and mssql. 
+
 
 Alan
 - Tested staff modification.
