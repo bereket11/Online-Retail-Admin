@@ -1,0 +1,106 @@
+Unittest: Sprint 1
+A.  As an store manager, I need to see my sales for the month/quarter/etc so I can understand how much product I have sold.
+B.  As a developer I need supplier product data stored in a consistent manner so that I may use it to create products.
+C. As an online store manager, I need to be able to set tags to products to be able to organize my products in such a way to be searchable by the customer.
+
+base_url() = “http://localhost:8000/Admin_Panel/”
+Victor:
+- Tested  Index() and database data retrieval
+	-Run base_url()/index using chrome.
+	-Checking for index to display without error.
+- Tested Tags()
+	- Clicked add tag tab and entered name “test” and click Add Tag
+	- Click on edit and 	
+Bereket:
+- Tested Stats() d3.js charts
+	-Run base_url()/stats using chrome
+	-Testing d3 for dummy data
+	-Confirmed when chart equals inserted data based on week/month/quarter
+Brian:
+- Tested database connection
+	-Changed web2py db connection to custom server by editing appconfig.ini
+	-Run base_url()/index
+	-Check for web2py error
+Amir:
+	-Tested database retrieval
+	-Built a dummy script to test db retrieval (SELECT * FROM products)
+	-Script returns all inserted products.
+Alan:
+- Tested database insert
+	-Inserted dummy data using db.execute(“INSERT INTO products (c1,c2...) PRODUCTS (data1, 
+		data2...)”).
+	-Check mssql ide for correct data insertion.
+
+Unittest: Sprint 2
+A.  As an online store operator, I need to be able to remove products from my store without the assistance of a developer so that I can increase efficiency and profitability.
+B.  As an online store operator, I need to be able to add products to my store without the assistance of a developer so that I can increase efficiency and profitability.
+C. As an online store operator, I need to be able to normalize the data I receive from the suppliers so that I can choose which products to display on my store. 
+
+Victor:
+- Created product deletion in web2py
+	- Tested product deletion by clicking the delete button
+	- Product successfully deleted
+	- Checked mssql for deleted row.
+	- Row deleted
+Bereket:
+- Tested normalization
+	- Sent dummy supplier api data formatted in an incorrect way.
+	- Clicked on normalization and applied normalization
+	- Check data in mssql, data is correct. 
+Brian:
+- Expanded database table products.
+	-Tested connection to database with table  expansion
+	-Data returned to web2py is correct.
+Amir:
+- Expanded products table retrieval and general page functionality.
+	-Products table retrieval code retrieves all rows.
+	-Row data formatted and displayed on html page products
+- Tested normalization
+	-Inserted 3 different supplier data sets.
+	-Checked the database to see if the normalization was successful.
+Alan:
+- Expanded and tested table products insertion.
+	-Products table insertion code successfully inserted data.
+	-Check mssql db manager for correct data insert.
+	-Data inserted correctly. 
+
+Unittest: Sprint 3
+A.  As a developer, I need the product pictures organized in a way that it is useable by an automated system to create product profiles.
+B. As an online store operator, I need to be able to (modify) activate, deactivate, add and delete suppliers so that I can increase efficiency and profitability.
+C. As an administrator, I need to be able to edit permissions of my staff so that I can manage the security of my web store. 
+
+Victor
+- Tested supplier privilege.
+	-Tried to access links without logging in.
+	-Links in accessible; correct.
+	-Logged in as manager.
+	-Checked access to staff().
+	-Check FAILED.
+	-Removed Admin check.
+	-Check only if user is logged in.
+	-Clicked on all pages for access; Access granted; Done(Incomplete).
+
+Bereket
+- Tested add/delete suppliers.
+	-Clicked the link suppliers.
+	-All suppliers show as in mssql as either active or disabled.
+	-Clicked delete on a supplier, supplier deleted from html and mssql.
+
+
+Brian
+- Tested organizing pictures as a developer.
+	-**********waiting for implementation. 
+
+Amir
+- Tested edit/add suppliers.
+	-Clicked the link suppliers.
+	-Clicked edit on a supplier; Modified status to disabled. Update correct.
+	-Clicked add; entered supplier credentials; clicked submit; Data updated on html and mssql. 
+
+Alan
+- Tested staff modification.
+	-Clicked on staff link.
+	-All staff displayed, checked with mssql.
+	-Clicked edit staff.
+	-Edited staff privilege to “Admin” and hit submit.
+	-Value on staff.html updated, value in mssql updated.

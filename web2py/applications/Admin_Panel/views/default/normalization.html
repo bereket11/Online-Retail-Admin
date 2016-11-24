@@ -1,0 +1,27 @@
+{{extend 'layout.html'}}
+
+<div id='side-bar'>
+    <a class='pad5 display-block text-shadow' href='index'><i class="fa fa-money fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-gear fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-pie-chart fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-certificate fa-3x" aria-hidden="true"></i></a>
+</div>
+
+
+<div id="normalize_container">
+    <div id="steps">Step 1: Choose supplier</div>
+    <select id="supplier_list">
+        {{for item in suppliers:}}
+        <option value="{{=item['supplier_id']}}">{{=item['supplier_name']}}</option>
+        {{pass}}
+    </select>
+
+
+    <table id="supplier_table" border="0" style="display: none;">
+    <tr><td><div id="steps">Step 2: Match supplier fields</div></td></tr>
+    </table>
+
+    <input type="button" id="normalize_btn" value="Normalize" style="display: none;">
+</div>
+
+

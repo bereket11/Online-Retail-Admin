@@ -21,8 +21,6 @@ function hide_supplier_edit_form(id){
     $("#edit_supplier_"+id).hide();
 }
 
-/////////////////////////////////////
-
 function show_staff_edit_form(id){
     console.log("#edit_staff_"+id);
     $("#edit_staff_"+id).show();

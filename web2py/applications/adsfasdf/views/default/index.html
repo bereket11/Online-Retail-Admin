@@ -1,0 +1,160 @@
+{{extend 'layout.html'}}
+
+<div id='side-bar'>
+    <a class='pad5 display-block text-shadow' href='index'><i class="fa fa-money fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-gear fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-pie-chart fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-certificate fa-3x" aria-hidden="true"></i></a>
+</div>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div class="row">
+    <div class="col-xs-6">
+<div id="filter_div"style="margin-top: 80px;"></div>
+        <div id="chart_div" style="margin-top: -10px;"></div>
+<div id="dashboard_div"  style="margin-top: -10px;">
+    <!--Divs that will hold each control and chart-->
+
+    <script type="text/javascript">
+
+      // Load the Visualization API and the controls package.
+      google.charts.load('current', {'packages':['corechart', 'controls']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawDashboard);
+
+      // Callback that creates and populates a data table,
+      // instantiates a dashboard, a range slider and a pie chart,
+      // passes in the data and draws it.
+      function drawDashboard() {
+
+        // Create our data table.
+        var data = google.visualization.arrayToDataTable({{=gtpp}});
+
+        // Create a dashboard.
+        var dashboard = new google.visualization.Dashboard(
+            document.getElementById('dashboard_div'));
+
+        // Create a range slider, passing some options
+
+        var donutRangeSlider = new google.visualization.ControlWrapper({
+          'controlType': 'NumberRangeFilter',
+          'containerId': 'filter_div',
+          'options': {
+            'filterColumnLabel': 'Top Products',
+              'height': 600,
+              'marging-top': 400,
+              'marging-left': 200,
+              'legend': 'left'
+          }
+        });
+
+
+        // Create a pie chart, passing some options
+        var pieChart = new google.visualization.ChartWrapper({
+          'chartType': 'PieChart',
+          'containerId': 'chart_div',
+          'options': {
+            'width': 600,
+            'height': 600,
+            'pieSliceText': 'value',
+            'legend': 'right'
+          }
+        });
+
+
+        // Establish dependencies, declaring that 'filter' drives 'pieChart',
+        // so that the pie chart will only display entries that are let through
+        // given the chosen slider range.
+        dashboard.bind(donutRangeSlider, pieChart);
+
+        // Draw the dashboard.
+        dashboard.draw(data);
+      }
+    </script>
+    </div>
+
+</div>
+    <div class="col-xs-6">
+
+<div id="filter_div1"style="margin-top: 80px;"></div>
+        <div id="chart_div1" style="margin-top: -10px;"></div>
+<div id="dashboard_div1"  style="margin-top: -10px;">
+      <!--Divs that will hold each control and chart-->
+
+    <script type="text/javascript">
+
+      // Load the Visualization API and the controls package.
+      google.charts.load('current', {'packages':['corechart', 'controls']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawDashboard1);
+
+      // Callback that creates and populates a data table,
+      // instantiates a dashboard, a range slider and a pie chart,
+      // passes in the data and draws it.
+      function drawDashboard1() {
+
+        // Create our data table.
+        var data1 = google.visualization.arrayToDataTable({{=stpp}});
+
+        // Create a dashboard.
+        var dashboard = new google.visualization.Dashboard(
+            document.getElementById('dashboard_div1'));
+
+        // Create a range slider, passing some options
+
+        var donutRangeSlider = new google.visualization.ControlWrapper({
+          'controlType': 'NumberRangeFilter',
+          'containerId': 'filter_div1',
+          'options': {
+            'filterColumnLabel': 'Top Suppliers',
+              'height': 600,
+              'marging-top': 300,
+              'legend': 'left'
+          }
+        });
+
+
+        // Create a pie chart, passing some options
+        var pieChart = new google.visualization.ChartWrapper({
+          'chartType': 'PieChart',
+          'containerId': 'chart_div1',
+          'options': {
+            'width': 600,
+            'height': 600,
+            'pieSliceText': 'value',
+            'legend': 'right'
+          }
+        });
+
+
+        // Establish dependencies, declaring that 'filter' drives 'pieChart',
+        // so that the pie chart will only display entries that are let through
+        // given the chosen slider range.
+        dashboard.bind(donutRangeSlider, pieChart);
+
+        // Draw the dashboard.
+        dashboard.draw(data1);
+      }
+    </script>
+    </div>
+
+</div>
+     </div>
+<br>
+
+        <h1>Profit: ${{=profit_revenue[0][0]}}</h1>
+
+      
+        <a class="btn red pulse"><tt>
+         <h1>Revenue: ${{=profit_revenue[0][1]}}</h1>
+            </tt></a>
+
+</div>
+
+
+
+
+
+

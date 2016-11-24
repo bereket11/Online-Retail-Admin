@@ -53,7 +53,10 @@ def _():
         (T('Suppliers'), False, URL('default', 'supplier')),
         (T('Statistics'), False, URL('default', 'stats')),
         (T('Products'), False, URL('default', 'products')),
-        (T('Staff'), False, URL('default', 'staff'))
+        (T('Staff'), False, URL('default', 'staff')),
+        (T('Data Normalization'), False, URL('default', 'normalization')),
+        (T('Image Manager'), False, URL('default', 'image')),
+        (T('Tag Manager'), False, URL('default', 'tag')),
     ]
 
 

@@ -1,0 +1,77 @@
+{{extend 'layout.html'}}
+
+<div id='side-bar'>
+    <a class='pad5 display-block text-shadow' href='index'><i class="fa fa-money fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-gear fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-pie-chart fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-certificate fa-3x" aria-hidden="true"></i></a>
+</div>
+<div style="margin:0 auto;" class="text-center">
+    <div class="text-center" style="font-size:20px;">Add new supplier</div>
+    <div id="submit_supplier">
+        <form style="text-align:center; display:inline-block;" enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['add'])}}" method="post">
+            <input class="form-input" name="supplier_name" type="text" placeholder="Supplier Name">
+            <input class="form-input" name="contact_first" type="text" placeholder="Contact First Name">
+            <input class="form-input" name="contact_last" type="text" placeholder="Contact Last Name">
+            <br>
+            <input class="form-input" name="contact_phone" type="text" placeholder="Contact Phone Number">
+            <input class="form-input" name="contact_email" type="text" placeholder="Contact Email">
+            <input class="form-input" name="status" type="text" placeholder="Status">
+            <br>
+            <input class="button" value="submit" class="button" type="submit">
+        </form>
+        <br>
+        <button class="button" style="display:inline-block;" onclick="hide_supplier_form()">Cancel</button>
+    </div>
+    <button id="supplier_add_button" onclick="show_supplier_form()">Add</button>
+</div>
+
+<br>
+<br>
+<!-- =====Row 1===== -->
+<div class="text-center" style="font-size:20px;">Active Suppliers</div>
+<div class="row-1-content-shorter row-content">
+    <!-- get suppliers from database -->
+    <div  style="height:auto;">
+        {{for supplier in suppliers:}}
+            <table border="0" class="supplier-table">
+                <div class="supplier">
+                    {{if supplier['status'] == 'Active' or supplier['status'] == 'active':}}
+                        <tr>
+                            <td style='width:14%;' class="supplier-td">{{=supplier['supplier_name']}}</td>
+                            <td style='width:30%;' class="supplier-td">{{=supplier['contact_email']}}</td>
+                            <td class="supplier-td">{{=supplier['status']}}</td>
+                            <td class="supplier-td">{{=supplier['contact_first']}}</td>
+                            <td class="supplier-td">{{=supplier['contact_last']}}</td>
+                            <td class="supplier-td">{{=supplier['contact_phone']}}</td>
+                            <td class="supplier-td"><button style="display:inline-block; line-height:49px; vetical-align:top; padding:0; width:35px; height:35px;  background:none; color:black; font-size:14px;" onclick="show_supplier_edit_form({{=supplier['supplier_id']}})"><i class="fa fa fa-pencil-square-o fa-2x"></i></button></td>
+                            <td class="supplier-td">{{=A('Delete', _href=URL('default', 'supplier', args=['delete'], vars={'id':supplier['supplier_id']}), _class='btn btn-danger border-radius5')}}</td>
+                        </tr>
+                        <div id="edit_supplier_{{=supplier['supplier_id']}}">
+                            <form enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['edit'])}}" method="post">
+                                <input type="hidden" name="supplier_id" value="{{=supplier['supplier_id']}}"/>
+                                <input name="supplier_name" type="text" value="{{=supplier['supplier_name']}}"/>
+                                <input name="contact_first" type="text" value="{{=supplier['contact_first']}}"/>
+                                <input name="contact_last" type="text" value="{{=supplier['contact_last']}}"/>
+                                <input name="contact_phone" type="text" value="{{=supplier['contact_phone']}}"/>
+                                <input name="contact_email" type="text" value="{{=supplier['contact_email']}}"/>
+                                <input name="status" type="text" value="{{=supplier['status']}}">
+                                <input type="submit" value="submit" >
+                            </form>
+                            <button onclick="hide_supplier_edit_form({{=supplier['supplier_id']}})">Cancel</button>
+                        </div>
+                        <script>
+                            console.log("#edit_supplier_{{=supplier['supplier_id']}}");
+                            $("#edit_supplier_{{=supplier['supplier_id']}}").hide();
+                        </script>
+                    {{pass}}
+                </div>
+            </table>
+        {{pass}}
+    </div>
+</div>
+
+<div class="text-center" style="font-size:20px;">Inactive Suppliers</div>
+<div class="row-1-content-shorter row-content">
+    <div style="height:350px;overflow:auto;"></div>
+</div>

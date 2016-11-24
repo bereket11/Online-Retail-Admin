@@ -1,0 +1,43 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+<div id='side-bar'>
+    <a class='pad5 display-block text-shadow' href='index'><i class="fa fa-money fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-gear fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-pie-chart fa-3x" aria-hidden="true"></i></a>
+    <a class='pad5 display-block text-shadow' href='stats'><i class="fa fa-certificate fa-3x" aria-hidden="true"></i></a>
+</div>
+
+
+
+<div id="tag_container">
+    <div class="tab_choose">
+        <span class="tab inline" id="tab1">Edit Tag</span>
+        <span class="tab inline" id="tab2">Add Tag</span>
+    </div>
+    <div style="display: none;" id="tab1_container">
+        <table border="0">
+        {{for item in products:}}
+        <tr>
+            <td><input type="button" onclick="tag_opener('{{=item['product_id']}}')" class="button_save" value="Manage Tags"></td>
+            <td>{{=item['title']}}</td>
+        </tr>
+        <tr>
+            <td id="tag_choose_{{=item['product_id']}}" class="tag_choose" colspan="2">
+                <div id="select_{{=item['product_id']}}">
+
+                </div>
+                <input type="button" onclick="save_tag({{=item['product_id']}})" value="Save" class="button_save">
+            </td>
+        </tr>
+        {{pass}}
+    </table>
+    </div>
+
+    <div id="tab2_container">
+        <div id="tag_edit">
+            Enter the tag below<br>
+            <input class="tag_input" type="text" id="add_tag_box">
+            <input type="button" onclick="tag_save()" class="button_save" value="Add Tag">
+        </div>
+    </div>
+</div>
