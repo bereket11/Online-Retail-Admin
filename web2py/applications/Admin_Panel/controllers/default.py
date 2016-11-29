@@ -10,9 +10,9 @@
 
 from urlparse import urlparse
 import json
-import datetime
 import urllib
 import gluon
+import datetime
 
 """
 SUBROUTINES
@@ -446,11 +446,14 @@ def amount_by_suppllier(begin, end, limit):
     top_products = db.executesql("select top "+str(limitby)+" supplier_name, sum(round(order_item.sale_price, 2)) as total_sales from supplier inner join order_item on supplier.supplier_id = order_item.supplier_id inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date > '"+begin+"' and purchase_order.sale_date < '"+end+"' group by supplier_name order by total_sales desc")
     return json.dumps(top_products)
 
-def get_profit(begin, end): #scope = day/month/year
-    if begin == None:
-        begin = "20051104"
-    if end == None:
-        end="20171104"
+def get_profit(): #scope = day/month/year
+
+    today = str(datetime.date.today())
+    past_thirty = today - datetime.timedelta(days=30)
+    begin = str(today)
+    end = str(past_thirty)
+    begin.replace("-", "")
+    end.replace("-", "")
 
     profit = db.executesql("select sum(round(order_item.sale_price - order_item.sale_cost, 2)) as profit, sum(round(order_item.sale_price,2)) as revenue from order_item inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date between'" + begin + "' and '" + end + "'")
     return profit
