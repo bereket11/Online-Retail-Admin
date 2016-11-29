@@ -104,7 +104,7 @@ def set_normalize():
 
 def load_supplier_data():
     supplier_id = request.vars.id
-    supplier_fields = db.executesql("SELECT COLUMN_NAME FROM devora.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'supplier_"+supplier_id+"'", as_dict=True)
+    supplier_fields = db.executesql("SELECT COLUMN_NAME FROM devora.INFORMATION_SCHEMA.COLUMNS WHERE COLUMN_NAME != 'product_id' and TABLE_NAME = N'supplier_"+supplier_id+"'", as_dict=True)
     return json.dumps(supplier_fields, ensure_ascii=False)
 
 def tag_save():
@@ -125,8 +125,17 @@ def normalization():
     if check_user() == False:
         T('Permission Denied')
         redirect('index')
-
-    suppliers = db.executesql('select * from supplier', as_dict=True)
+    query = "SELECT TABLE_NAME FROM devora.information_schema.tables WHERE TABLE_TYPE='BASE TABLE' and TABLE_NAME LIKE 'supplier_%' and TABLE_NAME != 'supplier_association'"
+    table_names = db.executesql(query)
+    supplier_ids = []
+    for item in table_names:
+        split = item[0].split("_")
+        supplier_ids.append(split[1])
+    id_string = ", ".join(supplier_ids)
+    id_string = "(" + id_string + ")"
+    query = "select * from supplier where supplier_id in " + id_string
+    suppliers = db.executesql(query, as_dict=True)
+    print(suppliers)
     return dict(location=T('Admin Panel - normalization'), suppliers=suppliers)
 
 def tag():

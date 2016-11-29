@@ -111,22 +111,21 @@ function product_save($id) {
 }
 
 $('#supplier_list').on('change',function (e) {
+	document.getElementById('supplier_table').innerHTML = '';
 	// $('#dropDownId :selected').text();
 	var id = $('#supplier_list :selected').val();
 	var general1 = "<select";
 	var general2 = "><option value='null'></option>" +
-		"<option value='product_info_id'>product_info_id</option>" +
 		"<option value='title'>title</option>" +
 		"<option value='description'>description</option>" +
 		"<option value='manufacturer'>manufacturer</option>" +
 		"<option value='upc'>UPC</option>" +
-		"<option value='page'>page</option>" +
-		"<option value='visit'>Color</option>" +
+		"<option value='length'>length</option>" +
 		"<option value='height'>height</option>" +
 		"<option value='unit'>unit</option>" +
 		"<option value='width'>width</option>" +
 		"<option value='created_by'>created_by</option>" +
-		"<option value='created_date'>create_date</option>" +
+		"<option value='create_date'>create_date</option>" +
 		"<option value='weight'>weight</option></select>";
 
 
@@ -138,15 +137,15 @@ $('#supplier_list').on('change',function (e) {
 
 			var data = $.parseJSON(respond);
 			var count = 0;
-			var fileds = [];
+			var fields = [];
 			data.forEach(function (e) {
 				count++;
-				fileds.push(e['column_name']);
+				fields.push(e['column_name']);
 			})
 
 
 			for($i=0;$i<count;$i++){
-				$('#supplier_table').html($('#supplier_table').html() + '<tr><td>'+fileds[$i]+'</td><td id='+fileds[$i]+'>'+general1+' id='+fileds[$i]+' '+general2+'</td></tr>')
+				$('#supplier_table').html($('#supplier_table').html() + '<tr><td>'+fields[$i]+'</td><td id='+fields[$i]+'>'+general1+' id='+fields[$i]+' '+general2+'</td></tr>')
 			}
 			$('#supplier_table').show();
 			$('#normalize_btn').show();
