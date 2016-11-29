@@ -44,12 +44,11 @@ jQuery(function(){
     });
 
 function product_add($id) {
-	console.log($id)
 	 $.ajax({
 		 type: "POST",
 		 url: "/Admin_Panel/default/add_product?id="+$id,
 	 })
-	console.log($id)
+	alert('Product added to page successfully');
 
 }
 
@@ -119,7 +118,7 @@ $('#supplier_list').on('change',function (e) {
 		"<option value='width'>width</option>" +
 		"<option value='created_by'>created_by</option>" +
 		"<option value='created_date'>create_date</option>" +
-		"<option value='weight'>weight</option></select>" + "<option value='weight'>weight</option></select>"+
+		"<option value='weight'>weight</option></select>";
 
 
 	$.ajax({
