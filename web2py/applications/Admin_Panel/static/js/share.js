@@ -259,28 +259,41 @@ function save_tag($id) {
 }
 
 function image_opener(pid) {
-	$.ajax({
-		type: "POST",
-		url: "/Admin_Panel/default/load_image?pid="+pid,
-	})
-	.done(function (respond) {
-		respond =  JSON.parse(respond);
-		img_obj = '';
-		for(i=0; i<respond.length; i++){
-			img_path = respond[i]['image_path'];
-			img_default = respond[i]['default'];
-			img_id = respond[i]['image_id'];
-			if(img_default == '1'){
-				img_obj += "<input checked='checked' type='radio' name='img_select_"+pid+"' value='"+img_id+"'><img width='150' src=../static/images/product_images/"+img_path+".jpg>"
-			}else{
-				img_obj += "<input type='radio' name='img_select_"+pid+"' value='"+img_id+"'><img width='150' src=../static/images/product_images/"+img_path+".jpg>"
-			}
+	if( $('#img_place_'+pid).html() != ''){
+		$('#img_place_'+pid).fadeOut(1000);
+		$('#img_place_'+pid).html('');
+		$('#img_place_'+pid).fadeIn();
 
-		}
-		img_obj += "<input style='margin-left: 20px' type=button class='button_save' value='save' onclick='image_save_default("+pid+")'>"
-		$('#img_place_'+pid).html(img_obj)
-	})
+		return false
+	}
+	$('#img_place_'+pid).html("<img width='250px' src='/Admin_Panel/static/images/loading.gif'> <span style='color: #569eea;font-size: 1.6em;font-weight: bold'>Loading Images Please Wait...</span>");
+	setTimeout(function(){ extracted(pid); }, 2500);
+
 }
+
+function extracted(pid){
+            $.ajax({
+                type: "POST",
+                url: "/Admin_Panel/default/load_image?pid="+pid,
+            })
+                .done(function (respond) {
+                    respond =  JSON.parse(respond);
+                    img_obj = '';
+                    for(i=0; i<respond.length; i++){
+                        img_path = respond[i]['image_path'];
+                        img_default = respond[i]['default'];
+                        img_id = respond[i]['image_id'];
+                        if(img_default == '1'){
+                            img_obj += "<input checked='checked' type='radio' name='img_select_"+pid+"' value='"+img_id+"'><img width='150' src=../static/images/product_images/"+img_path+".jpg>"
+                        }else{
+                            img_obj += "<input type='radio' name='img_select_"+pid+"' value='"+img_id+"'><img width='150' src=../static/images/product_images/"+img_path+".jpg>"
+                        }
+
+                    }
+                    img_obj += "<input style='margin-left: 20px' type=button class='button_save' value='save' onclick='image_save_default("+pid+")'>"
+                    $('#img_place_'+pid).html(img_obj)
+                })
+        }
 
 function image_save_default(pid) {
 	var selected = $("input[name='img_select_"+pid+"']:checked").val();
