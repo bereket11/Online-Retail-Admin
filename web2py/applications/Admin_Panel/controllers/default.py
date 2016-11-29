@@ -63,7 +63,7 @@ PAGES
 """
 def index():
     profit_revenue = get_profit('20140501', '20170611')
-    return dict(gtpp = gtpp, stpp=stpp, profit_revenue= profit_revenue)
+    return dict(profit_revenue= profit_revenue)
 
 def load_tags():
     pid = request.vars.pid

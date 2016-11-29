@@ -1,47 +1,43 @@
 {{extend 'layout.html'}}
 <div id="supplier_container">
-<div style="margin-left: 40px;" class="text-left">
-    <br>
-
-    <div class="text-center" style="font-size:25px;" >Add New Supplier
+    <div style="margin-left: 40px;" class="text-left">
         <br>
-    <div id="submit_supplier">
-        <form style="..." enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['add'])}}" method="post">
-            <input class="form-input" name="supplier_name" type="text" placeholder="Supplier Name">
-            <input class="form-input" name="contact_first" type="text" placeholder="Contact First Name">
-            <input class="form-input" name="contact_last" type="text" placeholder="Contact Last Name">
+        <div class="text-center" style="font-size:25px;" >Add New Supplier
             <br>
-            <input class="form-input" name="contact_phone" type="text" placeholder="Contact Phone Number">
-            <input class="form-input" name="contact_email" type="text" placeholder="Contact Email">
-            <input class="form-input" name="status" type="text" placeholder="Status">
-            <br>
-            <input class="button" value="submit" class="button"  style="background-color: #00c4ff;" type="submit">
-
-        </form>
-        <br>
-        <button class="button" style="display:inline-block; background-color: #00c4ff;" onclick="hide_supplier_form()">Cancel</button>
-    </div>
-    <button id="supplier_add_button" style="background-color: #00c4ff;" onclick="show_supplier_form()">Add</button>
-
-</div>
-    </div>
-<br> <br>
-
-<!-- =====Row 1===== -->
-    <div class="tab_supplier">
-<div class="text-center" style="font-size:20px;">Active Suppliers</div>
+            <div id="submit_supplier">
+                <form style="..." enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['add'])}}" method="post">
+                    <input class="form-input" name="supplier_name" type="text" placeholder="Supplier Name">
+                    <input class="form-input" name="contact_first" type="text" placeholder="Contact First Name">
+                    <input class="form-input" name="contact_last" type="text" placeholder="Contact Last Name">
+                    <br>
+                    <input class="form-input" name="contact_phone" type="text" placeholder="Contact Phone Number">
+                    <input class="form-input" name="contact_email" type="text" placeholder="Contact Email">
+                    <input class="form-input" name="status" type="text" placeholder="Status">
+                    <br>
+                    <input class="button" value="submit" class="button"  style="background-color: #00c4ff;" type="submit">
+                </form>
+                <br>
+                <button class="button" style="display:inline-block; background-color: #00c4ff;" onclick="hide_supplier_form()">Cancel</button>
+            </div>
+            <button id="supplier_add_button" style="background-color: #00c4ff;" onclick="show_supplier_form()">Add</button>
         </div>
-
+    </div>
+<br>
+<br>
+<!-- =====Row 1===== -->
+<div class="tab_supplier">
+    <div class="text-center" style="font-size:20px;">Active Suppliers</div>
+</div>
 
 <div class="row-1-content-shorter row-content">
     <!-- get suppliers from database -->
     <div  style="height:auto;">
         {{for supplier in suppliers:}}
             <table border="0" class="supplier-table">
+
                 <div class="supplier">
                     {{if supplier['status'] == 'active':}}
                         <tr>
-
                             <td style='width:14%;' class="supplier-td">{{=supplier['supplier_name']}}</td>
                             <td style='width:30%;' class="supplier-td">{{=supplier['contact_email']}}</td>
                             <td class="supplier-td">{{=supplier['status']}}</td>
@@ -74,9 +70,11 @@
         {{pass}}
     </div>
 </div>
-    <div class="tab_supplier">
-<div class="text-center" style="font-size:20px;">Inactive Suppliers</div>
-        </div>
+
+<div class="tab_supplier">
+    <div class="text-center" style="font-size:20px;">Inactive Suppliers</div>
+</div>
+
 <div class="row-1-content-shorter row-content">
      <div  style="height:auto;">
         {{for supplier in suppliers:}}

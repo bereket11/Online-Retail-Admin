@@ -87,7 +87,10 @@ a.active {
 }
 
 .row-1-content-shorter{
-    height:250px;
+    border:none;
+    height:auto;
+    overflow-x:hidden;
+    overflow-y:hidden;
     width:96%;
 }
 
