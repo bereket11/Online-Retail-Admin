@@ -35,7 +35,7 @@ def check_admin():
         return False
 
 def index():
-
+    #x = db.executesql("select * from ")
     gtp = get_top_products('20140501', '20170611', 10)
     gtpp = XML(gtp)
     stp = top_suppliers('20140501', '20170611', 10)
@@ -314,8 +314,6 @@ def call():
     """
     return service()
 
-
-
 def stats():
     (meses_chart, dados_chart) = splittter()
     title = "Online-Retail-Admin"
@@ -327,9 +325,6 @@ def stats():
     dados_map['subtitulo'] = stitle
 
     container = """
-
-
-
                 // Build the chart
                 $('#container').highcharts({
 
