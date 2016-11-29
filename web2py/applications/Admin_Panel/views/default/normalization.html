@@ -3,6 +3,7 @@
 <div id="normalize_container">
     <div id="steps">Step 1: Choose supplier</div>
     <select id="supplier_list">
+        <option value=""></option>
         {{for item in suppliers:}}
         <option value="{{=item['supplier_id']}}">{{=item['supplier_name']}}</option>
         {{pass}}

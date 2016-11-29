@@ -240,6 +240,17 @@ def chart_bars():
 
     return dict(chart=XML('<script>'+chart+'</script>'))
 
+def delete_tag():
+    tag_id = request.vars.tag_id
+    result = db.executesql("select * from tag where tag_id = " + str(tag_id))
+    if result:
+        response_code = 0
+    else:
+        query = "delete from tag where tag_id= " + tag_id
+        db.executesql(query)
+        response_code = 1
+    return dict(response = response_code)
+
 def supplier():
     suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
     print "inside supplier()"
