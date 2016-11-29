@@ -222,10 +222,18 @@ function tag_open($id) {
 $('.inline').on('click', function (e) {
 	if(this.id == 'tab1'){
 		$('#tab2_container').hide();
+		$('#tab3_container').hide();
 		$('#tab1_container').show();
-	}else{
+	}
+	if(this.id == 'tab2'){
 		$('#tab1_container').hide();
+		$('#tab3_container').hide();
 		$('#tab2_container').show();
+	}
+	if(this.id == 'tab3') {
+		$('#tab1_container').hide();
+		$('#tab2_container').hide();
+		$('#tab3_container').show();
 	}
 })
 
@@ -238,6 +246,17 @@ function tag_save() {
 	})
 		.done(function (respond) {
 			console.log(respond)
+		})
+}
+
+function tag_remove() {
+	$id = $('#all_tag_remove :selected').val();
+	$.ajax({
+		type: "POST",
+		url: "/Admin_Panel/default/delete_tag?tag_id="+$id,
+	})
+		.done(function (respond) {
+			alert_add_cart('Tag has been removed successfully');
 		})
 }
 

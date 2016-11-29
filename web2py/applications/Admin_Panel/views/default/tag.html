@@ -5,6 +5,7 @@
     <div class="tab_choose">
         <span class="tab inline" id="tab1">Edit Tag</span>
         <span class="tab inline" id="tab2">Add Tag</span>
+        <span class="tab inline" id="tab3">Remove Tag</span>
     </div>
     <div style="display: none;" id="tab1_container">
         <table border="0">
@@ -30,6 +31,17 @@
             Enter the tag below<br>
             <input class="tag_input" type="text" id="add_tag_box">
             <input type="button" onclick="tag_save()" class="button_save" value="Add Tag">
+        </div>
+    </div>
+
+    <div id="tab3_container" style="display: none">
+        <div id="tag_edit">
+            Select the tag you wish to remove<br>
+            <select id="all_tag_remove">
+                <option value="1">tag1</option>
+                <option value="2">tag2</option>
+            </select>
+            <input type="button" onclick="tag_remove()" class="button_save" value="Remove Tag">
         </div>
     </div>
 </div>
