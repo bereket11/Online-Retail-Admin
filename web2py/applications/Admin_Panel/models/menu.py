@@ -39,6 +39,24 @@ DEVELOPMENT_MENU = True
 # provide shortcuts for development. remove in production
 # ----------------------------------------------------------------------------------------------------------------------
 
+def check_user():
+    if auth.user != None:
+        return True
+    else:
+        return False
+
+def check_admin():
+    if check_user():
+        user_permission = db.executesql("SELECT * FROM user_permissions WHERE user_id='" + str(auth.user.id) + "'")
+        print user_permission[0][1]
+        if user_permission:
+            if user_permission[0][1] == "admin":
+                return True
+            else:
+                return False
+    else:
+        return False
+
 def _():
     # ------------------------------------------------------------------------------------------------------------------
     # shortcuts
@@ -48,7 +66,13 @@ def _():
     # ------------------------------------------------------------------------------------------------------------------
     # useful links to internal and external resources
     # ------------------------------------------------------------------------------------------------------------------
-    if auth.user:
+
+    if check_user():
+        response.menu += [
+            (T('Inventory'), False, URL('default', 'inventory')),
+        ]
+
+    if check_admin():
         response.menu += [
             (T('Suppliers'), False, URL('default', 'supplier')),
             (T('Statistics'), False, URL('default', 'stats')),
@@ -58,7 +82,6 @@ def _():
             (T('Image Manager'), False, URL('default', 'image')),
             (T('Tag Manager'), False, URL('default', 'tag')),
         ]
-
 
 if DEVELOPMENT_MENU:
     _()
