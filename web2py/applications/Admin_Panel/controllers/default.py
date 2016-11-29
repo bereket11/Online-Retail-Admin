@@ -88,6 +88,7 @@ def tag_delete():
     tag_id = request.vars.tag_id
     query = "select * from tag where tag_id = " + str(tag_id)
     result = db.executesql(query)
+
     if not result:
         response_code = 0
     else:
@@ -95,7 +96,7 @@ def tag_delete():
         db.executesql(query)
         response_code = 0
 
-    return dict(response = response_code)
+    # return dict(response = response_code)
 
 
 def load_tags():

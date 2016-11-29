@@ -253,7 +253,7 @@ function tag_remove() {
 	$id = $('#all_tag_remove :selected').val();
 	$.ajax({
 		type: "POST",
-		url: "/Admin_Panel/default/delete_tag?tag_id="+$id,
+		url: "/Admin_Panel/default/tag_delete?tag_id="+$id,
 	})
 		.done(function (respond) {
 			alert_add_cart('Tag has been removed successfully');
