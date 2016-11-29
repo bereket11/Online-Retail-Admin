@@ -80,7 +80,7 @@ def splittter2():
 PAGES
 """
 def index():
-    profit_revenue = get_profit('20140501', '20170611')
+    profit_revenue = get_profit()
     return dict(profit_revenue= profit_revenue)
 
 def load_tags():
@@ -217,7 +217,6 @@ def staff():
         edited = db.executesql("UPDATE user_permissions SET permission='" + request.vars.permission + "' WHERE user_id='" + str(request.vars.user_id) + "'")
         staff = db.executesql("SELECT * FROM view_permissions", as_dict=True)
         redirect('staff')
-
     return dict(location=T('Admin Panel - Staff'), staff=staff)
 
 def supplier():
@@ -430,7 +429,7 @@ def amount_by_suppllier(begin, end, limit):
 
 def get_profit(): #scope = day/month/year
 
-    today = str(datetime.date.today())
+    today = datetime.date.today()
     past_thirty = today - datetime.timedelta(days=30)
     begin = str(today)
     end = str(past_thirty)
