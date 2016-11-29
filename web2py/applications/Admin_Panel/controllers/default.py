@@ -12,6 +12,7 @@ from urlparse import urlparse
 import json
 import urllib
 import gluon
+import datetime
 
 """
 SUBROUTINES
@@ -143,7 +144,8 @@ def set_normalize():
     dest = request.vars.dest
     source = request.vars.source
     sql = 'insert into product ' + source + ' select ' + dest + ' from supplier_' + supplier_id
-    print sql
+    query = 'drop table supplier_' + supplier_id
+    return dict(response=1)
 
 def load_supplier_data():
     supplier_id = request.vars.id
@@ -175,7 +177,6 @@ def normalization():
     id_string = "(" + id_string + ")"
     query = "select * from supplier where supplier_id in " + id_string
     suppliers = db.executesql(query, as_dict=True)
-    print(suppliers)
     return dict(location=T('Admin Panel - normalization'), suppliers=suppliers)
 
 def tag():
@@ -196,14 +197,14 @@ def products():
     return dict(location=T('Admin Panel - Products'),test=test)
 
 def edit_product():
-    supplier_association_id = request.vars.id
+    product_id = request.vars.id
     title = request.vars.title
     desc = request.vars.desc
-    query = "update get_product set title = '" + title + "', description = '" + desc + "' where supplier_association_id = '" + supplier_association_id + "'"
+    query = "update product set title = '" + title + "', description = '" + desc + "' where product_id = '" + product_id + "'"
 
     db.executesql(query)
 
-    products = db.executesql("SELECT * FROM get_product")
+    products = db.executesql("SELECT * FROM product")
     user_data = db.executesql("SELECT * FROM auth_user")
     suppliers = db.executesql("SELECT * FROM supplier")
 
@@ -426,11 +427,14 @@ def amount_by_suppllier(begin, end, limit):
     top_products = db.executesql("select top "+str(limitby)+" supplier_name, sum(round(order_item.sale_price, 2)) as total_sales from supplier inner join order_item on supplier.supplier_id = order_item.supplier_id inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date > '"+begin+"' and purchase_order.sale_date < '"+end+"' group by supplier_name order by total_sales desc")
     return json.dumps(top_products)
 
-def get_profit(begin, end): #scope = day/month/year
-    if begin == None:
-        begin = "20051104"
-    if end == None:
-        end="20171104"
+def get_profit(): #scope = day/month/year
+
+    today = str(datetime.date.today())
+    past_thirty = today - datetime.timedelta(days=30)
+    begin = str(today)
+    end = str(past_thirty)
+    begin.replace("-", "")
+    end.replace("-", "")
 
     profit = db.executesql("select sum(round(order_item.sale_price - order_item.sale_cost, 2)) as profit, sum(round(order_item.sale_price,2)) as revenue from order_item inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date between'" + begin + "' and '" + end + "'")
     return profit
@@ -445,6 +449,30 @@ def get_profit_by_date(time, amount):
 
 def supplier_compare(supplier1, supplier2):
     return 0
+
+
+def inventory():
+    if check_user() == False:
+        T('Permission Denied')
+        redirect('index')
+
+    test = db.executesql('select * from inventory where product_id', as_dict=True)
+    return dict(location=T('Admin Panel - Inventory'),test=test)
+
+
+def edit_inventory():
+    product_id = request.vars.id
+    title = request.vars.title
+    desc = request.vars.desc
+    query = "update inventory set title = '" + title + "', description = '" + desc + "' where product_id = '" + product_id + "'"
+
+    db.executesql(query)
+
+    products = db.executesql("SELECT * FROM inventory")
+    user_data = db.executesql("SELECT * FROM auth_user")
+    suppliers = db.executesql("SELECT * FROM supplier")
+
+    return dict(location=T('Admin Panel - Index'), suppliers=suppliers, user_data=user_data, products=products)
 
 """
 DEFAULT W2P FUNCS
