@@ -21,10 +21,10 @@
 </div>
 
 <div id="report-chart2">
-    <div class="text-center" style="font-size:24px;">Top Products</div>
-    <div id="filter_div"></div>
-    <div id="chart_div" style=""></div>
-    <div id="dashboard_div"  style="margin:0 auto; width:100%">
+    <div class="text-center" style="font-size:24px;"></div>
+    <div id="filter_div"style="margin-left: 600px; margin-top: 30px; "></div>
+        <div id="chart_div" style="margin-left: 500px; margin-top: 0px; overflow: hidden;"></div>
+<div id="dashboard_div"  style="margin-bottom: -50px;">
 
         <script type="text/javascript">
           google.charts.load('current', {'packages':['corechart', 'controls']});
@@ -41,7 +41,10 @@
               'containerId': 'filter_div',
               'options': {
                 'filterColumnLabel': 'Top Products',
-                'legend': 'middle'
+                  'height': 600,
+                  'width': 600,
+                  'marging-top': 300,
+                  'legend': 'middle'
               }
             });
 
@@ -49,8 +52,18 @@
               'chartType': 'PieChart',
               'containerId': 'chart_div',
               'options': {
-                'pieSliceText': 'value',
-                'legend': 'middle'
+                  'width': 900,
+            'height': 600,
+
+                  'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 0},
+
+                  'pieSliceTextStyle': {
+            color: 'black',
+            fontSize: 16,
+                      position: {'left':5, 'top':5, 'bottom':10}
+        },
+                  'is3D':true,
+
               }
             });
             dashboard.bind(donutRangeSlider, pieChart);
@@ -61,11 +74,11 @@
 </div>
 
 <div id="report-chart3">
-    <div class="text-center" style="font-size:24px;">Top Suppliers</div>
 
-    <div id="filter_div1"></div>
-    <div id="chart_div1" style=""></div>
-    <div id="dashboard_div1"  style="">
+    <div id="filter_div1"style="margin-left: 700px; margin-top: 30px;"></div>
+        <div id="chart_div1" style="margin-left: 600px; margin-top: 0px;"></div>
+<div id="dashboard_div1"  style="margin-bottom: -50px;">
+
         <script type="text/javascript">
           google.charts.load('current', {'packages':['corechart', 'controls']});
           google.charts.setOnLoadCallback(drawDashboard1);
@@ -79,16 +92,29 @@
               'containerId': 'filter_div1',
               'options': {
                 'filterColumnLabel': 'Top Suppliers',
-                'legend': 'left'
+                'height': 600,
+                  'width': 600,
+                  'marging-top': 300,
+                  'legend': 'middle'
               }
             });
 
             var pieChart = new google.visualization.ChartWrapper({
               'chartType': 'PieChart',
               'containerId': 'chart_div1',
-              'options': {
-                'pieSliceText': 'value',
-                'legend': 'right'
+                'options': {
+                  'width': 900,
+            'height': 600,
+
+                  'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 0},
+
+                  'pieSliceTextStyle': {
+            color: 'black',
+            fontSize: 16,
+                      position: {'left':5, 'top':5, 'bottom':10}
+        },
+                  'is3D':true,
+
               }
             });
             dashboard.bind(donutRangeSlider, pieChart);
