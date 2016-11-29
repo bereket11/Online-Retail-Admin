@@ -38,8 +38,9 @@
         <div id="tag_edit">
             Select the tag you wish to remove<br>
             <select id="all_tag_remove">
-                <option value="1">tag1</option>
-                <option value="2">tag2</option>
+                {{for item in tags:}}
+                <option value="{{=item['tag_id']}}">{{=item['tag_name']}}</option>
+                {{pass}}
             </select>
             <input type="button" onclick="tag_remove()" class="button_save" value="Remove Tag">
         </div>
