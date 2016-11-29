@@ -23,6 +23,7 @@ def check_user():
     else:
         return False
 
+
 def check_admin():
     if check_user():
         user_permission = db.executesql("SELECT permission FROM user_permissions WHERE user_id='" + str(auth.user.id) + "'")
@@ -89,8 +90,8 @@ def new_tag_save():
 
 def add_product():
     supplier_association_id = request.vars.id
-    query = "insert into inventory select * from product_info where " \
-            "product_info_id in (select product_info_id from get_product where supplier_association_id = " + supplier_association_id + ")"
+    query = "insert into inventory select * from product where " \
+            "product_id in (select product_id from get_product where supplier_association_id = " + supplier_association_id + ")"
     db.executesql(query)
     response_code = 1
     return response_code
@@ -99,7 +100,7 @@ def set_normalize():
     supplier_id = request.vars.supplier_id
     dest = request.vars.dest
     source = request.vars.source
-    sql = 'insert into product_info ' + source + ' select ' + dest + ' from supplier_' + supplier_id
+    sql = 'insert into product ' + source + ' select ' + dest + ' from supplier_' + supplier_id
     print sql
 
 def load_supplier_data():
