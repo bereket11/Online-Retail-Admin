@@ -192,29 +192,29 @@ a.active {
 }
 
 #report-tab1{
-    background:red;
+    background: #112294;
 }
 
 #report-tab1:hover{
-    background:purple;
+    background: #2f854d;
     cursor:pointer;
 }
 
 #report-tab2{
-    background:green;
+    background: #5aff94;
 }
 
 #report-tab2:hover{
-    background:purple;
+    background: #2f854d;
     cursor:pointer;
 }
 
 #report-tab3{
-    background:blue;
+    background: #5aff94;
 }
 
 #report-tab3:hover{
-    background:purple;
+    background: #2f854d;
     cursor:pointer;
 }
 

@@ -2,10 +2,10 @@
 <script src="{{=URL("static", "js", args="highcharts.js")}}" type="text/javascript"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <div style="width:100%; height:40px; background:#314D67; font-size:24px; text-align:center; color:white;">Report Page</div>
-<div id="report-tab1" class="report-tab" onclick="set_stat_tab('1')">Chart 1</div><div id="report-tab2" class="report-tab" onclick="set_stat_tab('2')">Chart 2</div><div id="report-tab3" class="report-tab" onclick="set_stat_tab('3')">Chart 3</div>
+<div id="report-tab1" class="report-tab" onclick="set_stat_tab('1')">Profit Over Time</div><div id="report-tab2" class="report-tab" onclick="set_stat_tab('2')">Top Products</div><div id="report-tab3" class="report-tab" onclick="set_stat_tab('3')">Top Suppliers</div>
 
 <div id="report-chart1">
-    CHART 1
+    <div class="text-center" style="font-size:24px;">Profit Over Time</div>
     <br>
     Select Time Span
     <select>
@@ -21,7 +21,7 @@
 </div>
 
 <div id="report-chart2">
-    CHART 2
+    <div class="text-center" style="font-size:24px;">Top Products</div>
     <div id="filter_div"></div>
     <div id="chart_div" style=""></div>
     <div id="dashboard_div"  style="margin:0 auto; width:100%">
@@ -61,7 +61,7 @@
 </div>
 
 <div id="report-chart3">
-    CHART 3
+    <div class="text-center" style="font-size:24px;">Top Suppliers</div>
 
     <div id="filter_div1"></div>
     <div id="chart_div1" style=""></div>

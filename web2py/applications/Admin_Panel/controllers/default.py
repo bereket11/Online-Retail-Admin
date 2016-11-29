@@ -13,16 +13,22 @@ import json
 import urllib
 import gluon
 
+"""
+SUBROUTINES
+"""
 def parse_url(url):
     o = urlparse(url)
     return str(o[2][1:]).split('/')
+
+def replace_double_quote(strs):
+    strs = str(strs).replace('\"', '\'')
+    return strs
 
 def check_user():
     if auth.user != None:
         return True
     else:
         return False
-
 
 def check_admin():
     if check_user():
@@ -35,16 +41,28 @@ def check_admin():
     else:
         return False
 
+def splittter():
+    test = get_profit_by_date("WEEK", -10)
+    date_list = []
+    amount_list = []
+
+    for item in test:
+        date_list.append("'" +item['sale_week']+"'")
+        amount_list.append(str(item['total_sales']))
+    date_list = ", ".join(date_list)
+    date_list = "[" + date_list + "]"
+    amount_list = ", ".join(amount_list)
+    amount_list = "[" + amount_list + "]"
+
+    #print date_list
+    #print amount_list
+    return (date_list, amount_list)
+
+"""
+PAGES
+"""
 def index():
-    #x = db.executesql("select * from ")
-    gtp = get_top_products('20140501', '20170611', 10)
-    gtpp = XML(gtp)
-    stp = top_suppliers('20140501', '20170611', 10)
-    stpp = XML(stp)
-
-    profit_revenue = get_profit()
-
-
+    profit_revenue = get_profit('20140501', '20170611')
     return dict(gtpp = gtpp, stpp=stpp, profit_revenue= profit_revenue)
 
 def load_tags():
@@ -290,41 +308,6 @@ def supplier():
         redirect('default/supplier')
     return dict(location=T('Admin Panel - Suppliers'), suppliers=suppliers)
 
-def user():
-    """
-    exposes:
-    http://..../[app]/default/user/login
-    http://..../[app]/default/user/logout
-    http://..../[app]/default/user/register
-    http://..../[app]/default/user/profile
-    http://..../[app]/default/user/retrieve_password
-    http://..../[app]/default/user/change_password
-    http://..../[app]/default/user/bulk_register
-    use @auth.requires_login()
-        @auth.requires_membership('group name')
-        @auth.requires_permission('read','table name',record_id)
-    to decorate functions that need access control
-    also notice there is http://..../[app]/appadmin/manage/auth to allow administrator to manage users
-    """
-    return dict(form=auth())
-
-@cache.action()
-def download():
-    """
-    allows downloading of uploaded files
-    http://..../[app]/default/download/[filename]
-    """
-    return response.download(request, db)
-
-def call():
-    """
-    exposes services. for example:
-    http://..../[app]/default/call/jsonrpc
-    decorate with @services.jsonrpc the functions to expose
-    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
-    """
-    return service()
-
 def stats():
     (meses_chart, dados_chart) = splittter()
     title = "Online-Retail-Admin"
@@ -379,24 +362,6 @@ def stats():
 
     return dict(chart1=XML('<script>' + container1 + '</script>'), gtpp = gtpp, stpp=stpp)
 
-
-def splittter():
-    test = get_profit_by_date("WEEK", -10)
-    date_list = []
-    amount_list = []
-    for item in test:
-
-        date_list.append("'" +item['sale_week']+"'")
-        amount_list.append(str(item['total_sales']))
-    date_list = ", ".join(date_list)
-    date_list = "[" + date_list + "]"
-
-    amount_list = ", ".join(amount_list)
-    amount_list = "[" + amount_list + "]"
-    print date_list
-    print amount_list
-    return (date_list, amount_list)
-
 """
 DATABASE RETREIVAL FUNCTIONS
 """
@@ -430,14 +395,12 @@ def get_sales_by_location(begin, end, limit):
     sales_location = db.executesql("SELECT supplier_name,  FROM supplier", as_dict=True)
     return json.dumps(sales_location)
 
-
-#TO IMPLEMENT
 def top_suppliers(begin, end, limit):
     limitby = 10
     if limit != None:
         limitby = limit
 
-    top_supplier = db.executesql("select top 10 supplier_name, count(*) as sale_count from supplier inner join order_item on supplier.supplier_id = order_item.supplier_id inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date > '20051104' and purchase_order.sale_date < '20171104'group by supplier_name order by sale_count desc")
+    top_supplier = db.executesql("select top 10 supplier_name, count(*) as sale_count from supplier inner join order_item on supplier.supplier_id = order_item.supplier_id inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date >'" + begin + "'and purchase_order.sale_date <'" + end + "'group by supplier_name order by sale_count desc")
     top_supplier = [["Name", "Top Suppliers"]] + top_supplier
     top_supplier = replace_double_quote(json.dumps(top_supplier))
     return top_supplier
@@ -450,22 +413,55 @@ def amount_by_suppllier(begin, end, limit):
     top_products = db.executesql()
     return json.dumps(top_products)
 
-def get_profit(): #scope = day/month/year
-    profit = db.executesql("select sum(round(order_item.sale_price - order_item.sale_cost, 2)) as profit, sum(round(order_item.sale_price,2)) as revenue from order_item inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date between '20051104' and '20171104'")
+def get_profit(begin, end): #scope = day/month/year
+    begin = "20051104"
+    end="20171104"
+    profit = db.executesql("select sum(round(order_item.sale_price - order_item.sale_cost, 2)) as profit, sum(round(order_item.sale_price,2)) as revenue from order_item inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date between'" + begin + "' and '" + end + "'")
     return profit
 
 def get_profit_by_date(time, amount):
-    timely_profit = db.executesql("select cast(dateadd(WEEK, datediff(week, 0, sale_date),0) as date) as sale_week, round(cast(sum(order_item.sale_price - order_item.sale_cost) as float),2,2) as total_sales from purchase_order inner join order_item on order_item.purchase_order_no = purchase_order.purchase_order_no where sale_date between dateadd(WEEK, -10, getdate()) and getdate()  group by dateadd(WEEK, datediff(week, 0, sale_date),0)", as_dict=True)
-    print  timely_profit
-    # for i in range(0,len(timely_profit)):
-    #     timely_profit[i][1] = int(timely_profit[i][1])
-    #timely_profit = replace_double_quote(timely_profit)
+    time= "WEEK"
+    amount = "-10"
+    timely_profit = db.executesql("select cast(dateadd(" + time + ", datediff(week, 0, sale_date),0) as date) as sale_week, round(cast(sum(order_item.sale_price - order_item.sale_cost) as float),2,2) as total_sales from purchase_order inner join order_item on order_item.purchase_order_no = purchase_order.purchase_order_no where sale_date between dateadd(" + time + ", " + amount + ", getdate()) and getdate()  group by dateadd(" + time + ", datediff(" + time + ", 0, sale_date),0)", as_dict=True)
     return timely_profit
-
 
 def supplier_compare(supplier1, supplier2):
     return 0
 
-def replace_double_quote(strs):
-    strs = str(strs).replace('\"', '\'')
-    return strs
+"""
+DEFAULT W2P FUNCS
+"""
+def user():
+    """
+    exposes:
+    http://..../[app]/default/user/login
+    http://..../[app]/default/user/logout
+    http://..../[app]/default/user/register
+    http://..../[app]/default/user/profile
+    http://..../[app]/default/user/retrieve_password
+    http://..../[app]/default/user/change_password
+    http://..../[app]/default/user/bulk_register
+    use @auth.requires_login()
+        @auth.requires_membership('group name')
+        @auth.requires_permission('read','table name',record_id)
+    to decorate functions that need access control
+    also notice there is http://..../[app]/appadmin/manage/auth to allow administrator to manage users
+    """
+    return dict(form=auth())
+
+@cache.action()
+def download():
+    """
+    allows downloading of uploaded files
+    http://..../[app]/default/download/[filename]
+    """
+    return response.download(request, db)
+
+def call():
+    """
+    exposes services. for example:
+    http://..../[app]/default/call/jsonrpc
+    decorate with @services.jsonrpc the functions to expose
+    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
+    """
+    return service()
