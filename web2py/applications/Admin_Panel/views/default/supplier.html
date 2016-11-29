@@ -115,3 +115,25 @@
     </div>
 </div>
 </div>
+
+         <div class="text-center" style="font-size:25px;" >Add New Supplier
+        <br>
+    <div id="submit_supplier">
+        <form style="..." enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['add'])}}" method="post">
+            <input class="form-input" name="supplier_name" type="text" placeholder="Supplier Name">
+            <input class="form-input" name="contact_first" type="text" placeholder="Contact First Name">
+            <input class="form-input" name="contact_last" type="text" placeholder="Contact Last Name">
+            <br>
+            <input class="form-input" name="contact_phone" type="text" placeholder="Contact Phone Number">
+            <input class="form-input" name="contact_email" type="text" placeholder="Contact Email">
+            <input class="form-input" name="status" type="text" placeholder="Status">
+            <br>
+            <input class="button" value="submit" class="button"  style="background-color: #00c4ff;" type="submit">
+
+        </form>
+        <br>
+        <button class="button" style="display:inline-block; background-color: #00c4ff;" onclick="hide_supplier_form()">Cancel</button>
+    </div>
+    <button id="supplier_add_button" style="background-color: #00c4ff;" onclick="show_supplier_form()">Add</button>
+
+</div>

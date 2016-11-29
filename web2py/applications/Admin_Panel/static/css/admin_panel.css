@@ -120,6 +120,9 @@ a.active {
     color: white;
 }
 
+#dashboard_div {
+    height: 1000px;
+}
 .tab:hover{
     background-color: #007aff;
 }
@@ -133,6 +136,7 @@ a.active {
     display: block;
     cursor: pointer;
 }
+
 
 .edit_product{
     background: url(/Admin_Panel/static/images/edit.png);

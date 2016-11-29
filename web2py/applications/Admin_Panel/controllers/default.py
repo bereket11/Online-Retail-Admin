@@ -83,6 +83,21 @@ def index():
     profit_revenue = get_profit()
     return dict(profit_revenue= profit_revenue)
 
+
+def tag_delete():
+    tag_id = request.vars.tag_id
+    query = "select * from tag where tag_id = " + str(tag_id)
+    result = db.executesql(query)
+    if not result:
+        response_code = 0
+    else:
+        query = "delete from tag where tag_id = " + str(tag_id)
+        db.executesql(query)
+        response_code = 0
+
+    return dict(response = response_code)
+
+
 def load_tags():
     pid = request.vars.pid
     query = "exec dbo.tag_proc "+pid
@@ -123,6 +138,10 @@ def new_tag_save():
             if(len(result) == 1):
                 query = 'delete from tag_association where tag_id = '+tag_id
                 db.executesql(query)
+
+def delete_tag():
+    tag_id = request.vars.id
+    query = "select * from "
 
 def add_product():
     product_id = request.vars.id
