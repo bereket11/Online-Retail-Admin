@@ -7,26 +7,23 @@
         <tr>
             <th colspan="2"></th>
             <th>Title</th>
-
             <th>Description</th>
             <th>Manufacturer</th>
             <th>Create Date</th>
             <th>Cost</th>
-            <th>Supplier SKU</th>
-            <th>Supplier Name</th>
         </tr>
     {{for item in test:}}
-        <tr id={{=item['supplier_association_id']}}>
-            <td><span onclick="product_add({{=item['supplier_association_id']}})" class="add_product"></span></td>
-            <td><span onclick="product_edit({{=item['supplier_association_id']}})" class="edit_product"></span></td>
-            <td id=title_{{=item['supplier_association_id']}}>{{=item['title']}}</td>
+        <tr id={{=item['product_id']}}>
+            <td><span onclick="product_add({{=item['product_id']}})" class="add_product"></span></td>
+            <td><span onclick="product_edit({{=item['product_id']}})" class="edit_product"></span></td>
+            <td id=title_{{=item['product_id']}}>{{=item['title']}}</td>
 
-            <td id=desc_{{=item['supplier_association_id']}}>{{=item['description']}}</td>
-            <td id=manufacturer_{{=item['supplier_association_id']}}>{{=item['manufacturer']}}</td>
-            <td id=create_date_{{=item['supplier_association_id']}}>{{=item['create_date']}}</td>
-            <td id=cost_{{=item['supplier_association_id']}}>{{=item['cost']}}</td>
-            <td id=supplier_sku_{{=item['supplier_association_id']}}>{{=item['supplier_sku']}}</td>
-            <td id=supplier_name_{{=item['supplier_association_id']}}>{{=item['supplier_name']}}</td>
+            <td id=desc_{{=item['product_id']}}>{{=item['description']}}</td>
+            <td id=manufacturer_{{=item['product_id']}}>{{=item['manufacturer']}}</td>
+            <td id=create_date_{{=item['product_id']}}>{{=item['create_date']}}</td>
+            <td id=create_date_{{=item['product_id']}}>{{=item['cost']}}</td>
+            
+
         </tr>
     {{pass}}
         </table>

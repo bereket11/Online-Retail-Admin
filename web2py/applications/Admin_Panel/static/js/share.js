@@ -168,15 +168,13 @@ $('#normalize_btn').on('click',function (e) {
 
 	source = '(' + source.replace(/, $/, ")")
 	dest = '(' + dest.replace(/. $/, ")")
-	console.log(source);
-	console.log(dest);
 
 	$.ajax({
 		type: "POST",
 		url: "/Admin_Panel/default/set_normalize?source=" + source + '&dest=' + dest+'&supplier_id='+$supplier_id
 	})
 		.done(function (respond) {
-			console.log(respond)
+			alert_add_cart('Supplier data has been successfully normalized');
 		})
 })
 
@@ -291,7 +289,7 @@ function image_save_default(pid) {
 		url: "/Admin_Panel/default/save_default_image?pid="+pid+"&img_id="+selected,
 	})
 	.done(function (respond) {
-
+		alert_add_cart('Main image has been successfully saved.')
 	})
 }
 
@@ -301,6 +299,10 @@ function alert_add_cart(msg){
 	$('#msg_container #msg').html(msg)
     $("#cart_alert").fadeIn(50);
 }
+
+$('body').on('click',function () {
+	$("#cart_alert").fadeOut(0);
+})
 
 function close_add_cart(){
     $("#cart_alert").fadeOut(0);
