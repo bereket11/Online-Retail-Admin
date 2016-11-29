@@ -324,3 +324,7 @@ function close_add_cart(){
 (function(){
     $("#cart_alert").fadeOut(0);
 })();
+
+$('.main_icon').on('click',function (e) {
+	window.location = e.target.id
+})
