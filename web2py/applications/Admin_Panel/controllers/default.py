@@ -181,7 +181,8 @@ def normalization():
 
 def tag():
     products = db.executesql('select * from product', as_dict=True)
-    return dict(location=T('Admin Panel - Tag Manager'), products=products)
+    tags = db.executesql("select * from tag", as_dict = True)
+    return dict(location=T('Admin Panel - Tag Manager'), products=products, tags=tag)
 
 def load_image():
     pid = request.vars.pid
