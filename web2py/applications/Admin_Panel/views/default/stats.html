@@ -2,7 +2,7 @@
 <script src="{{=URL("static", "js", args="highcharts.js")}}" type="text/javascript"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <div style="width:100%; height:40px; background:#314D67; font-size:24px; text-align:center; color:white;">Report Page</div>
-<div id="report-tab1" class="report-tab" onclick="set_stat_tab('1')">Profit Over Time</div><div id="report-tab2" class="report-tab" onclick="set_stat_tab('2')">Top Products</div><div id="report-tab3" class="report-tab" onclick="set_stat_tab('3')">Top Suppliers</div>
+<div id="report-tab1" class="report-tab" onclick="set_stat_tab('1')">Profit Over Time</div><div id="report-tab2" class="report-tab" onclick="set_stat_tab('2')">Top Products</div><div id="report-tab3" class="report-tab" onclick="set_stat_tab('3')">Top Suppliers</div><div id="report-tab4" class="report-tab" onclick="set_stat_tab('4')">Amount By Supplier</div>
 
 <div id="report-chart1">
     <div class="text-center" style="font-size:24px;">Profit Over Time</div>
@@ -96,5 +96,21 @@
           }
         </script>
     </div>
+</div>
+
+<div id="report-chart4">
+    <div class="text-center" style="font-size:24px;">Profit Over Time</div>
+    <br>
+    Select Time Span
+    <select>
+        <option name="WEEK" value="Week">Week</option>
+        <option name="MONTH" value="Month">Month</option>
+        <option name="QUARTER" value="Quarter">Quarter</option>
+    </select>
+    How far back?
+    <input type="number" max="10" min="1" value="1"/>
+
+    <div id="container2"></div>
+    {{=chart2}}
 </div>
 

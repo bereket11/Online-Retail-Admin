@@ -182,7 +182,7 @@ a.active {
 
 .report-tab{
     display:inline-block;
-    width:33.33%;
+    width:25%;
     height:40px;
     text-align:center;
     font-size:22px;
@@ -221,6 +221,15 @@ a.active {
     cursor:pointer;
 }
 
+#report-tab4{
+    background: #5aff94;
+}
+
+#report-tab4:hover{
+    background: #2f854d;
+    cursor:pointer;
+}
+
 #report-chart1{
     display:inline;
     width:100%;
@@ -232,6 +241,11 @@ a.active {
 }
 
 #report-chart3{
+    display:none;
+    width:100%;
+}
+
+#report-chart4{
     display:none;
     width:100%;
 }

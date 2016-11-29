@@ -50,7 +50,6 @@ def _():
     # ------------------------------------------------------------------------------------------------------------------
     if auth.user:
         response.menu += [
-            (T('Bar Chart'), False, URL('default', 'chart_bars')),
             (T('Suppliers'), False, URL('default', 'supplier')),
             (T('Statistics'), False, URL('default', 'stats')),
             (T('Products'), False, URL('default', 'products')),
