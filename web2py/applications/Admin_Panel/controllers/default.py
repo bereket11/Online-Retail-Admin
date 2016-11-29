@@ -90,9 +90,14 @@ def new_tag_save():
 
 def add_product():
     supplier_association_id = request.vars.id
+    query = "select title from product where " \
+            "product_id in (select product_id from get_product where supplier_association_id = " + supplier_association_id + ")"
+    print(db.executesql(query))
+
     query = "insert into inventory select * from product where " \
             "product_id in (select product_id from get_product where supplier_association_id = " + supplier_association_id + ")"
-    db.executesql(query)
+    # db.executesql(query)
+
     return json.dumps( dict(response=1) )
 
 def set_normalize():
@@ -164,7 +169,7 @@ def products():
         T('Permission Denied')
         redirect('index')
 
-    test = db.executesql('select * from get_product', as_dict=True)
+    test = db.executesql('select * from product', as_dict=True)
     return dict(location=T('Admin Panel - Products'),test=test)
 
 def edit_product():
