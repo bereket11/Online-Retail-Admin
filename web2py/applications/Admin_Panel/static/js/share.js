@@ -48,7 +48,12 @@ function product_add($id) {
 		 type: "POST",
 		 url: "/Admin_Panel/default/add_product?id="+$id,
 	 }).done(function (e) {
-		 alert_add_cart(e);
+		 respond =  JSON.parse(e);
+		 if(respond.response == 1){
+			 alert_add_cart('Product successfully added to inventory.');
+		 }
+
+
 	 })
 
 
@@ -293,7 +298,8 @@ function image_save_default(pid) {
 
 
 function alert_add_cart(msg){
-	$('#msg_cointainer #msg').html(msg)
+	$('#cart_alert').css('visibility','visible')
+	$('#msg_container #msg').html(msg)
     $("#cart_alert").fadeIn(50);
 }
 

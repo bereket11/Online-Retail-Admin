@@ -92,9 +92,8 @@ def add_product():
     supplier_association_id = request.vars.id
     query = "insert into inventory select * from product where " \
             "product_id in (select product_id from get_product where supplier_association_id = " + supplier_association_id + ")"
-    response_code = db.executesql(query)
-    # response_code = 1
-    return response_code
+    db.executesql(query)
+    return json.dumps( dict(response=1) )
 
 def set_normalize():
     supplier_id = request.vars.supplier_id

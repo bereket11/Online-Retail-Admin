@@ -392,7 +392,7 @@ border:1px solid #4B546A;-webkit-box-shadow: #B7B8B8 0px 1px 0px inset;-moz-box-
     margin-left: auto;
     width: 90%;
     top: 30%;
-    width: 350px;
+    width: 550px;
     height: 150px;
     background: #ffffff;
     position: fixed;
@@ -402,6 +402,7 @@ border:1px solid #4B546A;-webkit-box-shadow: #B7B8B8 0px 1px 0px inset;-moz-box-
     font-size: 1.2em;
     line-height: 125px;
     text-align: center;
+    visibility: hidden;
 }
 
 #close_cart_alert {
@@ -417,6 +418,11 @@ border:1px solid #4B546A;-webkit-box-shadow: #B7B8B8 0px 1px 0px inset;-moz-box-
     font-size: 1.2em;
     line-height: 22px;
     color: #0291ab;
+}
+
+#msg_container{
+    font-size: 0.9em;
+    font-weight: bold;
 }
 
 
