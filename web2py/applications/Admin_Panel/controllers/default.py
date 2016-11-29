@@ -58,6 +58,22 @@ def splittter():
     #print amount_list
     return (date_list, amount_list)
 
+def splittter2():
+    test = amount_by_suppllier('20151104','20141104',10)
+    date_list = []
+    amount_list = []
+
+    for item in test:
+        date_list.append("'" + item['sale_week'] + "'")
+        amount_list.append(str(item['total_sales']))
+    date_list = ", ".join(date_list)
+    date_list = "[" + date_list + "]"
+    amount_list = ", ".join(amount_list)
+    amount_list = "[" + amount_list + "]"
+
+    # print date_list
+    # print amount_list
+    return (date_list, amount_list)
 """
 PAGES
 """
@@ -218,74 +234,7 @@ def staff():
     return dict(location=T('Admin Panel - Staff'), staff=staff)
 
 def chart_bars():
-    meses_chart="['Candy', 'Bread', 'Milk', 'Coffee']" #Change this dynamically
-    dados_chart="[3.5, 4, 5, 2]" #Change this dynamically
-    title="Online-Retail-Admin"
-    stitle="Products` Report"
-    dados_map={}
-    dados_map["dados"]=dados_chart
-    dados_map["meses"]=meses_chart
-    dados_map['titulo']=title
-    dados_map['subtitulo']=stitle
 
-    chart="""
-
-        Highcharts.setOptions({
-            lang:{
-            downloadJPEG: "Download em imagem JPG",
-            downloadPDF: "Download em documento PDF",
-            downloadPNG: "Download em imagem PNG",
-            downloadSVG: "Download em vetor SVG",
-            loading: "Lendo...",
-            noData: "Sem dados para mostrar",
-            printChart: "Imprimir Gráfico",
-            }
-            });
-
-                // Build the chart
-                $('#chart').highcharts({
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: '%(titulo)s'
-            },
-            subtitle: {
-                text: '%(subtitulo)s'
-            },
-            xAxis: {
-                categories: %(meses)s,
-                crosshair: true
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Money($)'
-                }
-            },
-            tooltip: {
-                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>R$ {point.y:.1f} </b></td></tr>',
-                footerFormat: '</table>',
-                shared: true,
-                useHTML: true
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-            credits:{enabled:false},
-            series: [{
-                name: 'Products',
-                data: %(dados)s
-
-            }]
-        });
-
-       """ %dados_map
     return dict(chart=XML('<script>'+chart+'</script>'))
 
 def supplier():
@@ -360,7 +309,77 @@ def stats():
 
        """ % dados_map
 
-    return dict(chart1=XML('<script>' + container1 + '</script>'), gtpp = gtpp, stpp=stpp)
+    (meses_chart2, dados_chart2) = splittter()
+    meses_chart2 = "['Candy', 'Bread', 'Milk', 'Coffee']"  # Change this dynamically
+    dados_chart2 = "[3.5, 4, 5, 2]"  # Change this dynamically
+    title2 = "Online-Retail-Admin"
+    stitle2 = "Products` Report"
+    dados_map2 = {}
+    dados_map2["dados"] = dados_chart2
+    dados_map2["meses"] = meses_chart2
+    dados_map2['titulo'] = title2
+    dados_map2['subtitulo'] = stitle2
+
+    container2 = """
+
+            Highcharts.setOptions({
+                lang:{
+                downloadJPEG: "Download em imagem JPG",
+                downloadPDF: "Download em documento PDF",
+                downloadPNG: "Download em imagem PNG",
+                downloadSVG: "Download em vetor SVG",
+                loading: "Lendo...",
+                noData: "Sem dados para mostrar",
+                printChart: "Imprimir Gráfico",
+                }
+                });
+
+                    // Build the chart
+                    $('#container2').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: '%(titulo)s'
+                },
+                subtitle: {
+                    text: '%(subtitulo)s'
+                },
+                xAxis: {
+                    categories: %(meses)s,
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Money($)'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>R$ {point.y:.1f} </b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                credits:{enabled:false},
+                series: [{
+                    name: 'Products',
+                    data: %(dados)s
+
+                }]
+            });
+
+           """ % dados_map2
+
+    return dict(chart1=XML('<script>' + container1 + '</script>'), chart2=XML('<script>'+container2+'</script>'), gtpp = gtpp, stpp=stpp)
 
 """
 DATABASE RETREIVAL FUNCTIONS
@@ -376,14 +395,17 @@ def get_top_products(begin, end, limit):
     top_product = [["Name", "Top Products"]] + top_product
     print str(json.dumps(top_product)).replace('\"', ' \' ')
     top_product = replace_double_quote(json.dumps(top_product))
-    #top_product = [['Name', 'Top Products']] + top_product
+
     return top_product
 
 #Not tested
 def get_sales_by_location(begin, end, limit):
-    limitby = 10
-    if limit != None:
-        limitby = limit
+    if limit == None:
+        limit = 10
+    if begin == None:
+        begin = '20151104'
+    if end == None:
+        end = '20171104'
 
     """
     sales_location = db.executesql("(SELECT guest.state, count(order_item.order_item_id) as sales"\
@@ -396,11 +418,14 @@ def get_sales_by_location(begin, end, limit):
     return json.dumps(sales_location)
 
 def top_suppliers(begin, end, limit):
-    limitby = 10
-    if limit != None:
-        limitby = limit
+    if limit == None:
+        limit = 10
+    if begin == None:
+        begin = '20151104'
+    if end == None:
+        end = '20171104'
 
-    top_supplier = db.executesql("select top 10 supplier_name, count(*) as sale_count from supplier inner join order_item on supplier.supplier_id = order_item.supplier_id inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date >'" + begin + "'and purchase_order.sale_date <'" + end + "'group by supplier_name order by sale_count desc")
+    top_supplier = db.executesql("select top "+str(limit)+" supplier_name, count(*) as sale_count from supplier inner join order_item on supplier.supplier_id = order_item.supplier_id inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date >'" + begin + "'and purchase_order.sale_date <'" + end + "'group by supplier_name order by sale_count desc")
     top_supplier = [["Name", "Top Suppliers"]] + top_supplier
     top_supplier = replace_double_quote(json.dumps(top_supplier))
     return top_supplier
@@ -409,20 +434,29 @@ def amount_by_suppllier(begin, end, limit):
     limitby = 10
     if limit != None:
         limitby = limit
+    if begin == None:
+        begin = '20151104'
+    if end == None:
+        end = '20171104'
 
-    top_products = db.executesql()
+    top_products = db.executesql("select top "+str(limitby)+" supplier_name, sum(round(order_item.sale_price, 2)) as total_sales from supplier inner join order_item on supplier.supplier_id = order_item.supplier_id inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date > '"+begin+"' and purchase_order.sale_date < '"+end+"' group by supplier_name order by total_sales desc")
     return json.dumps(top_products)
 
 def get_profit(begin, end): #scope = day/month/year
-    begin = "20051104"
-    end="20171104"
+    if begin == None:
+        begin = "20051104"
+    if end == None:
+        end="20171104"
+
     profit = db.executesql("select sum(round(order_item.sale_price - order_item.sale_cost, 2)) as profit, sum(round(order_item.sale_price,2)) as revenue from order_item inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date between'" + begin + "' and '" + end + "'")
     return profit
 
 def get_profit_by_date(time, amount):
-    time= "WEEK"
-    amount = "-10"
-    timely_profit = db.executesql("select cast(dateadd(" + time + ", datediff(week, 0, sale_date),0) as date) as sale_week, round(cast(sum(order_item.sale_price - order_item.sale_cost) as float),2,2) as total_sales from purchase_order inner join order_item on order_item.purchase_order_no = purchase_order.purchase_order_no where sale_date between dateadd(" + time + ", " + amount + ", getdate()) and getdate()  group by dateadd(" + time + ", datediff(" + time + ", 0, sale_date),0)", as_dict=True)
+    if time == None:
+        time= "WEEK"
+    if amount == None:
+        amount = "-10"
+    timely_profit = db.executesql("select cast(dateadd(" + str(time) + ", datediff(week, 0, sale_date),0) as date) as sale_week, round(cast(sum(order_item.sale_price - order_item.sale_cost) as float),2,2) as total_sales from purchase_order inner join order_item on order_item.purchase_order_no = purchase_order.purchase_order_no where sale_date between dateadd(" + str(time) + ", " + str(amount) + ", getdate()) and getdate()  group by dateadd(" + str(time) + ", datediff(" + str(time) + ", 0, sale_date),0)", as_dict=True)
     return timely_profit
 
 def supplier_compare(supplier1, supplier2):
