@@ -32,9 +32,10 @@ def check_user():
 
 def check_admin():
     if check_user():
-        user_permission = db.executesql("SELECT permission FROM user_permissions WHERE user_id='" + str(auth.user.id) + "'")
+        user_permission = db.executesql("SELECT * FROM user_permissions WHERE user_id='" + str(auth.user.id) + "'")
+        print user_permission[0][1]
         if user_permission:
-            if user_permission[0][0] == "admin":
+            if user_permission[0][1] == "admin":
                 return True
             else:
                 return False
@@ -161,9 +162,6 @@ def save_default_image():
     db.executesql(query)
 
 def normalization():
-    if check_user() == False:
-        T('Permission Denied')
-        redirect('index')
     query = "SELECT TABLE_NAME FROM devora.information_schema.tables WHERE TABLE_TYPE='BASE TABLE' and TABLE_NAME LIKE 'supplier_%' and TABLE_NAME != 'supplier_association'"
     table_names = db.executesql(query)
     supplier_ids = []
@@ -178,10 +176,6 @@ def normalization():
     return dict(location=T('Admin Panel - normalization'), suppliers=suppliers)
 
 def tag():
-    if check_user() == False:
-        T('Permission Denied')
-        redirect('index')
-
     products = db.executesql('select * from product', as_dict=True)
     return dict(location=T('Admin Panel - Tag Manager'), products=products)
 
@@ -191,18 +185,10 @@ def load_image():
     return json.dumps(images, ensure_ascii=False)
 
 def image():
-    if check_user() == False:
-        T('Permission Denied')
-        redirect('index')
-
     image = db.executesql('select * from product', as_dict=True)
     return dict(location=T('Admin Panel - Image Manager'), images=image)
 
 def products():
-    if check_user() == False:
-        T('Permission Denied')
-        redirect('index')
-
     test = db.executesql('select * from product', as_dict=True)
     return dict(location=T('Admin Panel - Products'),test=test)
 
@@ -221,10 +207,6 @@ def edit_product():
     return dict(location=T('Admin Panel - Index'), suppliers=suppliers, user_data=user_data, products=products)
 
 def staff():
-    if check_user() == False:
-        T('Permission Denied')
-        redirect('index')
-
     staff = db.executesql("SELECT * FROM view_permissions", as_dict=True)
     if request.args(0) == 'edit':
         edited = db.executesql("UPDATE user_permissions SET permission='" + request.vars.permission + "' WHERE user_id='" + str(request.vars.user_id) + "'")
@@ -233,13 +215,9 @@ def staff():
 
     return dict(location=T('Admin Panel - Staff'), staff=staff)
 
-def chart_bars():
-
-    return dict(chart=XML('<script>'+chart+'</script>'))
-
 def supplier():
     suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
-    print "inside supplier()"
+
     if request.args(0) == 'add':
         api_key = "132sdfas5475"
         api_address = "http://sup3.com/api"
@@ -256,6 +234,9 @@ def supplier():
         suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
         redirect('default/supplier')
     return dict(location=T('Admin Panel - Suppliers'), suppliers=suppliers)
+
+def inventory():
+    return dict()
 
 def stats():
     (meses_chart, dados_chart) = splittter()
