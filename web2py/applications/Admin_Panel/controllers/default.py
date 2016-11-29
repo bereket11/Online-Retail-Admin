@@ -430,13 +430,14 @@ def amount_by_suppllier(begin, end, limit):
 def get_profit(): #scope = day/month/year
 
     today = datetime.date.today()
-    past_thirty = today - datetime.timedelta(days=30)
+    past_thirty = today - datetime.timedelta(days=300)
     begin = str(today)
-    end = str(past_thirty)
-    begin.replace("-", "")
-    end.replace("-", "")
+    begin = str(past_thirty)
+    end = begin.replace("-", "")
+    begin = end.replace("-", "")
 
     profit = db.executesql("select sum(round(order_item.sale_price - order_item.sale_cost, 2)) as profit, sum(round(order_item.sale_price,2)) as revenue from order_item inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date between'" + begin + "' and '" + end + "'")
+    print begin, end
     return profit
 
 def get_profit_by_date(time, amount):
