@@ -384,6 +384,41 @@ border:1px solid #4B546A;-webkit-box-shadow: #B7B8B8 0px 1px 0px inset;-moz-box-
  background-image: linear-gradient(to bottom, #CEDCE7, #596a72);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#CEDCE7, endColorstr=#596a72);
 }
 
+/*cart css*/
+#cart_alert{
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    top: 30%;
+    width: 350px;
+    height: 150px;
+    background: #ffffff;
+    position: fixed;
+    z-index: 3;
+    border: 11px solid #0291ab;
+    border-radius: 9px;
+    font-size: 1.2em;
+    line-height: 125px;
+    text-align: center;
+}
+
+#close_cart_alert {
+    width: 25px;
+    height: 25px;
+    display: block;
+    background-color: #666;
+    cursor: pointer;
+    float: right;
+    background-color: #fff;
+    border: 1px solid #0291ab;
+    border-radius: 0px;
+    font-size: 1.2em;
+    line-height: 22px;
+    color: #0291ab;
+}
+
 
 
 .button_save:hover{

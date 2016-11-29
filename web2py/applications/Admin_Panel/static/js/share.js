@@ -47,8 +47,12 @@ function product_add($id) {
 	 $.ajax({
 		 type: "POST",
 		 url: "/Admin_Panel/default/add_product?id="+$id,
+	 }).done(function (e) {
+		 alert_add_cart(e);
 	 })
-	alert('Product added to page successfully');
+
+
+
 
 }
 
@@ -286,3 +290,17 @@ function image_save_default(pid) {
 
 	})
 }
+
+
+function alert_add_cart(msg){
+	$('#msg_cointainer #msg').html(msg)
+    $("#cart_alert").fadeIn(50);
+}
+
+function close_add_cart(){
+    $("#cart_alert").fadeOut(0);
+}
+
+(function(){
+    $("#cart_alert").fadeOut(0);
+})();
