@@ -1,9 +1,12 @@
 {{extend 'layout.html'}}
+<div id="supplier_container">
+<div style="margin-left: 40px;" class="text-left">
+    <br>
 
-<div style="margin:0 auto;" class="text-center">
-    <div class="text-center" style="font-size:20px;">Add new supplier</div>
+    <div class="text-center" style="font-size:25px;" >Add New Supplier
+        <br>
     <div id="submit_supplier">
-        <form style="text-align:center; display:inline-block;" enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['add'])}}" method="post">
+        <form style="..." enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['add'])}}" method="post">
             <input class="form-input" name="supplier_name" type="text" placeholder="Supplier Name">
             <input class="form-input" name="contact_first" type="text" placeholder="Contact First Name">
             <input class="form-input" name="contact_last" type="text" placeholder="Contact Last Name">
@@ -12,18 +15,24 @@
             <input class="form-input" name="contact_email" type="text" placeholder="Contact Email">
             <input class="form-input" name="status" type="text" placeholder="Status">
             <br>
-            <input class="button" value="submit" class="button" type="submit">
+            <input class="button" value="submit" class="button"  style="background-color: #00c4ff;" type="submit">
+
         </form>
         <br>
-        <button class="button" style="display:inline-block;" onclick="hide_supplier_form()">Cancel</button>
+        <button class="button" style="display:inline-block; background-color: #00c4ff;" onclick="hide_supplier_form()">Cancel</button>
     </div>
-    <button id="supplier_add_button" onclick="show_supplier_form()">Add</button>
-</div>
+    <button id="supplier_add_button" style="background-color: #00c4ff;" onclick="show_supplier_form()">Add</button>
 
-<br>
-<br>
+</div>
+    </div>
+<br> <br>
+
 <!-- =====Row 1===== -->
+    <div class="tab_supplier">
 <div class="text-center" style="font-size:20px;">Active Suppliers</div>
+        </div>
+
+
 <div class="row-1-content-shorter row-content">
     <!-- get suppliers from database -->
     <div  style="height:auto;">
@@ -32,6 +41,7 @@
                 <div class="supplier">
                     {{if supplier['status'] == 'active':}}
                         <tr>
+
                             <td style='width:14%;' class="supplier-td">{{=supplier['supplier_name']}}</td>
                             <td style='width:30%;' class="supplier-td">{{=supplier['contact_email']}}</td>
                             <td class="supplier-td">{{=supplier['status']}}</td>
@@ -50,9 +60,9 @@
                                 <input name="contact_phone" type="text" value="{{=supplier['contact_phone']}}"/>
                                 <input name="contact_email" type="text" value="{{=supplier['contact_email']}}"/>
                                 <input name="status" type="text" value="{{=supplier['status']}}">
-                                <input type="submit" value="submit" >
+                                <input style="background-color: #00c4ff;" type="submit" value="submit" >
                             </form>
-                            <button onclick="hide_supplier_edit_form({{=supplier['supplier_id']}})">Cancel</button>
+                            <button   style="background-color: #00c4ff;" onclick="hide_supplier_edit_form({{=supplier['supplier_id']}})">Cancel</button>
                         </div>
                         <script>
                             console.log("#edit_supplier_{{=supplier['supplier_id']}}");
@@ -64,8 +74,9 @@
         {{pass}}
     </div>
 </div>
-
+    <div class="tab_supplier">
 <div class="text-center" style="font-size:20px;">Inactive Suppliers</div>
+        </div>
 <div class="row-1-content-shorter row-content">
      <div  style="height:auto;">
         {{for supplier in suppliers:}}
@@ -91,9 +102,9 @@
                                 <input name="contact_phone" type="text" value="{{=supplier['contact_phone']}}"/>
                                 <input name="contact_email" type="text" value="{{=supplier['contact_email']}}"/>
                                 <input name="status" type="text" value="{{=supplier['status']}}">
-                                <input type="submit" value="submit" >
+                                <input style="background-color: #00c4ff;" type="submit" value="submit" >
                             </form>
-                            <button onclick="hide_supplier_edit_form({{=supplier['supplier_id']}})">Cancel</button>
+                            <button  style="background-color: #00c4ff;" onclick="hide_supplier_edit_form({{=supplier['supplier_id']}})">Cancel</button>
                         </div>
                         <script>
                             console.log("#edit_supplier_{{=supplier['supplier_id']}}");
@@ -104,4 +115,5 @@
             </table>
         {{pass}}
     </div>
+</div>
 </div>
