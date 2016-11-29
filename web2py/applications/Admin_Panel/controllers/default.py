@@ -265,9 +265,6 @@ def chart_bars():
        """ %dados_map
     return dict(chart=XML('<script>'+chart+'</script>'))
 
-def stats():
-    return dict(location=T('Admin Panel - Stats'))
-
 def supplier():
     suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
     print "inside supplier()"
@@ -333,9 +330,14 @@ def stats():
     dados_map['titulo'] = title
     dados_map['subtitulo'] = stitle
 
-    container = """
+    gtp = get_top_products('20140501', '20170611', 10)
+    gtpp = XML(gtp)
+    stp = top_suppliers('20140501', '20170611', 10)
+    stpp = XML(stp)
+
+    container1 = """
                 // Build the chart
-                $('#container').highcharts({
+        $('#container1').highcharts({
 
             title: {
                 text: '%(titulo)s',
@@ -369,7 +371,8 @@ def stats():
         });
 
        """ % dados_map
-    return dict(chart=XML('<script>' + container + '</script>'))
+
+    return dict(chart1=XML('<script>' + container1 + '</script>'), gtpp = gtpp, stpp=stpp)
 
 
 def splittter():

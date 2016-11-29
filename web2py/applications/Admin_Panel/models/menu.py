@@ -48,16 +48,17 @@ def _():
     # ------------------------------------------------------------------------------------------------------------------
     # useful links to internal and external resources
     # ------------------------------------------------------------------------------------------------------------------
-    response.menu += [
-        (T('Bar Chart'), False, URL('default', 'chart_bars')),
-        (T('Suppliers'), False, URL('default', 'supplier')),
-        (T('Statistics'), False, URL('default', 'stats')),
-        (T('Products'), False, URL('default', 'products')),
-        (T('Staff'), False, URL('default', 'staff')),
-        (T('Data Normalization'), False, URL('default', 'normalization')),
-        (T('Image Manager'), False, URL('default', 'image')),
-        (T('Tag Manager'), False, URL('default', 'tag')),
-    ]
+    if auth.user:
+        response.menu += [
+            (T('Bar Chart'), False, URL('default', 'chart_bars')),
+            (T('Suppliers'), False, URL('default', 'supplier')),
+            (T('Statistics'), False, URL('default', 'stats')),
+            (T('Products'), False, URL('default', 'products')),
+            (T('Staff'), False, URL('default', 'staff')),
+            (T('Data Normalization'), False, URL('default', 'normalization')),
+            (T('Image Manager'), False, URL('default', 'image')),
+            (T('Tag Manager'), False, URL('default', 'tag')),
+        ]
 
 
 if DEVELOPMENT_MENU:
