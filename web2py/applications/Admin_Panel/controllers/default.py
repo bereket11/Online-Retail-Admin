@@ -309,8 +309,8 @@ def supplier():
 #Displays 4 charts by tabs of the current statistics of the website. Change the active chart by a different tab.
 def stats():
     (meses_chart, dados_chart) = splittter()
-    title = "Online-Retail-Admin"
-    stitle = "Report by dates"
+    title = ""
+    stitle = ""
     dados_map = {}
     dados_map["dados"] = dados_chart
     dados_map["meses"] = meses_chart
@@ -361,10 +361,10 @@ def stats():
        """ % dados_map
 
     (meses_chart2, dados_chart2) = splittter()
-    meses_chart2 = "['Wonka', 'Acme inc', 'Stark Industries', 'Ollivanders', 'Wayne Enterprises', 'Cyberdyne Systems', 'Bubba Gump', 'Sterling Cooper', 'Good Burger', 'MomCorp']"  # Change this dynamically
-    dados_chart2 = "[3.5, 4, 5, 2]"  # Change this dynamically
-    title2 = "Online-Retail-Admin"
-    stitle2 = "Products` Report"
+    meses_chart2 = "['Wonka', 'Acme inc', 'Wayne Enterprises', 'Stark Industries', 'Cyberdyne Systems', 'Ollivanders']"  # Change this dynamically
+    dados_chart2 = "[12055524.75, 23752997.00, 21824606.85, 19946185.35, 19176848.000, 17870641.20]"  # Change this dynamically
+    title2 = ""
+    stitle2 = ""
     dados_map2 = {}
     dados_map2["dados"] = dados_chart2
     dados_map2["meses"] = meses_chart2
@@ -422,7 +422,7 @@ def stats():
                 },
                 credits:{enabled:false},
                 series: [{
-                    name: 'Products',
+                    name: 'Suppliers',
                     data: %(dados)s
 
                 }]
