@@ -93,6 +93,7 @@ PAGES
 #This is the home page
 def index():
     profit_revenue = get_profit()
+
     return dict(profit_revenue= profit_revenue)
 
 
