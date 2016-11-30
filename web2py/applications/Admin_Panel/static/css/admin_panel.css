@@ -137,6 +137,16 @@ a.active {
     cursor: pointer;
 }
 
+.remove_product{
+    background: url(/Admin_Panel/static/images/remove.png);
+    background-repeat: no-repeat;
+    background-size: 32px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    cursor: pointer;
+}
+
 
 .edit_product{
     background: url(/Admin_Panel/static/images/edit.png);

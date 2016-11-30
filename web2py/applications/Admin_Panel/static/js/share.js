@@ -61,35 +61,35 @@ function product_add($id) {
 
 }
 
+function inventory_edit(event) {
+	var element = "<textarea id=text_title_"+event+">"+$('#title_'+event).html()+"</textarea>";
+	element+="<input type='button' value='SAVE' onclick='inventory_save("+event+")'>";
+	$('#title_'+event).html(element)
+
+	var element = "<textarea id=text_desc_"+event+">"+$('#desc_'+event).html()+"</textarea>";
+	$('#desc_'+event).html(element)
+
+}
+
+function inventory_save($id) {
+	// console.log($id)
+	$title = escape(document.getElementById('text_title_'+$id).value);
+	$desc = escape(document.getElementById('text_desc_'+$id).value);
+	$.ajax({
+		 type: "POST",
+		 url: "/Admin_Panel/default/edit_inventory?id="+$id+"&title="+$title+"&desc="+$desc,
+	 })
+	location.reload();
+}
+
 function product_edit(event) {
 	var element = "<textarea id=text_title_"+event+">"+$('#title_'+event).html()+"</textarea>";
 	element+="<input type='button' value='SAVE' onclick='product_save("+event+")'>";
 	$('#title_'+event).html(element)
 
-	// var element = "<textarea id=text_price_"+event+">"+$('#price_'+event).html()+"</textarea>";
-	// $('#price_'+event).html(element)
-
-	// var element = "<textarea id=text_cost_"+event+">"+$('#cost_'+event).html()+"</textarea>";
-	// $('#cost_'+event).html(element)
-
 	var element = "<textarea id=text_desc_"+event+">"+$('#desc_'+event).html()+"</textarea>";
 	$('#desc_'+event).html(element)
 
-	// var element = "<textarea id=text_manufacturer_"+event+">"+$('#manufacturer_'+event).html()+"</textarea>";
-	// $('#manufacturer_'+event).html(element)
-
-	// var element = "<textarea id=text_supplier_sku_"+event+">"+$('#supplier_sku_'+event).html()+"</textarea>";
-	// $('#supplier_sku_'+event).html(element)
-    //
-	// var element = "<textarea id=text_supplier_name_"+event+">"+$('#supplier_name_'+event).html()+"</textarea>";
-	// $('#supplier_name_'+event).html(element)
-
-
-	// var element = "<textarea id=text_size_"+event+">"+$('#size_'+event).html()+"</textarea>";
-	// $('#size_'+event).html(element)
-
-	// var element = "<textarea id=text_color_"+event+">"+$('#color_'+event).html()+"</textarea>";
-	// $('#color_'+event).html(element)
 }
 
 
@@ -97,12 +97,6 @@ function product_save($id) {
 	// console.log($id)
 	$title = escape(document.getElementById('text_title_'+$id).value);
 	$desc = escape(document.getElementById('text_desc_'+$id).value);
-	// $price = escape(document.getElementById('text_price_'+$id).value);
-	// $supplier_sku = escape(document.getElementById('text_supplier_sku_'+$id).value);
-	// $supplier_name = escape(document.getElementById('text_supplier_name_'+$id).value);
-	// $manufacturer = escape(document.getElementById('text_manufacturer_'+$id).value);
-
-	// $cost = escape(document.getElementById('text_cost_'+$id).value);
 	$.ajax({
 		 type: "POST",
 		 url: "/Admin_Panel/default/edit_product?id="+$id+"&title="+$title+"&desc="+$desc,
@@ -246,6 +240,18 @@ function tag_save() {
 	})
 		.done(function (respond) {
 			console.log(respond)
+			location.reload();
+		})
+}
+
+
+function inventory_remove(pid) {
+	$.ajax({
+		type: "POST",
+		url: "/Admin_Panel/default/inventory_remove?pid="+pid,
+	})
+		.done(function (respond) {
+			alert_add_cart('Product successfully has been removed from inventory.');
 		})
 }
 
