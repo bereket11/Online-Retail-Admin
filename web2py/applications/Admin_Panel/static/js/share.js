@@ -240,6 +240,7 @@ function tag_save() {
 	})
 		.done(function (respond) {
 			console.log(respond)
+			location.reload();
 		})
 }
 

@@ -217,9 +217,15 @@ def load_image():
 def save_default_image():
     pid = request.vars.pid
     img_id = request.vars.img_id
-    query = "update image set [default] = '1' where product_id = " + pid
-    print(query)
+
+    # print pid, img_id
+    query = "update image set [DEFAULT] = '0' where product_id =" + pid
     db.executesql(query)
+    print query
+    query = "update image set [default] = '1' where image_id = " + img_id
+    db.executesql(query)
+    print(query)
+
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
