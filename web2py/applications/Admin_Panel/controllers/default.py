@@ -95,6 +95,7 @@ def index():
     profit_revenue = get_profit()
     return dict(profit_revenue= profit_revenue)
 
+
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #TAGS
@@ -560,18 +561,19 @@ def call():
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #UNIMPLEMENT AND POSSIBLY REMOVED
 
-#INVENTORY PAGE
-def inventory():
-    return dict()
+def inventory_remove():
+    pid = request.vars.pid
+    query = "delete from inventory where product_id = " + str(pid)
+    db.executesql(query)
 
-#INVENTORY PAGE
+
 def inventory():
     if check_user() == False:
         T('Permission Denied')
         redirect('index')
 
-    test = db.executesql('select * from inventory where product_id', as_dict=True)
-    return dict(location=T('Admin Panel - Inventory'),test=test)
+    inventory = db.executesql('select * from inventory', as_dict=True)
+    return dict(location=T('Admin Panel - Inventory'),inventory=inventory)
 
 #--INVENTORY SUBROUTINES
 def edit_inventory():
@@ -579,7 +581,7 @@ def edit_inventory():
     title = request.vars.title
     desc = request.vars.desc
     query = "update inventory set title = '" + title + "', description = '" + desc + "' where product_id = '" + product_id + "'"
-
+    print query
     db.executesql(query)
 
     products = db.executesql("SELECT * FROM inventory")
