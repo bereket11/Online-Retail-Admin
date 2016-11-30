@@ -5,12 +5,12 @@
         <div id="sales_box">
             <div class="sales_box" id="life_sale">
                 <div class="sale_title"> Life Time Sales</div>
-                <div class="sale_number">${{=profit_revenue[0][1]}}</div>
+                <div class="sale_number">${{="{0:.2f}".format(profit_revenue[0][1])}}</div>
             </div>
 
             <div class="sales_box" id="life_sale">
                 <div class="sale_title"> Life Time Revenue</div>
-                <div class="sale_number">${{=profit_revenue[0][0]}}</div>
+                <div class="sale_number">${{="{0:.2f}".format(profit_revenue[0][0])}}</div>
             </div>
         </div>
     {{pass}}

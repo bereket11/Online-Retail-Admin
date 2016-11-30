@@ -183,11 +183,21 @@ a.active {
 }
 
 .supplier-table{
+    text-align: left;
     table-layout:fixed;
     margin:0 auto;
-    text-align:center;
+    /*text-align:center;*/
     width:100%;
     height:auto;
+}
+
+.supplier-table tr td{
+    text-align: left;
+    /*color: #fff;*/
+}
+
+.supplier-table tr:hover{
+    background-color: #3fc1ff;
 }
 
 .supplier-td{
