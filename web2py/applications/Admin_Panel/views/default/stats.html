@@ -4,9 +4,11 @@
 <div style="width:100%; height:40px; background:#314D67; font-size:24px; text-align:center; color:white;">Report Page</div>
 <div id="report-tab1" class="report-tab" onclick="set_stat_tab('1')">Profit Over Time</div><div id="report-tab2" class="report-tab" onclick="set_stat_tab('2')">Top Products</div><div id="report-tab3" class="report-tab" onclick="set_stat_tab('3')">Top Suppliers</div><div id="report-tab4" class="report-tab" onclick="set_stat_tab('4')">Amount By Supplier</div>
 
+        
 <div id="report-chart1">
-    <div class="text-center" style="font-size:24px;">Profit Over Time</div>
+    <div class="text-center" style="font-size:24px;">Profit Over Time (By Dates)</div>
     <br>
+
     <div id="container1"></div>
     {{=chart1}}
 </div>
@@ -100,12 +102,11 @@
                   'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 0},
 
                   'pieSliceTextStyle': {
-            color: 'black',
-            fontSize: 16,
-                      position: {'left':5, 'top':5, 'bottom':10}
-        },
+                        color: 'black',
+                        fontSize: 16,
+                                  position: {'left':5, 'top':5, 'bottom':10}
+                    },
                   'is3D':true,
-
               }
             });
             dashboard.bind(donutRangeSlider, pieChart);
@@ -116,9 +117,10 @@
 </div>
 
 <div id="report-chart4">
-    <div class="text-center" style="font-size:24px;">Profit Over Time</div>
+    <br>
+    <div class="text-center" style="margin-top: 50px; font-size:22px;">Profit By Suppliers (All Time)</div>
 
-    <div id="container2"></div>
+    <div id="container2" style="width:100%; margin-top: 100px;"></div>
     {{=chart2}}
 </div>
 

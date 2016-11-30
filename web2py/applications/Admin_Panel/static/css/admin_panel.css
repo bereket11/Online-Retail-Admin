@@ -137,6 +137,16 @@ a.active {
     cursor: pointer;
 }
 
+.remove_product{
+    background: url(/Admin_Panel/static/images/remove.png);
+    background-repeat: no-repeat;
+    background-size: 32px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    cursor: pointer;
+}
+
 
 .edit_product{
     background: url(/Admin_Panel/static/images/edit.png);
@@ -173,11 +183,21 @@ a.active {
 }
 
 .supplier-table{
+    text-align: left;
     table-layout:fixed;
     margin:0 auto;
-    text-align:center;
+    /*text-align:center;*/
     width:100%;
     height:auto;
+}
+
+.supplier-table tr td{
+    text-align: left;
+    /*color: #fff;*/
+}
+
+.supplier-table tr:hover{
+    background-color: #3fc1ff;
 }
 
 .supplier-td{

@@ -1,1 +1,30 @@
-hello
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+
+<div id="product_container">
+    <div class="tab">View Inventory</div>
+    <table>
+        <tr>
+            <th colspan="2"></th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Manufacturer</th>
+            <th>Create Date</th>
+            <th>Cost</th>
+        </tr>
+    {{for item in inventory:}}
+        <tr id={{=item['product_id']}}>
+            <td><span onclick="inventory_remove({{=item['product_id']}})" class="remove_product"></span></td>
+            <td><span onclick="inventory_edit({{=item['product_id']}})" class="edit_product"></span></td>
+            <td id=title_{{=item['product_id']}}>{{=item['title']}}</td>
+
+            <td id=desc_{{=item['product_id']}}>{{=item['description']}}</td>
+            <td id=manufacturer_{{=item['product_id']}}>{{=item['manufacturer']}}</td>
+            <td id=create_date_{{=item['product_id']}}>{{=item['create_date']}}</td>
+            <td id=create_date_{{=item['product_id']}}>{{=item['cost']}}</td>
+            
+
+        </tr>
+    {{pass}}
+        </table>
+</div>

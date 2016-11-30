@@ -1,35 +1,13 @@
 {{extend 'layout.html'}}
-<div id="supplier_container">
-    <div style="margin-left: 40px;" class="text-left">
-        <br>
-        <div class="text-center" style="font-size:25px;" >Add New Supplier
-            <br>
-            <div id="submit_supplier">
-                <form style="..." enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['add'])}}" method="post">
-                    <input class="form-input" name="supplier_name" type="text" placeholder="Supplier Name">
-                    <input class="form-input" name="contact_first" type="text" placeholder="Contact First Name">
-                    <input class="form-input" name="contact_last" type="text" placeholder="Contact Last Name">
-                    <br>
-                    <input class="form-input" name="contact_phone" type="text" placeholder="Contact Phone Number">
-                    <input class="form-input" name="contact_email" type="text" placeholder="Contact Email">
-                    <input class="form-input" name="status" type="text" placeholder="Status">
-                    <br>
-                    <input class="button" value="submit" class="button"  style="background-color: #00c4ff;" type="submit">
-                </form>
-                <br>
-                <button class="button" style="display:inline-block; background-color: #00c4ff;" onclick="hide_supplier_form()">Cancel</button>
-            </div>
-            <button id="supplier_add_button" style="background-color: #00c4ff;" onclick="show_supplier_form()">Add</button>
-        </div>
-    </div>
-<br>
+<div id="supplier_container"  style="margin-bottom: 0px;">
+
 <br>
 <!-- =====Row 1===== -->
-<div class="tab_supplier">
-    <div class="text-center" style="font-size:20px;">Active Suppliers</div>
+<div class="tab" style="margin-left: 30px; background-color: #0077aa; line-height: 40px;" >
+   Active Suppliers
 </div>
 
-<div class="row-1-content-shorter row-content">
+<div class="row-1-content-shorter row-content"  style="background-color: #b6eeff;">
     <!-- get suppliers from database -->
     <div  style="height:auto;">
         {{for supplier in suppliers:}}
@@ -71,11 +49,11 @@
     </div>
 </div>
 
-<div class="tab_supplier">
-    <div class="text-center" style="font-size:20px;">Inactive Suppliers</div>
+<div class="tab" style="margin-left: 30px; background-color: #0077aa; width: 170px;">
+    Inactive Suppliers
 </div>
 
-<div class="row-1-content-shorter row-content">
+<div class="row-1-content-shorter row-content"  style="background-color: #b6eeff;">
      <div  style="height:auto;">
         {{for supplier in suppliers:}}
             <table border="0" class="supplier-table">
@@ -114,26 +92,28 @@
         {{pass}}
     </div>
 </div>
-</div>
 
-         <div class="text-center" style="font-size:25px;" >Add New Supplier
-        <br>
-    <div id="submit_supplier">
-        <form style="..." enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['add'])}}" method="post">
-            <input class="form-input" name="supplier_name" type="text" placeholder="Supplier Name">
-            <input class="form-input" name="contact_first" type="text" placeholder="Contact First Name">
-            <input class="form-input" name="contact_last" type="text" placeholder="Contact Last Name">
+
+        <div style="margin-left: 700px;" >
+
+        <div   class="tab" style=" margin-left: -50px; background-color: #0077aa; width: 170px;" >Add New Supplier</div>
             <br>
-            <input class="form-input" name="contact_phone" type="text" placeholder="Contact Phone Number">
-            <input class="form-input" name="contact_email" type="text" placeholder="Contact Email">
-            <input class="form-input" name="status" type="text" placeholder="Status">
-            <br>
-            <input class="button" value="submit" class="button"  style="background-color: #00c4ff;" type="submit">
+            <div id="submit_supplier" style="margin-left: -50px;"  >
+                <form style="... "  enctype="multipart/form-data" action="{{=URL('default', 'supplier', args=['add'])}}" method="post">
+                    <input class="form-input" name="supplier_name" type="text" placeholder="Supplier Name">
+                    <input class="form-input" name="contact_first" type="text" placeholder="Contact First Name">
+                    <input class="form-input" name="contact_last" type="text" placeholder="Contact Last Name">
+                    <br>
+                    <input class="form-input" name="contact_phone" type="text" placeholder="Contact Phone Number">
+                    <input class="form-input" name="contact_email" type="text" placeholder="Contact Email">
+                    <input class="form-input" name="status" type="text" placeholder="Status">
+                    <br>
+                    <input class="button" value="submit" class="button"  style="background-color:  #0077aa;" type="submit">
 
-        </form>
-        <br>
-        <button class="button" style="display:inline-block; background-color: #00c4ff;" onclick="hide_supplier_form()">Cancel</button>
-    </div>
-    <button id="supplier_add_button" style="background-color: #00c4ff;" onclick="show_supplier_form()">Add</button>
-
-</div>
+                </form>
+    <br>
+                <button class="button" style="display:inline-block; background-color:  #0077aa;" onclick="hide_supplier_form()">Cancel</button>
+            </div>
+            <button id="supplier_add_button" style="background-color: #0077aa; margin-bottom: 10px;" onclick="show_supplier_form()">Add</button>
+        </div>
+        </div>
