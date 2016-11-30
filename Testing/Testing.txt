@@ -1,8 +1,8 @@
-Unittest: Sprint 1
+﻿Unittest: Sprint 1
 A.  As an store manager, I need to see my sales for the month/quarter/etc so I can understand how much product I have sold.
 B.  As a developer I need supplier product data stored in a consistent manner so that I may use it to create products.
 C. As an online store manager, I need to be able to set tags to products to be able to organize my products in such a way to be searchable by the customer.
-
+D. As a online store operator, I need to be able to view the products I added to the consumer website, so that I can know which items I’m selling.
 
 base_url() = “http://localhost:8000/Admin_Panel/”
 Victor:
@@ -31,12 +31,17 @@ Alan:
 	-Inserted dummy data using db.execute(“INSERT INTO products (c1,c2...) PRODUCTS (data1, 
 		data2...)”).
 	-Check mssql ide for correct data insertion.
-
+Victor:
+- Tested Inventory page
+	- went to products page, click the green button to add it to inventory.
+	- Went to the inventory page and checked that the product wast there.
+	- Clicked on the edit button and edited the product
+	- Clicked on delete and deleted the product
 
 Unittest: Sprint 2
 A.  As an online store operator, I need to be able to remove products from my store without the assistance of a developer so that I can increase efficiency and profitability.
 B.  As an online store operator, I need to be able to add products to my store without the assistance of a developer so that I can increase efficiency and profitability.
-C. As an online store operator, I need to be able to normalize the data I receive from the suppliers so that I can choose which products to display on my store. 
+C.  As an online store operator, I need to be able to normalize the data I receive from the suppliers so that I can choose which products to display on my store. 
 
 
 Victor:
@@ -69,10 +74,10 @@ Alan:
 
 
 Unittest: Sprint 3
-A.  As a developer, I need the product pictures organized in a way that it is useable by an automated system to create product profiles.
+A. As a developer, I need the product pictures organized in a way that it is useable by an automated system to create product profiles.
 B. As an online store operator, I need to be able to (modify) activate, deactivate, add and delete suppliers so that I can increase efficiency and profitability.
 C. As an administrator, I need to be able to edit permissions of my staff so that I can manage the security of my web store. 
-
+D. As an online store manager, I need to be able to create, edit, delete, and assign tags to be able to better organize the products I want to sell.
 
 Victor
 - Tested supplier privilege.
@@ -85,15 +90,11 @@ Victor
 	-Check only if user is logged in.
 	-Clicked on all pages for access; Access granted; Done(Incomplete).
 
-
 Bereket
 - Tested add/delete suppliers.
 	-Clicked the link suppliers.
 	-All suppliers show as in mssql as either active or disabled.
 	-Clicked delete on a supplier, supplier deleted from html and mssql.
-
-
-
 
 Brian
 - Tested organizing pictures as a developer.
@@ -102,13 +103,16 @@ Brian
 	-Clicked on the radio button and clicked save. 
 	-Verified in database that default value was cleared from previous default image and the image selected is now the new default.
 
-
 Amir
 - Tested edit/add suppliers.
 	-Clicked the link suppliers.
 	-Clicked edit on a supplier; Modified status to disabled. Update correct.
 	-Clicked add; entered supplier credentials; clicked submit; Data updated on html and mssql. 
-
+-Tested 
+	-Clicked on the Tag Manager.
+	-Added a new tag
+	-Set the new tag to a product
+	-Deleted the tag.
 
 Alan
 - Tested staff modification.
