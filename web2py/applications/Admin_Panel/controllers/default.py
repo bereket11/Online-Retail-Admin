@@ -15,7 +15,7 @@ import gluon
 import datetime
 
 """
-SUBROUTINES
+GENERAL SUBROUTINES
 """
 def parse_url(url):
     o = urlparse(url)
@@ -76,13 +76,25 @@ def splittter2():
     # print date_list
     # print amount_list
     return (date_list, amount_list)
+
 """
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 PAGES
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 """
+
+#INDEX PAGE
 def index():
     profit_revenue = get_profit()
     return dict(profit_revenue= profit_revenue)
 
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#TAGS
+def tag():
+    products = db.executesql('select * from product', as_dict=True)
+    tag = db.executesql("select * from tag", as_dict = True)
+    return dict(location=T('Admin Panel - Tag Manager'), products=products, tags=tag)
 
 def tag_delete():
     tag_id = request.vars.tag_id
@@ -97,7 +109,6 @@ def tag_delete():
         response_code = 0
 
     # return dict(response = response_code)
-
 
 def load_tags():
     pid = request.vars.pid
@@ -144,6 +155,78 @@ def delete_tag():
     tag_id = request.vars.id
     query = "select * from "
 
+def tag_save():
+    tag = request.vars.tag
+    query = "insert into tag (tag_name) values ('"+tag+"')"
+    db.executesql(query)
+    response_code = 1
+    return dict(response_code=response_code)
+
+#NORMALIZATION PAGE
+def normalization():
+    query = "SELECT TABLE_NAME FROM devora.information_schema.tables WHERE TABLE_TYPE='BASE TABLE' and TABLE_NAME LIKE 'supplier_%' and TABLE_NAME != 'supplier_association'"
+    table_names = db.executesql(query)
+    supplier_ids = []
+    for item in table_names:
+        split = item[0].split("_")
+        supplier_ids.append(split[1])
+    id_string = ", ".join(supplier_ids)
+    id_string = "(" + id_string + ")"
+    query = "select * from supplier where supplier_id in " + id_string
+    suppliers = db.executesql(query, as_dict=True)
+    return dict(location=T('Admin Panel - normalization'), suppliers=suppliers)
+
+#--NORMALIZATION SUBROUTINES
+def set_normalize():
+    supplier_id = request.vars.supplier_id
+    dest = request.vars.dest
+    source = request.vars.source
+    sql = 'insert into product ' + source + ' select ' + dest + ' from supplier_' + supplier_id
+    query = 'drop table supplier_' + supplier_id
+    return dict(response=1)
+
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#IMAGE PAGE
+def image():
+    image = db.executesql('select * from product', as_dict=True)
+    return dict(location=T('Admin Panel - Image Manager'), images=image)
+
+#--IMAGE SUBROUTINES
+def load_image():
+    pid = request.vars.pid
+    images = db.executesql('select * from image where product_id = '+pid, as_dict=True)
+    return json.dumps(images, ensure_ascii=False)
+
+def save_default_image():
+    pid = request.vars.pid
+    img_id = request.vars.img_id
+    query = "update image set [default] = '1' where product_id = " + pid
+    print(query)
+    db.executesql(query)
+
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#PRODUCTS PAGE
+def products():
+    test = db.executesql('select * from product where product_id not in (select product_id from inventory)', as_dict=True)
+    return dict(location=T('Admin Panel - Products'),test=test)
+
+#--PRODUCTS PAGE SUBROUTINES
+def edit_product():
+    product_id = request.vars.id
+    title = request.vars.title
+    desc = request.vars.desc
+    query = "update product set title = '" + title + "', description = '" + desc + "' where product_id = '" + product_id + "'"
+
+    db.executesql(query)
+
+    products = db.executesql("SELECT * FROM product")
+    user_data = db.executesql("SELECT * FROM auth_user")
+    suppliers = db.executesql("SELECT * FROM supplier")
+
+    return dict(location=T('Admin Panel - Index'), suppliers=suppliers, user_data=user_data, products=products)
+
 def add_product():
     product_id = request.vars.id
     query = "select title from inventory where " \
@@ -159,78 +242,9 @@ def add_product():
 
     return json.dumps( dict(response=response_code) )
 
-def set_normalize():
-    supplier_id = request.vars.supplier_id
-    dest = request.vars.dest
-    source = request.vars.source
-    sql = 'insert into product ' + source + ' select ' + dest + ' from supplier_' + supplier_id
-    query = 'drop table supplier_' + supplier_id
-    return dict(response=1)
+#//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-def load_supplier_data():
-    supplier_id = request.vars.id
-    supplier_fields = db.executesql("SELECT COLUMN_NAME FROM devora.INFORMATION_SCHEMA.COLUMNS WHERE COLUMN_NAME != 'product_id' and TABLE_NAME = N'supplier_"+supplier_id+"'", as_dict=True)
-    return json.dumps(supplier_fields, ensure_ascii=False)
-
-def tag_save():
-    tag = request.vars.tag
-    query = "insert into tag (tag_name) values ('"+tag+"')"
-    db.executesql(query)
-    response_code = 1
-    return dict(response_code=response_code)
-
-def save_default_image():
-    pid = request.vars.pid
-    img_id = request.vars.img_id
-    query = "update image set [default] = '1' where product_id = " + pid
-    print(query)
-    db.executesql(query)
-
-def normalization():
-    query = "SELECT TABLE_NAME FROM devora.information_schema.tables WHERE TABLE_TYPE='BASE TABLE' and TABLE_NAME LIKE 'supplier_%' and TABLE_NAME != 'supplier_association'"
-    table_names = db.executesql(query)
-    supplier_ids = []
-    for item in table_names:
-        split = item[0].split("_")
-        supplier_ids.append(split[1])
-    id_string = ", ".join(supplier_ids)
-    id_string = "(" + id_string + ")"
-    query = "select * from supplier where supplier_id in " + id_string
-    suppliers = db.executesql(query, as_dict=True)
-    return dict(location=T('Admin Panel - normalization'), suppliers=suppliers)
-
-def tag():
-    products = db.executesql('select * from product', as_dict=True)
-    tag = db.executesql("select * from tag", as_dict = True)
-    return dict(location=T('Admin Panel - Tag Manager'), products=products, tags=tag)
-
-def load_image():
-    pid = request.vars.pid
-    images = db.executesql('select * from image where product_id = '+pid, as_dict=True)
-    return json.dumps(images, ensure_ascii=False)
-
-def image():
-    image = db.executesql('select * from product', as_dict=True)
-    return dict(location=T('Admin Panel - Image Manager'), images=image)
-
-def products():
-    test = db.executesql('select * from product where product_id not in (select product_id from inventory)', as_dict=True)
-    return dict(location=T('Admin Panel - Products'),test=test)
-
-def edit_product():
-    product_id = request.vars.id
-    title = request.vars.title
-    desc = request.vars.desc
-    query = "update product set title = '" + title + "', description = '" + desc + "' where product_id = '" + product_id + "'"
-
-    db.executesql(query)
-
-    products = db.executesql("SELECT * FROM product")
-    user_data = db.executesql("SELECT * FROM auth_user")
-    suppliers = db.executesql("SELECT * FROM supplier")
-
-    return dict(location=T('Admin Panel - Index'), suppliers=suppliers, user_data=user_data, products=products)
-
+#STAFF PAGE
 def staff():
     staff = db.executesql("SELECT * FROM view_permissions", as_dict=True)
     if request.args(0) == 'edit':
@@ -239,6 +253,9 @@ def staff():
         redirect('staff')
     return dict(location=T('Admin Panel - Staff'), staff=staff)
 
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#SUPPLIER PAGE
 def supplier():
     suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
 
@@ -259,9 +276,9 @@ def supplier():
         redirect('default/supplier')
     return dict(location=T('Admin Panel - Suppliers'), suppliers=suppliers)
 
-def inventory():
-    return dict()
+#//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#STATS PAGE
 def stats():
     (meses_chart, dados_chart) = splittter()
     title = "Online-Retail-Admin"
@@ -387,9 +404,10 @@ def stats():
     return dict(chart1=XML('<script>' + container1 + '</script>'), chart2=XML('<script>'+container2+'</script>'), gtpp = gtpp, stpp=stpp)
 
 """
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 DATABASE RETREIVAL FUNCTIONS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 """
-#Tested and working!
 def get_top_products(begin, end, limit):
     limitby = 10
     if limit != None:
@@ -403,7 +421,6 @@ def get_top_products(begin, end, limit):
 
     return top_product
 
-#Not tested
 def get_sales_by_location(begin, end, limit):
     if limit == None:
         limit = 10
@@ -468,32 +485,10 @@ def get_profit_by_date(time, amount):
     timely_profit = db.executesql("select cast(dateadd(" + str(time) + ", datediff(week, 0, sale_date),0) as date) as sale_week, round(cast(sum(order_item.sale_price - order_item.sale_cost) as float),2,2) as total_sales from purchase_order inner join order_item on order_item.purchase_order_no = purchase_order.purchase_order_no where sale_date between dateadd(" + str(time) + ", " + str(amount) + ", getdate()) and getdate()  group by dateadd(" + str(time) + ", datediff(" + str(time) + ", 0, sale_date),0)", as_dict=True)
     return timely_profit
 
-def supplier_compare(supplier1, supplier2):
-    return 0
-
-
-def inventory():
-    if check_user() == False:
-        T('Permission Denied')
-        redirect('index')
-
-    test = db.executesql('select * from inventory where product_id', as_dict=True)
-    return dict(location=T('Admin Panel - Inventory'),test=test)
-
-
-def edit_inventory():
-    product_id = request.vars.id
-    title = request.vars.title
-    desc = request.vars.desc
-    query = "update inventory set title = '" + title + "', description = '" + desc + "' where product_id = '" + product_id + "'"
-
-    db.executesql(query)
-
-    products = db.executesql("SELECT * FROM inventory")
-    user_data = db.executesql("SELECT * FROM auth_user")
-    suppliers = db.executesql("SELECT * FROM supplier")
-
-    return dict(location=T('Admin Panel - Index'), suppliers=suppliers, user_data=user_data, products=products)
+def load_supplier_data():
+    supplier_id = request.vars.id
+    supplier_fields = db.executesql("SELECT COLUMN_NAME FROM devora.INFORMATION_SCHEMA.COLUMNS WHERE COLUMN_NAME != 'product_id' and TABLE_NAME = N'supplier_"+supplier_id+"'", as_dict=True)
+    return json.dumps(supplier_fields, ensure_ascii=False)
 
 """
 DEFAULT W2P FUNCS
@@ -532,3 +527,33 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
+
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#INVENTORY PAGE
+def inventory():
+    return dict()
+
+#INVENTORY PAGE
+def inventory():
+    if check_user() == False:
+        T('Permission Denied')
+        redirect('index')
+
+    test = db.executesql('select * from inventory where product_id', as_dict=True)
+    return dict(location=T('Admin Panel - Inventory'),test=test)
+
+#--INVENTORY SUBROUTINES
+def edit_inventory():
+    product_id = request.vars.id
+    title = request.vars.title
+    desc = request.vars.desc
+    query = "update inventory set title = '" + title + "', description = '" + desc + "' where product_id = '" + product_id + "'"
+
+    db.executesql(query)
+
+    products = db.executesql("SELECT * FROM inventory")
+    user_data = db.executesql("SELECT * FROM auth_user")
+    suppliers = db.executesql("SELECT * FROM supplier")
+
+    return dict(location=T('Admin Panel - Index'), suppliers=suppliers, user_data=user_data, products=products)
