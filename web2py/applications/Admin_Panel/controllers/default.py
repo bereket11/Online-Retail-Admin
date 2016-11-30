@@ -200,17 +200,19 @@ def set_normalize():
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #IMAGE PAGE
-#This page allows the user to
+#This page allows the user to set images from different suppliers for a single product
 def image():
     image = db.executesql('select * from product', as_dict=True)
     return dict(location=T('Admin Panel - Image Manager'), images=image)
 
 #--IMAGE SUBROUTINES
+#Load the images from all suppliers for the specific
 def load_image():
     pid = request.vars.pid
     images = db.executesql('select * from image where product_id = '+pid, as_dict=True)
     return json.dumps(images, ensure_ascii=False)
 
+#Saves an image as the defualt image to display
 def save_default_image():
     pid = request.vars.pid
     img_id = request.vars.img_id
@@ -221,11 +223,13 @@ def save_default_image():
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #PRODUCTS PAGE
+#Displays all available products form active suppliers, and allows to choose which ones to sell
 def products():
     test = db.executesql('select * from product where product_id not in (select product_id from inventory)', as_dict=True)
     return dict(location=T('Admin Panel - Products'),test=test)
 
 #--PRODUCTS PAGE SUBROUTINES
+#Edit the general information of the product
 def edit_product():
     product_id = request.vars.id
     title = request.vars.title
@@ -240,6 +244,7 @@ def edit_product():
 
     return dict(location=T('Admin Panel - Index'), suppliers=suppliers, user_data=user_data, products=products)
 
+#Add a new product to all the products, in case the user wants to sell products that don't come from a supplier
 def add_product():
     product_id = request.vars.id
     query = "select title from inventory where " \
@@ -258,6 +263,7 @@ def add_product():
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #STAFF PAGE
+#Allows for the admin to change the permissions of the website to keep common users from accessing sensitive information
 def staff():
     staff = db.executesql("SELECT * FROM view_permissions", as_dict=True)
     if request.args(0) == 'edit':
@@ -269,6 +275,7 @@ def staff():
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #SUPPLIER PAGE
+#Allows for the addition deletion and editing of suppliers
 def supplier():
     suppliers = db.executesql("SELECT * FROM supplier", as_dict=True)
 
@@ -292,6 +299,7 @@ def supplier():
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #STATS PAGE
+#Displays 4 charts by tabs of the current statistics of the website. Change the active chart by a different tab.
 def stats():
     (meses_chart, dados_chart) = splittter()
     title = "Online-Retail-Admin"
@@ -421,6 +429,7 @@ def stats():
 DATABASE RETREIVAL FUNCTIONS
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 """
+#Returns the top products based on date and allows for the limitation of top products pulled
 def get_top_products(begin, end, limit):
     limitby = 10
     if limit != None:
@@ -434,6 +443,7 @@ def get_top_products(begin, end, limit):
 
     return top_product
 
+#Pulls data of sales by location between chosen dates and limits the number of stats pulled by user choice
 def get_sales_by_location(begin, end, limit):
     if limit == None:
         limit = 10
@@ -452,6 +462,7 @@ def get_sales_by_location(begin, end, limit):
     sales_location = db.executesql("SELECT supplier_name,  FROM supplier", as_dict=True)
     return json.dumps(sales_location)
 
+#Pulls data from database for top suppliers and allows limitation of number of suppliers pulled and limits by between dates
 def top_suppliers(begin, end, limit):
     if limit == None:
         limit = 10
@@ -465,6 +476,8 @@ def top_suppliers(begin, end, limit):
     top_supplier = replace_double_quote(json.dumps(top_supplier))
     return top_supplier
 
+#Pulls data from db for the amount of money made by each suppliers, organized by most amount to least and specified
+#by between dates for better control and understanding.
 def amount_by_suppllier(begin, end, limit):
     limitby = 10
     if limit != None:
@@ -477,6 +490,7 @@ def amount_by_suppllier(begin, end, limit):
     top_products = db.executesql("select top "+str(limitby)+" supplier_name, sum(round(order_item.sale_price, 2)) as total_sales from supplier inner join order_item on supplier.supplier_id = order_item.supplier_id inner join purchase_order on order_item.purchase_order_no = purchase_order.purchase_order_no where purchase_order.sale_date > '"+begin+"' and purchase_order.sale_date < '"+end+"' group by supplier_name order by total_sales desc")
     return json.dumps(top_products)
 
+#Pulls the total profit that has been currently made **The most important value
 def get_profit(): #scope = day/month/year
 
     today = datetime.date.today()
@@ -490,6 +504,7 @@ def get_profit(): #scope = day/month/year
     print begin, end
     return profit
 
+#Pulls same as get profit, but allows for amount made by specified dates
 def get_profit_by_date(time, amount):
     if time == None:
         time= "WEEK"
@@ -498,6 +513,7 @@ def get_profit_by_date(time, amount):
     timely_profit = db.executesql("select cast(dateadd(" + str(time) + ", datediff(week, 0, sale_date),0) as date) as sale_week, round(cast(sum(order_item.sale_price - order_item.sale_cost) as float),2,2) as total_sales from purchase_order inner join order_item on order_item.purchase_order_no = purchase_order.purchase_order_no where sale_date between dateadd(" + str(time) + ", " + str(amount) + ", getdate()) and getdate()  group by dateadd(" + str(time) + ", datediff(" + str(time) + ", 0, sale_date),0)", as_dict=True)
     return timely_profit
 
+#Allows for the retrival of supplier data from database. Supplier selection is chosen by request.vars.id which come from supplier.html
 def load_supplier_data():
     supplier_id = request.vars.id
     supplier_fields = db.executesql("SELECT COLUMN_NAME FROM devora.INFORMATION_SCHEMA.COLUMNS WHERE COLUMN_NAME != 'product_id' and TABLE_NAME = N'supplier_"+supplier_id+"'", as_dict=True)
@@ -542,6 +558,7 @@ def call():
     return service()
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#UNIMPLEMENT AND POSSIBLY REMOVED
 
 #INVENTORY PAGE
 def inventory():
