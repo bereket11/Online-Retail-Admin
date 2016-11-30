@@ -306,6 +306,7 @@ def stats():
     gtpp = XML(gtp)
     stp = top_suppliers('20140501', '20170611', 10)
     stpp = XML(stp)
+    #am-supl = amount_by_suppllier('20151104', '20171104', 10)
 
     container1 = """
                 // Build the chart
@@ -345,7 +346,7 @@ def stats():
        """ % dados_map
 
     (meses_chart2, dados_chart2) = splittter()
-    meses_chart2 = "['Candy', 'Bread', 'Milk', 'Coffee']"  # Change this dynamically
+    meses_chart2 = "['Wonka', 'Acme inc', 'Stark Industries', 'Ollivanders', 'Wayne Enterprises', 'Cyberdyne Systems', 'Bubba Gump', 'Sterling Cooper', 'Good Burger', 'MomCorp']"  # Change this dynamically
     dados_chart2 = "[3.5, 4, 5, 2]"  # Change this dynamically
     title2 = "Online-Retail-Admin"
     stitle2 = "Products` Report"
