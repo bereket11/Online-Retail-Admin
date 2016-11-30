@@ -1,32 +1,35 @@
 {{extend 'layout.html'}}
 <!-- Shows Total Sales and provides direct links to the rest of the website -->
 <div id="home_container">
-    <div id="sales_box">
-        <div class="sales_box" id="life_sale">
-            <div class="sale_title"> Life Time Sales</div>
-            <div class="sale_number">${{=profit_revenue[0][1]}}</div>
+    {{if check_user():}}
+        <div id="sales_box">
+            <div class="sales_box" id="life_sale">
+                <div class="sale_title"> Life Time Sales</div>
+                <div class="sale_number">${{=profit_revenue[0][1]}}</div>
+            </div>
+
+            <div class="sales_box" id="life_sale">
+                <div class="sale_title"> Life Time Revenue</div>
+                <div class="sale_number">${{=profit_revenue[0][0]}}</div>
+            </div>
+        </div>
+    {{pass}}
+
+    {{if check_admin():}}
+        <div id="row">
+            <span id="stats" class="main_icon">Statistics</span>
+            <span id="staff" class="main_icon">Permissions</span>
+            <span id="tag" class="main_icon">Tag Manager</span>
+            <span id="inventory" class="main_icon">Inventory Manager</span>
         </div>
 
-        <div class="sales_box" id="life_sale">
-            <div class="sale_title"> Life Time Revenue</div>
-            <div class="sale_number">${{=profit_revenue[0][0]}}</div>
+        <div id="row">
+            <span id="image" class="main_icon">Image Manager</span>
+            <span id="supplier" class="main_icon">Suppliers</span>
+            <span id="products" class="main_icon">Product Manager</span>
+            <span id="normalization" class="main_icon">Data Normalization</span>
         </div>
-    </div>
-
-    <div id="row">
-        <span id="stats" class="main_icon">Statistics</span>
-        <span id="staff" class="main_icon">Permissions</span>
-        <span id="tag" class="main_icon">Tag Manager</span>
-        <span id="inventory" class="main_icon">Inventory Manager</span>
-    </div>
-
-    <div id="row">
-        <span id="image" class="main_icon">Image Manager</span>
-        <span id="supplier" class="main_icon">Suppliers</span>
-        <span id="products" class="main_icon">Product Manager</span>
-        <span id="normalization" class="main_icon">Data Normalization</span>
-    </div>
-
+    {{pass}}
 </div>
 
 
