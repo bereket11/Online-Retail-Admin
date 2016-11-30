@@ -17,20 +17,24 @@ import datetime
 """
 GENERAL SUBROUTINES
 """
+#simple parse by / split
 def parse_url(url):
     o = urlparse(url)
     return str(o[2][1:]).split('/')
 
+#simple double quote replace
 def replace_double_quote(strs):
     strs = str(strs).replace('\"', '\'')
     return strs
 
+#Checks whether the a user is online
 def check_user():
     if auth.user != None:
         return True
     else:
         return False
 
+#Checks the permission for the user for admin
 def check_admin():
     if check_user():
         user_permission = db.executesql("SELECT * FROM user_permissions WHERE user_id='" + str(auth.user.id) + "'")
@@ -43,6 +47,7 @@ def check_admin():
     else:
         return False
 
+#Splits the data recieved from database to work with chart
 def splittter():
     test = get_profit_by_date("WEEK", -10)
     date_list = []
@@ -60,6 +65,7 @@ def splittter():
     #print amount_list
     return (date_list, amount_list)
 
+#Splits the data recieved from database to work with chart
 def splittter2():
     test = amount_by_suppllier('20151104','20141104',10)
     date_list = []
@@ -84,6 +90,7 @@ PAGES
 """
 
 #INDEX PAGE
+#This is the home page
 def index():
     profit_revenue = get_profit()
     return dict(profit_revenue= profit_revenue)
@@ -91,11 +98,13 @@ def index():
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #TAGS
+#This is the tags page, where tags can be created an assigned to products
 def tag():
     products = db.executesql('select * from product', as_dict=True)
     tag = db.executesql("select * from tag", as_dict = True)
     return dict(location=T('Admin Panel - Tag Manager'), products=products, tags=tag)
 
+#Used to delete a tag
 def tag_delete():
     tag_id = request.vars.tag_id
     query = "select * from tag where tag_id = " + str(tag_id)
@@ -110,17 +119,20 @@ def tag_delete():
 
     # return dict(response = response_code)
 
+#Used to lad a tag
 def load_tags():
     pid = request.vars.pid
     query = "exec dbo.tag_proc "+pid
     tag_data = db.executesql(query, as_dict=True);
     return json.dumps(tag_data, ensure_ascii=False)
 
+#loads all tags from the database
 def load_all_tags():
     query = "select tag_name from tag;"
     all_tag_data = db.executesql(query, as_dict=True);
     return json.dumps(all_tag_data, ensure_ascii=False)
 
+#Used to create and save a new tag
 def new_tag_save():
     pid = request.vars.pid
     tags = request.vars.tags
@@ -151,10 +163,7 @@ def new_tag_save():
                 query = 'delete from tag_association where tag_id = '+tag_id
                 db.executesql(query)
 
-def delete_tag():
-    tag_id = request.vars.id
-    query = "select * from "
-
+#Used to save a tag
 def tag_save():
     tag = request.vars.tag
     query = "insert into tag (tag_name) values ('"+tag+"')"
@@ -163,6 +172,8 @@ def tag_save():
     return dict(response_code=response_code)
 
 #NORMALIZATION PAGE
+#This function is used to normalize or "Adapt" any supplier api so that
+#our general functions can use them without conflict
 def normalization():
     query = "SELECT TABLE_NAME FROM devora.information_schema.tables WHERE TABLE_TYPE='BASE TABLE' and TABLE_NAME LIKE 'supplier_%' and TABLE_NAME != 'supplier_association'"
     table_names = db.executesql(query)
@@ -177,6 +188,7 @@ def normalization():
     return dict(location=T('Admin Panel - normalization'), suppliers=suppliers)
 
 #--NORMALIZATION SUBROUTINES
+#Sets the normalization of a supplier
 def set_normalize():
     supplier_id = request.vars.supplier_id
     dest = request.vars.dest
@@ -188,6 +200,7 @@ def set_normalize():
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #IMAGE PAGE
+#This page allows the user to
 def image():
     image = db.executesql('select * from product', as_dict=True)
     return dict(location=T('Admin Panel - Image Manager'), images=image)
